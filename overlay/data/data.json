@@ -1,0 +1,19 @@
+{
+  "time": "01:21",
+  "platform": {
+    "name": "twitch",
+    "imageUrl": "https://www.twitch.tv/favicon.ico"
+  },
+  "username": "maddogs__bot",
+  "color": "#FFFFFF",
+  "message": "gibt bekannt, dass Maddog__ dass er Werbung im Moment hat, so soll ich verlauten. Die Werbung ist zum 43 erschienen. -> 1 min lang WERBUNG <--",
+  "badges": [
+    {
+      "name": "moderator",
+      "version": "1",
+      "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
+      "info": ""
+    }
+  ],
+  "emotes": []
+}
