@@ -115,7 +115,7 @@ Die Log-Dateien erleichtern die Fehlersuche sowie die Entwicklung neuer Communit
 ---
 
 <p align="center">
-    <img src="screenshots/ChatOverlay-v1-1-screenshot.png"
+    <img src="screenshots/ChatOverlay-v1-1-screenshort.png"
          alt="Screenshots">
 </p>
 
