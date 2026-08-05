@@ -1,0 +1,72 @@
+/* ==========================================================
+   Browser Chat v1.1
+   Animation - Pop
+
+   ----------------------------------------------------------
+   Description
+
+   This animation makes every new Browser Chat message
+   appear with a short pop effect.
+
+   The message briefly scales up before returning to
+   its normal size.
+
+   This animation only affects the appearance of new
+   messages.
+
+   Fade-out timing remains controlled by Browser Chat.
+
+   ----------------------------------------------------------
+   Created by:
+   MaddogBerlin
+
+   Project:
+   Browser Chat v1.1
+
+   ========================================================== */
+   /* ==========================================================
+   Pop Animation
+
+   ==========================================================
+
+   Effect
+
+   • Scale up
+   • Smooth return
+   • Keeps Browser Chat lightweight
+
+   ========================================================== */
+   /* ==========================================================
+   Pop Animation
+   ========================================================== */
+
+        .chat-message {
+
+            animation: popIn 250ms ease-out forwards;
+
+        }
+
+        @keyframes popIn {
+
+            0% {
+
+                opacity: 0;
+                transform: scale(0.90);
+
+            }
+
+            70% {
+
+                opacity: 1;
+                transform: scale(1.04);
+
+            }
+
+            100% {
+
+                opacity: 1;
+                transform: scale(1);
+
+            }
+
+}

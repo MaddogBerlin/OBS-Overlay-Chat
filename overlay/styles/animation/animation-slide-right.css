@@ -1,0 +1,66 @@
+/* ==========================================================
+   Browser Chat v1.1
+   Animation - Slide Right
+
+   ----------------------------------------------------------
+   Description
+
+   This animation makes every new Browser Chat message
+   slide smoothly into the overlay from the right side.
+
+   The movement is short and subtle to keep the
+   Browser Chat readable while adding a modern
+   appearance.
+
+   This animation only affects the appearance of new
+   messages.
+
+   Fade-out timing remains controlled by Browser Chat.
+
+   ----------------------------------------------------------
+   Created by:
+   MaddogBerlin
+
+   Project:
+   Browser Chat v1.1
+
+   ========================================================== */
+   /* ==========================================================
+   Slide Right Animation
+
+   ==========================================================
+
+   Effect
+
+   • Slides in from the right
+   • Smooth movement
+   • Lightweight animation
+
+   ========================================================== */
+   /* ==========================================================
+   Slide Right Animation
+   ========================================================== */
+
+.chat-message {
+
+    animation: slideRightIn 250ms ease-out forwards;
+
+}
+
+@keyframes slideRightIn {
+
+    0% {
+
+        opacity: 0;
+        transform: translateX(40px);
+
+    }
+
+    100% {
+
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+
+}

@@ -1,0 +1,66 @@
+/* ==========================================================
+   Browser Chat v1.1
+   Animation - Slide Left
+
+   ----------------------------------------------------------
+   Description
+
+   This animation makes every new Browser Chat message
+   slide smoothly into the overlay from the left side.
+
+   The movement is short and subtle to keep the
+   Browser Chat readable while adding a modern
+   appearance.
+
+   This animation only affects the appearance of new
+   messages.
+
+   Fade-out timing remains controlled by Browser Chat.
+
+   ----------------------------------------------------------
+   Created by:
+   MaddogBerlin
+
+   Project:
+   Browser Chat v1.1
+
+   ========================================================== */
+   /* ==========================================================
+   Slide Left Animation
+
+   ==========================================================
+
+   Effect
+
+   • Slides in from the left
+   • Smooth movement
+   • Lightweight animation
+
+   ========================================================== */
+   /* ==========================================================
+   Slide Left Animation
+   ========================================================== */
+
+.chat-message {
+
+    animation: slideLeftIn 250ms ease-out forwards;
+
+}
+
+@keyframes slideLeftIn {
+
+    0% {
+
+        opacity: 0;
+        transform: translateX(-40px);
+
+    }
+
+    100% {
+
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+
+}

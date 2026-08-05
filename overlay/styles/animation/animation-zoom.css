@@ -1,0 +1,66 @@
+/* ==========================================================
+   Browser Chat v1.1
+   Animation - Zoom
+
+   ----------------------------------------------------------
+   Description
+
+   This animation makes every new Browser Chat message
+   smoothly zoom into the overlay.
+
+   The message starts slightly smaller before
+   reaching its normal size, creating a subtle
+   and modern appearance.
+
+   This animation only affects the appearance of new
+   messages.
+
+   Fade-out timing remains controlled by Browser Chat.
+
+   ----------------------------------------------------------
+   Created by:
+   MaddogBerlin
+
+   Project:
+   Browser Chat v1.1
+
+   ========================================================== */
+   /* ==========================================================
+   Zoom Animation
+
+   ==========================================================
+
+   Effect
+
+   • Smooth zoom effect
+   • Slight scale animation
+   • Lightweight animation
+
+   ========================================================== */
+   /* ==========================================================
+   Zoom Animation
+   ========================================================== */
+
+.chat-message {
+
+    animation: zoomIn 250ms ease-out forwards;
+
+}
+
+@keyframes zoomIn {
+
+    0% {
+
+        opacity: 0;
+        transform: scale(0.75);
+
+    }
+
+    100% {
+
+        opacity: 1;
+        transform: scale(1);
+
+    }
+
+}

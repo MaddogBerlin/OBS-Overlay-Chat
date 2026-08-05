@@ -1,0 +1,58 @@
+/* ==========================================================
+   Browser Chat v1.1
+   Streamer Accent Theme
+
+   ----------------------------------------------------------
+   Description
+
+   This file controls the Streamer's accent color used by
+   Browser Chat.
+
+   The accent color is applied only to highlighted elements,
+   not to the complete chat.
+
+   Used for:
+
+   • Announcements
+   • Pinned Messages
+   • Highlighted Messages
+   • Community Events
+   • Future Browser Chat Features
+
+   Regular chat messages are NOT affected.
+
+   ----------------------------------------------------------
+   Created by:
+   MaddogBerlin
+
+   Project:
+   Browser Chat v1.1
+
+   ========================================================== */
+/* ==========================================================
+   Streamer Accent Color
+   ==========================================================
+
+   Default:
+   Twitch Purple (#9147FF)
+
+   Future:
+   - Twitch Profile Accent
+   - Manual Theme Override
+   - Community Event Accent
+
+   ========================================================== */
+/* ==========================================================
+   The variable --streamer-accent is automatically updated
+   by chat.js for each Browser Chat message.
+
+   Default:
+   #9147FF
+
+   ========================================================== */
+
+:root{
+
+    --streamer-accent:#9147FF;
+
+}

@@ -1,19 +1,64 @@
 {
-  "time": "01:21",
+  "time": "03:29",
   "platform": {
     "name": "twitch",
     "imageUrl": "https://www.twitch.tv/favicon.ico"
   },
-  "username": "maddogs__bot",
-  "color": "#FFFFFF",
-  "message": "gibt bekannt, dass Maddog__ dass er Werbung im Moment hat, so soll ich verlauten. Die Werbung ist zum 43 erschienen. -> 1 min lang WERBUNG <--",
+  "username": "Maddog__",
+  "color": "#DAA520",
+  "message": "Ein langer schreibtest für die darstellung des Chats maddog24Servus maddog24Cappu HahaBall maddog24Such",
   "badges": [
     {
-      "name": "moderator",
+      "name": "broadcaster",
       "version": "1",
-      "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
+      "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3",
+      "info": ""
+    },
+    {
+      "name": "subscriber",
+      "version": "3042",
+      "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/83e3c2f4-c8fa-4ea8-b212-c9ef441ac4f5/3",
+      "info": "89"
+    },
+    {
+      "name": "went-outside",
+      "version": "1",
+      "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/544b6594-e11e-4230-8d42-d81c84002524/3",
       "info": ""
     }
   ],
-  "emotes": []
+  "emotes": [
+    {
+      "id": "emotesv2_7784c09069c74a06b83aa8d20d851d29",
+      "type": "Twitch",
+      "name": "maddog24Servus",
+      "startIndex": 53,
+      "endIndex": 66,
+      "imageUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_7784c09069c74a06b83aa8d20d851d29/default/dark/2.0"
+    },
+    {
+      "id": "emotesv2_4c6c25d85a2b4584937d8c7983aaa6bc",
+      "type": "Twitch",
+      "name": "maddog24Cappu",
+      "startIndex": 68,
+      "endIndex": 80,
+      "imageUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_4c6c25d85a2b4584937d8c7983aaa6bc/default/dark/2.0"
+    },
+    {
+      "id": "301112669",
+      "type": "Twitch",
+      "name": "HahaBall",
+      "startIndex": 82,
+      "endIndex": 89,
+      "imageUrl": "https://static-cdn.jtvnw.net/emoticons/v2/301112669/default/dark/2.0"
+    },
+    {
+      "id": "emotesv2_353d42ac2d1d48f098d1576fde262568",
+      "type": "Twitch",
+      "name": "maddog24Such",
+      "startIndex": 91,
+      "endIndex": 102,
+      "imageUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_353d42ac2d1d48f098d1576fde262568/default/dark/2.0"
+    }
+  ]
 }

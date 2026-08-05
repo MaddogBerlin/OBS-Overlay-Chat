@@ -1,0 +1,104 @@
+/* ==========================================================
+   Browser Chat v1.1
+   Animation - Self Create
+
+   ----------------------------------------------------------
+   Description
+
+   This file is a template for creating your own
+   Browser Chat animation.
+
+   Change only the animation values below.
+
+   Layout, message rendering and fade-out timing remain
+   controlled by Browser Chat.
+
+   You can adjust:
+
+   • Animation name
+   • Duration
+   • Timing function
+   • Opacity
+   • Position
+   • Scale
+   • Rotation
+
+   ----------------------------------------------------------
+   Created by:
+   MaddogBerlin
+
+   Project:
+   Browser Chat v1.1
+
+   ========================================================== */
+
+
+/* ==========================================================
+   Self Create Animation
+
+   ==========================================================
+
+   Effect
+
+   • Custom entrance animation
+   • Fully adjustable
+   • Lightweight CSS animation
+
+   ========================================================== */
+
+
+/* ---------------------------------
+   Animation assignment
+
+   Change:
+
+   selfCreateIn
+   300ms
+   ease-out
+---------------------------------- */
+
+.chat-message {
+    animation:
+        selfCreateIn 300ms ease-out forwards;
+}
+
+
+/* ---------------------------------
+   Custom animation
+
+   Examples:
+
+   translateX(-40px)
+   translateY(30px)
+   scale(0.80)
+   rotate(-3deg)
+
+   Multiple transforms can be combined:
+
+   transform:
+       translateX(-40px)
+       scale(0.90)
+       rotate(-2deg);
+---------------------------------- */
+
+@keyframes selfCreateIn {
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(0)
+            translateY(0)
+            scale(0.90)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            translateY(0)
+            scale(1)
+            rotate(0deg);
+    }
+}

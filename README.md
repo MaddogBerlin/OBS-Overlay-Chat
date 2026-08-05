@@ -1,171 +1,303 @@
-## Browser Chat v1.0
+<p align="center">
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-head-banner.png"
+         alt="Browser Chat v1.1">
+</p>
 
-A modern BrowserSource chat overlay for **Streamer.bot** and **OBS Studio**.
+# Browser Chat v1.1
 
-Browser Chat displays live Twitch chat messages and Twitch events in real time using a clean, modern and fully customizable browser overlay.
+A modular Browser Source chat overlay for **OBS Studio** powered by **Streamer.bot**.
 
-Designed for streamers who want a lightweight, easy-to-understand and fully local solution.
+Browser Chat displays Twitch Chat Messages, Main Events and Community Events directly inside OBS Studio as a lightweight Browser Source.
 
----
-
-# Features
-
-- 💬 Live Twitch Chat
-- 💚 Follow Events
-- ⭐ Subscription Events
-- 🔄 Resubscription Events
-- 🎁 Gift Subscription Events
-- 💜 Cheer (Bits) Events
-- 🎨 Individual event colors
-- 🖼 Platform badges
-- ⏰ Optional timestamp badge
-- 📄 Integrated event logger
-- ⚡ Single Streamer.bot Main Event Action
-- 🛠 HTML / CSS / JavaScript based BrowserSource
-- 📦 Easy to customize
+The project is built around a modular architecture. Themes, Animations and future extensions can be added independently without modifying the Browser Chat core.
 
 ---
 
-# Folder Structure
+<p align="center">
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-head-trenner.png"
+         alt="Features">
+</p>
+
+# ✨ Features
+
+## Browser Chat
+
+- Lightweight Browser Source
+- OBS Studio ready
+- Streamer.bot integration
+- Twitch Chat support
+- Twitch Main Event support
+- Twitch Community Event support
+- Automatic JSON processing
+- Twitch Emote support
+- Twitch Badge support
+- Platform icons
+- Automatic Message Cleanup
+- Modern Modular Architecture
+
+---
+
+## Theme System
+
+Browser Chat supports modular CSS Themes.
+
+### Included Themes
+
+- Default
+- Streamer Accent Theme
+- Dark
+- Yellow
+- Green
+- Purple
+- Self Create Theme
+
+### Theme Features
+
+- Streamer Accent Color
+- Reward Accent Color
+- Main Event support
+- Community Event support
+- Independent CSS files
+- Easy customization
+
+Every Theme can be enabled, replaced or extended without modifying Browser Chat itself.
+
+---
+
+## Animation System
+
+Browser Chat supports modular CSS Animations.
+
+### Included Animations
+
+- Fade
+- Pop
+- Slide Left
+- Slide Right
+- Zoom
+- Self Create Animation
+
+### Animation Features
+
+- Lightweight CSS animations
+- Independent animation files
+- Easy customization
+- Modular architecture
+
+Animations override only the message entrance.
+
+Fade-out remains controlled by the Browser Chat core.
+
+---
+
+## Community Events
+
+Supported Community Events
+
+- Follow
+- Subscription
+- Resubscription
+- Gift Subscription
+- Cheer
+- Raid
+- Hype Train
+- Poll
+- Prediction
+- Channel Point Redemption
+
+---
+
+## Streamer.bot
+
+Browser Chat currently uses three Streamer.bot Actions.
+
+- Chat Overlay
+- Chat Overlay – Main Event
+- Chat Overlay – Community Event
+
+---
+
+## Logging
+
+Optional log files are available for debugging.
+
+Current log modules include
+
+- Main Event
+- Community Raid / Hype Train
+- Community Poll
+- Community Prediction
+- Community Channel Point Redemption
+
+---
+
+<p align="center">
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-theme-system.png"
+         alt="Theme System">
+</p>
+
+# 🎨 Theme System
+
+Browser Chat separates its visual appearance from the Browser Chat core.
+
+Themes only override the design while Browser Chat itself remains unchanged.
+
+Every Theme supports
+
+- Streamer Accent Color
+- Reward Accent Color
+- Main Events
+- Community Events
+
+New Themes can be created simply by adding another CSS file.
+
+---
+
+<p align="center">
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-animation-system.png"
+         alt="Animation System">
+</p>
+
+# ✨ Animation System
+
+Animations are fully separated from the Browser Chat core.
+
+Each animation is stored inside its own CSS file and can be exchanged at any time.
+
+Included Animations
+
+- Fade
+- Pop
+- Slide Left
+- Slide Right
+- Zoom
+- Self Create Animation
+
+The default Fade animation is part of Browser Chat.
+
+Additional animation files override only the message entrance animation.
+
+Fade-out remains controlled by Browser Chat.
+
+---
+
+<p align="center">
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-community-events.png"
+         alt="Community Events">
+</p>
+
+# 🚀 Community Events
+
+Community Events extend Browser Chat with Twitch Event notifications.
+
+Every event automatically creates a standardized JSON structure compatible with Browser Chat.
+
+Supported Events
+
+- Raid
+- Hype Train
+- Poll
+- Prediction
+- Channel Point Redemption
+
+Every Community Event supports
+
+- JSON output
+- Optional log file
+- Individual Event icon
+- Individual Event styling
+- Theme support
+- Animation support
+
+---
+
+<p align="center">
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-folder-structure.png"
+         alt="Folder Structure">
+</p>
+
+# 📁 Folder Structure
 
 ```text
 OBS-Overlay-Chat/
 │
 ├── overlay/
+│   ├── asset/
+│   ├── data/
+│   ├── logs/
+│   ├── styles/
+│   │   ├── animation/
+│   │   │   ├── animation-fade.css
+│   │   │   ├── animation-pop.css
+│   │   │   ├── animation-slide-left.css
+│   │   │   ├── animation-slide-right.css
+│   │   │   ├── animation-zoom.css
+│   │   │   └── selfCreate-animation.css
+│   │   │
+│   │   └── themes/
+│   │       ├── streamerAccentTheme.css
+│   │       ├── theme-dark.css
+│   │       ├── theme-yellow.css
+│   │       ├── theme-green.css
+│   │       ├── theme-purple.css
+│   │       └── selfCreate-theme.css
+│   │
+│   ├── chat.js
+│   ├── style.css
+│   └── index.html
+│
 ├── Streamer.bot/
+│
 ├── screenshots/
+│
 ├── README.md
+├── README.de.md
+├── README_COM_EVENT.md
+├── README_COM_EVENT.de.md
 ├── CHANGELOG.md
 └── LICENSE
 ```
 
----
+Browser Chat is designed as a modular project.
 
-# Requirements
-
-- OBS Studio
-- Streamer.bot
-- Twitch Account
+The Browser Chat core remains unchanged while Themes and Animations are loaded independently.
 
 ---
 
-# Installation
+<p align="center">
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-installation.png"
+         alt="Installation">
+</p>
 
-## 1. Copy the Overlay
+# ⚙ Installation
 
-Copy the **overlay** folder to any location on your computer.
-
-Example:
-
-```
-D:\OBS-Overlay-Chat\overlay\
-```
-
----
-
-## 2. Import Streamer.bot Actions
-
-Import the following actions into Streamer.bot:
-
-- Chat Overlay
-- Chat Overlay - Main Event
+1. Copy the Browser Chat folder.
+2. Add the folder as a Browser Source inside OBS Studio.
+3. Import the Streamer.bot Actions.
+4. Adjust the JSON path if necessary.
+5. Select your preferred Theme.
+6. Select your preferred Animation.
+7. Start streaming.
 
 ---
 
-## 3. Configure the Paths
+<p align="center">
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-license.png"
+         alt="License">
+</p>
 
-Open the C# Sub-Action inside **Chat Overlay - Main Event** and adjust the following paths:
-
-```csharp
-string dataPath =
-@"YOUR_PATH\overlay\data\data.json";
-
-string logPath =
-@"YOUR_PATH\overlay\Log\chatOverlay_Event.log";
-```
-
----
-
-## 4. Add Browser Source
-
-Create a new Browser Source inside OBS.
-
-Point it to:
-
-```
-overlay/index.html
-```
-
-Set the desired width and height.
-
----
-
-# Screenshots
-
-## Chat Overlay
-
-![Chat Overlay](screenshots/ChatOverlay.png)
-
----
-
-## Follow Event
-
-![Follow Event](screenshots/FollowOverlay_Event.png)
-
----
-
-## Subscription Event
-
-![Subscription Event](screenshots/SubscriptionOverlay_Event.png)
-
----
-
-## Resubscription Event
-
-![Resubscription Event](screenshots/ResubscriptionOverlay_Event.png)
-
----
-
-## Gift Subscription Event
-
-![Gift Subscription Event](screenshots/GiftSubscriptionOverlay_Event.png)
-
----
-
-## Cheer Event
-
-![Cheer Event](screenshots/CheerOverlay_Event.png)
-
----
-
-# Privacy
-
-Browser Chat processes all data locally.
-
-- No telemetry
-- No tracking
-- No external servers
-- No cloud services
-- No user data collection
-
-All generated files remain on your local computer.
-
----
-
-# License
+# 📄 License
 
 This project is released under the MIT License.
 
-See the LICENSE file for details.
+Feel free to use, modify and extend Browser Chat for your own projects.
 
 ---
 
-# Credits
+<p align="center">
 
-Created by **MaddogBerlin**
+**Browser Chat v1.1**
 
-Browser Chat was developed as a free community project for Streamer.bot and OBS Studio.
+Made with ❤️ for the Streamer.bot Community.
 
-If you enjoy using it, feel free to improve it, fork it or contribute to future versions.
-
-Happy Streaming! ❤️
+</p>

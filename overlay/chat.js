@@ -1,3 +1,31 @@
+/* ==========================================================
+   Browser Chat v1.1
+
+   chat.js
+
+   ----------------------------------------------------------
+
+   Core Browser Chat logic
+
+   Responsible for
+
+   • Loading data.json
+   • Rendering v1.0
+        • Chat Messages & Main Events
+        • Twitch Emotes
+        • Twitch Badges
+        • Automatic Message Cleanup
+   • Rendering v1,1
+        • Community Events
+   ----------------------------------------------------------
+
+   Created by:
+   MaddogBerlin
+
+   Project:
+   Browser Chat v1.1
+
+   ========================================================== */
 const chatContainer = document.querySelector("#chat-container");
 
 let lastMessageSignature = "";
@@ -53,7 +81,20 @@ function createChatMessage(data) {
 
     if (data.styleClass) {
     chatMessage.classList.add(data.styleClass);
-}
+    }
+
+    /* Streamer-Akzentfarbe als CSS-Variable
+   für das aktive Theme bereitstellen. */
+
+    chatMessage.style.setProperty(
+    "--streamer-accent",
+    data.color || "#9147FF"
+);
+
+chatMessage.style.setProperty(
+    "--reward-accent",
+    data.reward?.color || data.color || "#9147FF"
+);
 
     /* Uhrsymbol */
 
