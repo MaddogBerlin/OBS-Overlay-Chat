@@ -115,7 +115,7 @@ The log files simplify troubleshooting and development of new Community Events.
 ---
 
 <p align="center">
-    <img src="screenshots/ChatOverlay-v1-1-eng-screenshot.png"
+    <img src="screenshots/ChatOverlay-v1-1-eng-sreenshort.png"
          alt="Screenshots">
 </p>
 
