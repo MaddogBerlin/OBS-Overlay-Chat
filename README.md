@@ -206,7 +206,7 @@ For a complete overview of all Community Events, see:
 ---
 
 <p align="center">
-    <img src="screenshots/OBS-Overlay-Chat_GitHub-folder-structure.png"
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-fulder-structure.png"
          alt="Folder Structure">
 </p>
 
