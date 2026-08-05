@@ -14,7 +14,7 @@ The project is built around a modular architecture. Themes, animations and futur
 ---
 
 <p align="center">
-    <img src="screenshots/OBS-Overlay-Chat_GitHub-head-trenner.png"
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-favorit-trenner.png"
          alt="Features">
 </p>
 

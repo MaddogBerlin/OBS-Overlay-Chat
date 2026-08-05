@@ -14,7 +14,7 @@ Das Projekt basiert auf einer modularen Architektur. Themes, Animationen und zuk
 ---
 
 <p align="center">
-    <img src="screenshots/OBS-Overlay-Chat_GitHub-favrit-trenner.png"
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-favorit-trenner.png"
          alt="Funktionen">
 </p>
 
