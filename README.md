@@ -3,13 +3,19 @@
          alt="Browser Chat v1.1">
 </p>
 
-# Browser Chat v1.1
+<p align="center"><a href="#browser-chat"><img src="screenshots/readme-BrowserChat.png" width="314"></a><a href="#platform-support"><img src="screenshots/readme-platformSupport.png" width="314"></a><a href="#theme-system"><img src="screenshots/readme-themeSystem.png" width="314"></a></p>
 
-A modular Browser Source chat overlay for **OBS Studio**, powered by **Streamer.bot**.
+<p align="center"><a href="#animation-system"><img src="screenshots/readme-animationSystem.png" width="314"></a><a href="#community-events"><img src="screenshots/readme-communityEvents.png" width="314"></a><a href="#installation"><img src="screenshots/readme-installation.png" width="314"></a></p>
 
-Browser Chat displays Twitch Chat Messages, Main Events and Community Events directly inside OBS Studio as a lightweight Browser Source.
+<p align="center"><a href="#license"><img src="screenshots/readme-license.png" width="314"></a></p>
 
-The project is built around a modular architecture. Themes, animations and future extensions can be added independently without modifying the Browser Chat core.
+# Browser Chat v1.2
+
+>A modular Browser Source chat overlay for **OBS Studio**, powered by **Streamer.bot**.
+
+>Browser Chat displays Twitch Chat Messages, Main Events and Community Events directly inside OBS Studio as a lightweight Browser Source.
+
+>The project is built around a modular architecture. Themes, animations and future extensions can be added independently without modifying the Browser Chat core.
 
 ---
 
@@ -34,6 +40,11 @@ The project is built around a modular architecture. Themes, animations and futur
 - Platform icons
 - Automatic message cleanup
 - Modern modular architecture
+- Kick Chat support
+- Unified JSON structure
+- Multi-platform support
+- Kick Emote support
+- Kick Badge support
 
 ---
 
@@ -109,11 +120,12 @@ Fade-out remains part of the Browser Chat core.
 
 ## Streamer.bot
 
-Browser Chat currently uses three Streamer.bot Actions.
+Browser Chat currently uses four Streamer.bot Actions.
 
 - Chat Overlay
 - Chat Overlay – Main Event
 - Chat Overlay – Community Event
+- Chat Overlay – Kick Platform
 
 ---
 
@@ -123,11 +135,13 @@ Optional log files are available for debugging and development.
 
 Current log modules
 
+- Kick Platform
 - Main Event
-- Community Raid / Hype Train
-- Community Poll
-- Community Prediction
-- Community Channel Point Redemption
+- Comunity Event
+  - Raid / Hype Train
+  - Poll
+  - Prediction
+  - hannel Point Redemption
 
 ---
 
@@ -219,6 +233,7 @@ OBS-Overlay-Chat/
 │   ├── asset/
 │   ├── data/
 │   ├── logs/
+│   │   └──chatOverlay_KickChat
 │   ├── styles/
 │   │   ├── animation/
 │   │   └── themes/
@@ -227,6 +242,7 @@ OBS-Overlay-Chat/
 │   └── index.html
 │
 ├── Streamer.bot/
+    └──Chat Overlay - Kick Platform
 ├── screenshots/
 │
 ├── README.md
@@ -251,12 +267,11 @@ The Browser Chat core remains unchanged while Themes and Animations are loaded i
 # ⚙ Installation
 
 1. Copy the Browser Chat folder.
-2. Add the folder as a Browser Source in OBS Studio.
-3. Import the Streamer.bot Actions.
-4. Adjust the JSON path if required.
-5. Select your preferred Theme.
-6. Select your preferred Animation.
-7. Start streaming.
+2. Add **overlay/index.html** as a Browser Source in OBS Studio.
+3. Import the required Streamer.bot Actions from the **Streamer.bot** folder.
+4. Configure the JSON output path(s) inside the C# Actions if required.
+5. Select your preferred Theme and Animation in **overlay/index.html**.
+6. Start streaming.
 
 ---
 
@@ -275,7 +290,7 @@ Feel free to use, modify and extend Browser Chat for your own projects.
 
 <p align="center">
 
-**Browser Chat v1.1**
+**Browser Chat v1.2**
 
 Made with ❤️ for the Streamer.bot Community.
 

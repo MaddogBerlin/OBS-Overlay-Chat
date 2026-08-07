@@ -3,13 +3,24 @@
          alt="Browser Chat v1.1">
 </p>
 
-# Browser Chat v1.1
+<p align="center"><a href="#browser-chat"><img src="screenshots/readme-BrowserChat.png" width="314"></a><a href="#platform-support"><img src="screenshots/readme-platformSupport.png" width="314"></a><a href="#theme-system"><img src="screenshots/readme-themeSystem.png" width="314"></a></p>
 
-Ein modulares Browser-Source-Chat-Overlay für **OBS Studio**, entwickelt für **Streamer.bot**.
+<p align="center"><a href="#animation-system"><img src="screenshots/readme-animationSystem.png" width="314"></a><a href="#community-events"><img src="screenshots/readme-communityEvents.png" width="314"></a><a href="#installation"><img src="screenshots/readme-installation.png" width="314"></a></p>
 
-Browser Chat stellt Twitch-Chatnachrichten, Main Events und Community Events direkt als Browser-Quelle in OBS Studio dar.
+<p align="center"><a href="#license"><img src="screenshots/readme-license.png" width="314"></a></p>
 
-Das Projekt basiert auf einer modularen Architektur. Themes, Animationen und zukünftige Erweiterungen können unabhängig vom Browser-Chat-Kern hinzugefügt werden, ohne bestehende Dateien verändern zu müssen.
+
+# Browser Chat v1.2
+
+>Ein modulares Browser-Source-Chat-Overlay für **OBS Studio**, entwickelt für **Streamer.bot**.
+
+>Browser Chat stellt Twitch- und Kick-Chatnachrichten, Main Events und Community Events direkt als Browser-Quelle in OBS Studio dar.
+
+>Mit **v1.2** erhält Browser Chat eine erste Multi-Plattform-Architektur, während der Browser-Chat-Kern weiterhin modular bleibt.
+
+>Jede unterstützte Plattform verwendet dieselbe standardisierte JSON-Struktur, die von Browser Chat verarbeitet werden kann.
+
+>Das Projekt basiert auf einer modularen Architektur. Themes, Animationen und zukünftige Erweiterungen können unabhängig vom Browser-Chat-Kern hinzugefügt werden, ohne bestehende Dateien verändern zu müssen.
 
 ---
 
@@ -26,11 +37,16 @@ Das Projekt basiert auf einer modularen Architektur. Themes, Animationen und zuk
 - Optimiert für OBS Studio
 - Streamer.bot-Integration
 - Unterstützung für Twitch-Chat
+- Unterstützung für Kick-Chat
 - Unterstützung für Twitch-Main-Events
 - Unterstützung für Twitch-Community-Events
 - Automatische JSON-Verarbeitung
+- Einheitliche JSON-Struktur
+- Multi-Plattform-Architektur
 - Unterstützung für Twitch-Emotes
+- Unterstützung für Kick-Emotes
 - Unterstützung für Twitch-Badges
+- Unterstützung für Kick-Badges
 - Plattform-Icons
 - Automatische Nachrichtenbereinigung
 - Moderne modulare Architektur
@@ -109,11 +125,12 @@ Die Ausblendanimation bleibt Bestandteil des Browser-Chat-Kerns.
 
 ## Streamer.bot
 
-Browser Chat verwendet aktuell drei Streamer.bot-Actions.
+Browser Chat verwendet aktuell vier Streamer.bot-Actions.
 
 - Chat Overlay
 - Chat Overlay – Main Event
 - Chat Overlay – Community Event
+- Chat Overlay – Kick Platform
 
 ---
 
@@ -123,11 +140,13 @@ Optionale Log-Dateien stehen für Debugging und Entwicklung zur Verfügung.
 
 Aktuelle Log-Module
 
+- Kick Platform
 - Main Event
-- Community Raid / Hype Train
-- Community Poll
-- Community Prediction
-- Community Channel Point Redemption
+- Community Event
+  - Raid / Hype Train
+  - Poll
+  - Prediction
+  - Channel Point Redemption
 
 ---
 
@@ -219,6 +238,7 @@ OBS-Overlay-Chat/
 │   ├── asset/
 │   ├── data/
 │   ├── logs/
+│   │   └── chatOverlay_KickChat.log
 │   ├── styles/
 │   │   ├── animation/
 │   │   └── themes/
@@ -227,6 +247,8 @@ OBS-Overlay-Chat/
 │   └── index.html
 │
 ├── Streamer.bot/
+│   └── Chat Overlay - Kick Platform
+│
 ├── screenshots/
 │
 ├── README.md
@@ -251,12 +273,11 @@ Der Browser-Chat-Kern bleibt unverändert, während Themes und Animationen unabh
 # ⚙ Installation
 
 1. Browser Chat in einen beliebigen Ordner kopieren.
-2. Den Ordner als Browser-Quelle in OBS Studio hinzufügen.
-3. Die Streamer.bot-Actions importieren.
-4. Falls erforderlich den JSON-Pfad anpassen.
-5. Ein Theme auswählen.
-6. Eine Animation auswählen.
-7. Stream starten.
+2. Die overlay/index.html als Browser-Quelle in OBS Studio hinzufügen.
+3. Die benötigten Streamer.bot-Actions aus dem Ordner Streamer.bot importieren.
+4. Falls erforderlich den JSON-Ausgabepfad in den C#-Sub-Actions der Streamer.bot-Actions anpassen.
+5. Theme und Animation in der index.html auswählen.
+6. Stream starten.
 
 ---
 
@@ -275,7 +296,7 @@ Browser Chat darf frei verwendet, angepasst und erweitert werden.
 
 <p align="center">
 
-**Browser Chat v1.1**
+**Browser Chat v1.2**
 
 Mit ❤️ für die Streamer.bot-Community entwickelt.
 

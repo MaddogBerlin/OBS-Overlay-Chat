@@ -1,5 +1,43 @@
 # Changelog
 
+>## v1.2
+
+### New
+
+- Kick Platform Integration
+- Kick Chat Support
+- Kick Emote Support
+- Kick Badge Support
+- Multi-platform Support
+- Unified JSON Structure
+- Kick Platform Streamer.bot Action
+
+### Browser Chat
+
+- Platform Support extended
+- Kick Chat Messages
+- Kick Emotes
+- Kick Badges
+
+### Streamer.bot
+
+- New Chat Overlay - Kick Platform Action
+- C# Sub-Action JSON path configuration
+
+### Logging
+
+- Kick Platform Log Module
+- Community Event Logging structure updated
+
+### Improvements
+
+- Updated Browser Chat README
+- Updated Folder Structure
+- Updated Installation Guide
+- Improved JSON path configuration instructions
+
+---
+
 ## v1.1
 
 ### New
