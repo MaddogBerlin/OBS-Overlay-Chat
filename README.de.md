@@ -3,8 +3,6 @@
          alt="Browser Chat v1.1">
 </p>
 
-%
-
 
 # Browser Chat v1.2
 
