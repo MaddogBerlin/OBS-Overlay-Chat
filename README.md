@@ -3,12 +3,6 @@
          alt="Browser Chat v1.1">
 </p>
 
-<p align="center"><a href="#browser-chat"><img src="screenshots/readme-BrowserChat.png" width="314"></a><a href="#platform-support"><img src="screenshots/readme-platformSupport.png" width="314"></a><a href="#theme-system"><img src="screenshots/readme-themeSystem.png" width="314"></a></p>
-
-<p align="center"><a href="#animation-system"><img src="screenshots/readme-animationSystem.png" width="314"></a><a href="#community-events"><img src="screenshots/readme-communityEvents.png" width="314"></a><a href="#installation"><img src="screenshots/readme-installation.png" width="314"></a></p>
-
-<p align="center"><a href="#license"><img src="screenshots/readme-license.png" width="314"></a></p>
-
 # Browser Chat v1.2
 
 >A modular Browser Source chat overlay for **OBS Studio**, powered by **Streamer.bot**.
