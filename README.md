@@ -3,13 +3,19 @@
          alt="Browser Chat v1.1">
 </p>
 
-# Browser Chat v1.2
+# Browser Chat v1.3
 
->A modular Browser Source chat overlay for **OBS Studio**, powered by **Streamer.bot**.
+> A modular Browser Source chat overlay for **OBS Studio**, powered by **Streamer.bot**.
 
->Browser Chat displays Twitch Chat Messages, Main Events and Community Events directly inside OBS Studio as a lightweight Browser Source.
+> Browser Chat displays Twitch, Kick and YouTube Chat Messages, Main Events and Community Events directly inside OBS Studio as a lightweight Browser Source.
 
->The project is built around a modular architecture. Themes, animations and future extensions can be added independently without modifying the Browser Chat core.
+> With **v1.3**, the multi-platform architecture has been completely reworked. Normal chat messages from Twitch, Kick and YouTube are now processed together through the Streamer.bot Action **Chat Overlay - Multi Platform**.
+
+> Platform-specific events remain separated. YouTube Super Chat and Super Sticker are handled through a dedicated YouTube Action.
+
+> Every supported platform uses a shared standardized JSON structure that can be processed by Browser Chat.
+
+> The project continues to use a modular architecture. Themes, animations and future extensions can be added independently from the Browser Chat core.
 
 ---
 
@@ -26,19 +32,25 @@
 - Optimized for OBS Studio
 - Streamer.bot integration
 - Twitch Chat support
+- Kick Chat support
+- YouTube Chat support
 - Twitch Main Event support
 - Twitch Community Event support
+- YouTube Super Chat support
+- YouTube Super Sticker support
 - Automatic JSON processing
+- Unified JSON structure
+- Multi-platform architecture
+- Shared processing for normal Twitch, Kick and YouTube chat messages
 - Twitch Emote support
+- Kick Emote support
+- YouTube Emote support
 - Twitch Badge support
+- Kick Badge support
+- YouTube Badge support
 - Platform icons
 - Automatic message cleanup
 - Modern modular architecture
-- Kick Chat support
-- Unified JSON structure
-- Multi-platform support
-- Kick Emote support
-- Kick Badge support
 
 ---
 
@@ -114,12 +126,22 @@ Fade-out remains part of the Browser Chat core.
 
 ## Streamer.bot
 
+## Streamer.bot
+
 Browser Chat currently uses four Streamer.bot Actions.
 
-- Chat Overlay
+- Chat Overlay - Multi Platform
 - Chat Overlay – Main Event
 - Chat Overlay – Community Event
-- Chat Overlay – Kick Platform
+- Chat Overlay – Youtube
+
+Normal chat messages from Twitch, Kick and YouTube are processed together through **Chat Overlay - Multi Platform**.
+
+Platform-specific events remain separated in their own Actions:
+
+- Twitch Main Events → Chat Overlay – Main Event
+- Twitch Community Events → Chat Overlay – Community Event
+- YouTube Super Chat / Super Sticker → Chat Overlay – Youtube
 
 ---
 
@@ -129,13 +151,20 @@ Optional log files are available for debugging and development.
 
 Current log modules
 
-- Kick Platform
+- YouTube
+  - Super Chat
+  - Super Sticker
 - Main Event
-- Comunity Event
+  - Follow
+  - Subscription
+  - Resubscription
+  - Gift Subscription
+  - Cheer
+- Community Event
   - Raid / Hype Train
   - Poll
   - Prediction
-  - hannel Point Redemption
+  - Channel Point Redemption
 
 ---
 
@@ -225,9 +254,11 @@ OBS-Overlay-Chat/
 │
 ├── overlay/
 │   ├── asset/
+│   │   ├── badges/
+│   │   ├── events/
+│   │   └── platform/
 │   ├── data/
 │   ├── logs/
-│   │   └──chatOverlay_KickChat
 │   ├── styles/
 │   │   ├── animation/
 │   │   └── themes/
@@ -236,7 +267,11 @@ OBS-Overlay-Chat/
 │   └── index.html
 │
 ├── Streamer.bot/
-    └──Chat Overlay - Kick Platform
+│   ├── Chat Overlay - Multi Platform
+│   ├── Chat Overlay - Main Event
+│   ├── Chat Overlay - Community Event
+│   └── Chat Overlay - Youtube
+│
 ├── screenshots/
 │
 ├── README.md
@@ -247,10 +282,11 @@ OBS-Overlay-Chat/
 └── LICENSE
 ```
 
-Browser Chat is designed as a modular project.
+Browser Chat is designed as a modular multi-platform project.
 
-The Browser Chat core remains unchanged while Themes and Animations are loaded independently.
+Normal chat messages from Twitch, Kick and YouTube are processed together, while platform-specific events remain separated in their own Streamer.bot Actions.
 
+Themes and animations continue to be loaded independently from the Browser Chat core.
 ---
 
 <p align="center">
@@ -260,12 +296,13 @@ The Browser Chat core remains unchanged while Themes and Animations are loaded i
 
 # ⚙ Installation
 
-1. Copy the Browser Chat folder.
-2. Add **overlay/index.html** as a Browser Source in OBS Studio.
-3. Import the required Streamer.bot Actions from the **Streamer.bot** folder.
-4. Configure the JSON output path(s) inside the C# Actions if required.
-5. Select your preferred Theme and Animation in **overlay/index.html**.
-6. Start streaming.
+1. Copy the Browser Chat folder to a location of your choice.
+2. Add `overlay/index.html` as a Browser Source in OBS Studio.
+3. Import the required Streamer.bot Actions from the `Streamer.bot` folder.
+4. Connect the platforms you want to use in Streamer.bot and enable the corresponding triggers.
+5. Configure the JSON output path(s) inside the C# Sub-Actions if required.
+6. Select your preferred Theme and Animation in `overlay/index.html`.
+7. Start streaming.
 
 ---
 
@@ -284,7 +321,7 @@ Feel free to use, modify and extend Browser Chat for your own projects.
 
 <p align="center">
 
-**Browser Chat v1.2**
+**Browser Chat v1.3**
 
 Made with ❤️ for the Streamer.bot Community.
 

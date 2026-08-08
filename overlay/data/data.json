@@ -1,64 +1,50 @@
 {
-  "time": "03:29",
   "platform": {
-    "name": "twitch",
-    "imageUrl": "https://www.twitch.tv/favicon.ico"
+    "name": "kick",
+    "imageUrl": "https://kick.com/favicon.ico"
   },
-  "username": "Maddog__",
-  "color": "#DAA520",
-  "message": "Ein langer schreibtest für die darstellung des Chats maddog24Servus maddog24Cappu HahaBall maddog24Such",
+  "time": "18:58",
+  "eventType": "message",
+  "messageId": "f6f3baf1-8040-4352-ae57-75a2090899ad",
+  "username": "Maddog_s",
+  "userName": "Maddog_s",
+  "userId": "17270633",
+  "color": "#FF9D00",
+  "message": "Das ist eine Massage für Djain emojiAstonishedemojiAngel",
+  "messageStripped": "Das ist eine Massage für Djain ",
+  "isSubscribed": true,
+  "isModerator": true,
+  "isBroadcaster": true,
+  "role": "broadcaster",
+  "profileImageUrl": "",
+  "publishedAt": "",
+  "broadcaster": {
+    "userName": "",
+    "userId": "17270633",
+    "profileImageUrl": ""
+  },
   "badges": [
     {
-      "name": "broadcaster",
-      "version": "1",
-      "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3",
-      "info": ""
-    },
-    {
-      "name": "subscriber",
-      "version": "3042",
-      "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/83e3c2f4-c8fa-4ea8-b212-c9ef441ac4f5/3",
-      "info": "89"
-    },
-    {
-      "name": "went-outside",
-      "version": "1",
-      "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/544b6594-e11e-4230-8d42-d81c84002524/3",
-      "info": ""
+      "id": "broadcaster",
+      "name": "Broadcaster",
+      "info": "",
+      "imageUrl": "asset/badges/kick_broadcastUser.png"
     }
   ],
   "emotes": [
     {
-      "id": "emotesv2_7784c09069c74a06b83aa8d20d851d29",
-      "type": "Twitch",
-      "name": "maddog24Servus",
-      "startIndex": 53,
-      "endIndex": 66,
-      "imageUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_7784c09069c74a06b83aa8d20d851d29/default/dark/2.0"
+      "id": "1579033",
+      "name": "emojiAstonished",
+      "imageUrl": "https://files.kick.com/emotes/1579033/fullsize",
+      "startIndex": 31,
+      "endIndex": 45
     },
     {
-      "id": "emotesv2_4c6c25d85a2b4584937d8c7983aaa6bc",
-      "type": "Twitch",
-      "name": "maddog24Cappu",
-      "startIndex": 68,
-      "endIndex": 80,
-      "imageUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_4c6c25d85a2b4584937d8c7983aaa6bc/default/dark/2.0"
-    },
-    {
-      "id": "301112669",
-      "type": "Twitch",
-      "name": "HahaBall",
-      "startIndex": 82,
-      "endIndex": 89,
-      "imageUrl": "https://static-cdn.jtvnw.net/emoticons/v2/301112669/default/dark/2.0"
-    },
-    {
-      "id": "emotesv2_353d42ac2d1d48f098d1576fde262568",
-      "type": "Twitch",
-      "name": "maddog24Such",
-      "startIndex": 91,
-      "endIndex": 102,
-      "imageUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_353d42ac2d1d48f098d1576fde262568/default/dark/2.0"
+      "id": "1730752",
+      "name": "emojiAngel",
+      "imageUrl": "https://files.kick.com/emotes/1730752/fullsize",
+      "startIndex": 46,
+      "endIndex": 55
     }
   ]
 }

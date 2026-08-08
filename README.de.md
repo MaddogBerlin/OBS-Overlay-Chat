@@ -4,17 +4,19 @@
 </p>
 
 
-# Browser Chat v1.2
+# Browser Chat v1.3
 
->Ein modulares Browser-Source-Chat-Overlay für **OBS Studio**, entwickelt für **Streamer.bot**.
+> Ein modulares Browser-Source-Chat-Overlay für **OBS Studio**, entwickelt für **Streamer.bot**.
 
->Browser Chat stellt Twitch- und Kick-Chatnachrichten, Main Events und Community Events direkt als Browser-Quelle in OBS Studio dar.
+> Browser Chat stellt Twitch-, Kick- und YouTube-Chatnachrichten, Main Events und Community Events direkt als Browser-Quelle in OBS Studio dar.
 
->Mit **v1.2** erhält Browser Chat eine erste Multi-Plattform-Architektur, während der Browser-Chat-Kern weiterhin modular bleibt.
+> Mit **v1.3** wurde die Multi-Plattform-Architektur vollständig überarbeitet. Normale Chatnachrichten von Twitch, Kick und YouTube werden nun gemeinsam über die Streamer.bot-Action **Chat Overlay - Multi Platform** verarbeitet.
 
->Jede unterstützte Plattform verwendet dieselbe standardisierte JSON-Struktur, die von Browser Chat verarbeitet werden kann.
+> Plattform-spezifische Ereignisse bleiben weiterhin getrennt. YouTube Super Chat und Super Sticker werden über eine eigene YouTube-Action verarbeitet.
 
->Das Projekt basiert auf einer modularen Architektur. Themes, Animationen und zukünftige Erweiterungen können unabhängig vom Browser-Chat-Kern hinzugefügt werden, ohne bestehende Dateien verändern zu müssen.
+> Jede unterstützte Plattform verwendet eine gemeinsame standardisierte JSON-Struktur, die von Browser Chat verarbeitet werden kann.
+
+> Das Projekt basiert weiterhin auf einer modularen Architektur. Themes, Animationen und zukünftige Erweiterungen können unabhängig vom Browser-Chat-Kern hinzugefügt werden.
 
 ---
 
@@ -32,15 +34,21 @@
 - Streamer.bot-Integration
 - Unterstützung für Twitch-Chat
 - Unterstützung für Kick-Chat
+- Unterstützung für YouTube-Chat
 - Unterstützung für Twitch-Main-Events
 - Unterstützung für Twitch-Community-Events
+- Unterstützung für YouTube Super Chat
+- Unterstützung für YouTube Super Sticker
 - Automatische JSON-Verarbeitung
 - Einheitliche JSON-Struktur
 - Multi-Plattform-Architektur
+- Gemeinsame Verarbeitung normaler Twitch-, Kick- und YouTube-Chatnachrichten
 - Unterstützung für Twitch-Emotes
 - Unterstützung für Kick-Emotes
+- Unterstützung für YouTube-Emotes
 - Unterstützung für Twitch-Badges
 - Unterstützung für Kick-Badges
+- Unterstützung für YouTube-Badges
 - Plattform-Icons
 - Automatische Nachrichtenbereinigung
 - Moderne modulare Architektur
@@ -121,10 +129,18 @@ Die Ausblendanimation bleibt Bestandteil des Browser-Chat-Kerns.
 
 Browser Chat verwendet aktuell vier Streamer.bot-Actions.
 
-- Chat Overlay
+- Chat Overlay - Multi Platform
 - Chat Overlay – Main Event
 - Chat Overlay – Community Event
-- Chat Overlay – Kick Platform
+- Chat Overlay – Youtube
+
+Normale Chatnachrichten von Twitch, Kick und YouTube werden gemeinsam über **Chat Overlay - Multi Platform** verarbeitet.
+
+Plattform-spezifische Ereignisse bleiben weiterhin in eigenen Actions getrennt:
+
+- Twitch Main Events → Chat Overlay – Main Event
+- Twitch Community Events → Chat Overlay – Community Event
+- YouTube Super Chat / Super Sticker → Chat Overlay – Youtube
 
 ---
 
@@ -134,8 +150,15 @@ Optionale Log-Dateien stehen für Debugging und Entwicklung zur Verfügung.
 
 Aktuelle Log-Module
 
-- Kick Platform
+- YouTube
+  - Super Chat
+  - Super Sticker
 - Main Event
+  - Follow
+  - Subscription
+  - Resubscription
+  - Gift Subscription
+  - Cheer
 - Community Event
   - Raid / Hype Train
   - Poll
@@ -223,6 +246,10 @@ Für eine ausführliche Beschreibung aller Community Events siehe:
          alt="Ordnerstruktur">
 </p>
 
+
+🔄 **ERSETZEN MIT:**
+
+````markdown
 # 📁 Ordnerstruktur
 
 ```text
@@ -230,9 +257,11 @@ OBS-Overlay-Chat/
 │
 ├── overlay/
 │   ├── asset/
+│   │   ├── badges/
+│   │   ├── events/
+│   │   └── platform/
 │   ├── data/
 │   ├── logs/
-│   │   └── chatOverlay_KickChat.log
 │   ├── styles/
 │   │   ├── animation/
 │   │   └── themes/
@@ -241,7 +270,10 @@ OBS-Overlay-Chat/
 │   └── index.html
 │
 ├── Streamer.bot/
-│   └── Chat Overlay - Kick Platform
+│   ├── Chat Overlay - Multi Platform
+│   ├── Chat Overlay - Main Event
+│   ├── Chat Overlay - Community Event
+│   └── Chat Overlay - Youtube
 │
 ├── screenshots/
 │
@@ -267,11 +299,12 @@ Der Browser-Chat-Kern bleibt unverändert, während Themes und Animationen unabh
 # ⚙ Installation
 
 1. Browser Chat in einen beliebigen Ordner kopieren.
-2. Die overlay/index.html als Browser-Quelle in OBS Studio hinzufügen.
-3. Die benötigten Streamer.bot-Actions aus dem Ordner Streamer.bot importieren.
-4. Falls erforderlich den JSON-Ausgabepfad in den C#-Sub-Actions der Streamer.bot-Actions anpassen.
-5. Theme und Animation in der index.html auswählen.
-6. Stream starten.
+2. Die `overlay/index.html` als Browser-Quelle in OBS Studio hinzufügen.
+3. Die benötigten Streamer.bot-Actions aus dem Ordner `Streamer.bot` importieren.
+4. Die gewünschten Plattformen in Streamer.bot verbinden und die entsprechenden Trigger aktivieren.
+5. Falls erforderlich den JSON-Ausgabepfad in den C#-Sub-Actions der Streamer.bot-Actions anpassen.
+6. Theme und Animation in der `index.html` auswählen.
+7. Stream starten.
 
 ---
 
@@ -290,7 +323,7 @@ Browser Chat darf frei verwendet, angepasst und erweitert werden.
 
 <p align="center">
 
-**Browser Chat v1.2**
+**Browser Chat v1.3**
 
 Mit ❤️ für die Streamer.bot-Community entwickelt.
 

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "broadcaster",
+    "version": "1",
+    "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3",
+    "info": ""
+  },
+  {
+    "name": "subscriber",
+    "version": "3042",
+    "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/83e3c2f4-c8fa-4ea8-b212-c9ef441ac4f5/3",
+    "info": "89"
+  },
+  {
+    "name": "went-outside",
+    "version": "1",
+    "imageUrl": "https://static-cdn.jtvnw.net/badges/v1/544b6594-e11e-4230-8d42-d81c84002524/3",
+    "info": ""
+  }
+]

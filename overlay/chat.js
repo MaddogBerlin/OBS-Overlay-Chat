@@ -46,8 +46,9 @@ async function loadChatData() {
             throw new Error(`HTTP-Fehler: ${response.status}`);
         }
 
-        const data = await response.json();
-
+        const rawData = await response.json();
+        const data = normalizeChatData(rawData);
+        
         /*
          * Verhindert, dass dieselbe data.json
          * alle 500 ms erneut angezeigt wird.
@@ -168,6 +169,57 @@ chatMessage.style.setProperty(
         data.emotes
     );
 
+    /* ---------------------------------
+        YouTube Super Chat
+    ---------------------------------- */
+
+    const superChatInfo = document.createElement("span");
+    superChatInfo.className = "super-chat-info";
+
+    if (
+        data.eventType === "superChat" &&
+        data.superChat
+    ) {
+        const amount =
+            data.superChat.amount ?? "";
+
+        const currency =
+            data.superChat.currencyCode ?? "";
+
+        superChatInfo.textContent =
+            [amount, currency]
+                .filter(Boolean)
+                .join(" ");
+    }   
+
+    /* ---------------------------------
+        YouTube Super Sticker
+    ---------------------------------- */
+
+    const superStickerInfo = document.createElement("span");
+    superStickerInfo.className = "super-sticker-info";
+
+    if (
+        data.eventType === "superSticker" &&
+        data.superSticker
+    ) {
+        const stickerImage = document.createElement("img");
+
+        stickerImage.className = "super-sticker-image";
+        stickerImage.src =
+            data.superSticker.stickerImageUrl ?? "";
+
+        stickerImage.alt =
+            data.superSticker.stickerAltText ?? "Super Sticker";
+
+        stickerImage.title =
+            data.superSticker.stickerAltText ?? "Super Sticker";
+
+        if (stickerImage.src) {
+            superStickerInfo.appendChild(stickerImage);
+        }
+    }
+
     // Symbol für besondere Stream-Ereignisse
     const eventIcon = document.createElement("span");
     eventIcon.className = "event-icon";
@@ -199,6 +251,25 @@ chatMessage.style.setProperty(
     chatMessage.appendChild(badges);
     chatMessage.appendChild(username);
     chatMessage.appendChild(separator);
+
+    /* ---------------------------------
+        YouTube Event-Ausgabe
+    ---------------------------------- */
+
+    if (
+        data.eventType === "superChat" &&
+        data.superChat
+    ) {
+        chatMessage.appendChild(superChatInfo);
+    }
+
+    if (
+        data.eventType === "superSticker" &&
+        data.superSticker
+    ) {
+        chatMessage.appendChild(superStickerInfo);
+    }
+
     chatMessage.appendChild(message);
 
 
@@ -243,9 +314,9 @@ chatMessage.style.setProperty(
 }
 
 
-/* ---------------------------------
-   Text und Twitch-Emotes darstellen
----------------------------------- */
+/* -------------------------------------
+   Text und Plattform-Emotes darstellen
+-------------------------------------- */
 
 function renderMessage(
     messageElement,
@@ -255,7 +326,7 @@ function renderMessage(
     messageElement.innerHTML = "";
 
     /*
-     * Keine Twitch-Emotes vorhanden:
+     * Keine Plattform-Emotes vorhanden:
      * normalen Nachrichtentext anzeigen.
      */
 
@@ -345,6 +416,15 @@ function renderMessage(
     }
 }
 
+    /* ---------------------------------
+    Plattform-Chatdaten normalisieren
+    ---------------------------------- */
+
+function normalizeChatData(data) {
+
+    return data;
+
+}
 
 /* ---------------------------------
    Start und Aktualisierung
