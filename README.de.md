@@ -242,7 +242,7 @@ Für eine ausführliche Beschreibung aller Community Events siehe:
 ---
 
 <p align="center">
-    <img src="screenshots/OBS-Overlay-Chat_GitHub-folder-structure.png"
+    <img src="screenshots/OBS-Overlay-Chat_GitHub-folder-strukture.png.png"
          alt="Ordnerstruktur">
 </p>
 
