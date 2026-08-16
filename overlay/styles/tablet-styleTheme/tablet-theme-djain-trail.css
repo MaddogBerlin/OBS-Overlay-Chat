@@ -1,0 +1,218 @@
+/*
+ * ======================================================================
+ * Browser Chat v1.4
+ * Settings - Tablet Theme
+ * Preset: Djain-Schweif
+ *
+ * Datei:
+ * tablet-theme-djain-trail.css
+ *
+ * Aufgabe:
+ * - Definiert die festen Farben des Tablet-Themes "Djain-Schweif"
+ * - Wird über data-tablet-theme="djain-trail" aktiviert
+ * - Stellt die Theme-Farbvariablen für die Settings-Oberfläche bereit
+ * - Steuert den umlaufenden Djain-Schweif am Tablet-Rand
+ * - Synchronisiert den Schweif mit dem Powerknopf-Puls
+ *
+ * Theme:
+ * - Primärfarbe   : #7657ff
+ * - Sekundärfarbe : #4aa8ff
+ * ======================================================================
+ */
+
+:root[data-tablet-theme="djain-trail"] {
+  --tablet-button-choice: #7657ff;
+  --tablet-border-choice: #4aa8ff;
+  --tablet-theme-primary: #7657ff;
+  --tablet-theme-secondary: #4aa8ff;
+
+ }
+
+/* ======================================================================
+   Djain-Schweif - lebender Tablet-Rand
+   ====================================================================== */
+
+:root[data-tablet-theme="djain-trail"] .settings-tablet {
+  border-color: var(--tablet-theme-primary);
+
+  box-shadow:
+    0 0 14px rgba(118, 87, 255, 0.45),
+    0 0 30px rgba(74, 168, 255, 0.28),
+    0 0 52px rgba(118, 87, 255, 0.16),
+    inset 0 0 18px rgba(74, 168, 255, 0.10);
+
+  animation: djainBorderFlow 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+
+/* ======================================================================
+   Djain-Schweif - Farbwechsel und Wabern des Tablet-Rands
+   ====================================================================== */
+
+@keyframes djainBorderFlow {
+  0% {
+    border-color: #7657ff;
+
+    box-shadow:
+      0 0 12px rgba(118, 87, 255, 0.42),
+      0 0 28px rgba(74, 168, 255, 0.22),
+      0 0 48px rgba(118, 87, 255, 0.14),
+      inset 0 0 16px rgba(74, 168, 255, 0.08);
+  }
+
+  22% {
+    border-color: #686dff;
+
+    box-shadow:
+      0 0 18px rgba(118, 87, 255, 0.52),
+      0 0 36px rgba(74, 168, 255, 0.34),
+      0 0 56px rgba(74, 168, 255, 0.20),
+      inset 0 0 20px rgba(118, 87, 255, 0.10);
+  }
+
+  48% {
+  border-color: #4aa8ff;
+
+  box-shadow:
+  /* weiß-blauer Lichtkern */
+  0 0 4px rgba(210, 235, 255, 1),
+
+  /* sehr dichter Glow direkt am Rand */
+  0 0 8px rgba(74, 168, 255, 1),
+  0 0 14px rgba(74, 168, 255, 0.95),
+
+  /* kräftige sichtbare Lichtzone */
+  0 0 24px rgba(74, 168, 255, 0.85),
+  0 0 38px rgba(118, 87, 255, 0.70),
+
+  /* erst danach der weiche Nebel */
+  0 0 60px rgba(74, 168, 255, 0.50),
+  0 0 90px rgba(118, 87, 255, 0.32),
+
+  /* deutlich stärkeres inneres Glühen */
+  inset 0 0 8px rgba(180, 225, 255, 0.50),
+  inset 0 0 18px rgba(74, 168, 255, 0.38),
+  inset 0 0 34px rgba(118, 87, 255, 0.22);
+}
+
+  72% {
+    border-color: #667dff;
+
+    box-shadow:
+      0 0 20px rgba(74, 168, 255, 0.46),
+      0 0 38px rgba(118, 87, 255, 0.36),
+      0 0 54px rgba(118, 87, 255, 0.18),
+      inset 0 0 22px rgba(74, 168, 255, 0.10);
+  }
+
+  100% {
+    border-color: #7657ff;
+
+    box-shadow:
+      0 0 12px rgba(118, 87, 255, 0.42),
+      0 0 28px rgba(74, 168, 255, 0.22),
+      0 0 48px rgba(118, 87, 255, 0.14),
+      inset 0 0 16px rgba(74, 168, 255, 0.08);
+  }
+}
+
+/* ======================================================================
+   Djain-Schweif - sanfter Farbwechsel und Puls des Tablet-Rands
+   ====================================================================== */
+
+@keyframes djainBorderFlow {
+  /*
+   * Ruhige violette Phase.
+   * Der Rand bleibt dauerhaft sichtbar und glühend.
+   */
+  0%,
+  100% {
+    border-color: #7657ff;
+
+    box-shadow:
+      0 0 4px rgba(220, 210, 255, 0.72),
+      0 0 10px rgba(118, 87, 255, 0.78),
+      0 0 20px rgba(118, 87, 255, 0.58),
+      0 0 34px rgba(74, 168, 255, 0.28),
+      0 0 58px rgba(118, 87, 255, 0.20),
+
+      inset 0 0 8px rgba(180, 170, 255, 0.26),
+      inset 0 0 18px rgba(118, 87, 255, 0.18);
+  }
+
+  /*
+   * Übergang zwischen Violett und Blau.
+   * Der Glow wird breiter und stärker.
+   */
+  50% {
+    border-color: #4aa8ff;
+
+    box-shadow:
+      0 0 4px rgba(210, 235, 255, 1),
+      0 0 8px rgba(74, 168, 255, 1),
+      0 0 14px rgba(74, 168, 255, 0.95),
+      0 0 24px rgba(74, 168, 255, 0.85),
+      0 0 38px rgba(118, 87, 255, 0.70),
+      0 0 60px rgba(74, 168, 255, 0.50),
+      0 0 90px rgba(118, 87, 255, 0.32),
+
+      inset 0 0 8px rgba(180, 225, 255, 0.50),
+      inset 0 0 18px rgba(74, 168, 255, 0.38),
+      inset 0 0 34px rgba(118, 87, 255, 0.22);
+  }
+}
+
+/* ======================================================================
+   Djain-Schweif - Powerknopf-Puls
+   ====================================================================== */
+
+:root[data-tablet-theme="djain-trail"] .power-button__glow {
+  animation: djainTrailPowerPulse 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: transform, opacity, filter;
+}
+
+
+/* ======================================================================
+   Djain-Schweif - synchroner Powerknopf-Puls
+   Zwei Knopfimpulse während eines vollständigen Rand-Pulses
+   ====================================================================== */
+
+@keyframes djainTrailPowerPulse {
+  /* Ruhige violett-blaue Atemphase. */
+  0%,
+  50%,
+  100% {
+    opacity: 0.40;
+    filter: blur(22px);
+    transform: scale(0.97);
+
+    box-shadow:
+      0 0 8px rgba(118, 87, 255, 0.46),
+      0 0 17px rgba(74, 168, 255, 0.26),
+      0 0 28px rgba(118, 87, 255, 0.16);
+  }
+
+  /* Erster weicher Impuls: Violett fuehrt. */
+  25% {
+    opacity: 0.76;
+    filter: blur(27px);
+    transform: scale(1.06);
+
+    box-shadow:
+      0 0 10px rgba(118, 87, 255, 0.82),
+      0 0 21px rgba(74, 168, 255, 0.58),
+      0 0 34px rgba(118, 87, 255, 0.38);
+  }
+
+  /* Zweiter weicher Impuls: Blau fuehrt. */
+  75% {
+    opacity: 0.76;
+    filter: blur(27px);
+    transform: scale(1.06);
+
+    box-shadow:
+      0 0 10px rgba(74, 168, 255, 0.82),
+      0 0 21px rgba(118, 87, 255, 0.58),
+      0 0 34px rgba(74, 168, 255, 0.38);
+  }
+}

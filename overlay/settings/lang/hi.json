@@ -1,0 +1,201 @@
+{
+  "app": {
+    "title": "Browser Chat Local Settings",
+    "openSettings": "सेटिंग्स खोलें",
+    "closeSettings": "सेटिंग्स बंद करें",
+    "settingsAriaLabel": "Browser Chat सेटिंग्स"
+  },
+  "general": {
+    "settings": "सेटिंग्स",
+    "menuSettings": "सेटिंग्स मेनू"
+  },
+  "welcome": {
+    "presentation": "Browser Chat हमारे साझा कार्य को प्रस्तुत करता है",
+    "title": "Browser Chat Local Settings",
+    "intro": "Twitch, Kick और YouTube के लिए अपने मल्टी-प्लेटफ़ॉर्म चैट ओवरले को सीधे लाइव प्रीव्यू में अनुकूलित करें।",
+    "availableTitle": "पहले से उपलब्ध",
+    "featurePlatformDesign": "प्रत्येक प्लेटफ़ॉर्म के लिए कस्टम रंग और फ़ॉन्ट",
+    "featureWindowDesign": "विंडो का आकार, गोलाई और रूप समायोजित करें",
+    "featureAnimations": "Fade, Pop, Slide और Zoom एनिमेशन चुनें",
+    "featureAnimationTiming": "एनिमेशन की अवधि और गति समायोजित करें",
+    "featureEmotesFilters": "Twitch इमोट्स और चैट फ़िल्टर तैयार करें",
+    "featureLocalSave": "सेटिंग्स को स्थानीय रूप से सेव करें और फिर से लोड करें",
+    "hint": "अनुकूलन शुरू करने के लिए बीच के मेनू से एक सेक्शन चुनें।"
+  },
+  "menu": {
+    "chatSettings": "चैनल चैट सेटिंग्स",
+    "animationSettings": "एनिमेशन सेटिंग्स",
+    "tabletSettings": "टैबलेट सेटिंग्स"
+  },
+  "tabletInfo": {
+    "title": "टैबलेट डिज़ाइन",
+    "intro": "यहाँ केवल सेटिंग्स टैबलेट को अनुकूलित करें। चैट ओवरले अपरिवर्तित रहता है।",
+    "modesTitle": "रंग मोड",
+    "separateText": "अलग: पावर बटन और टैबलेट बॉर्डर के लिए अलग-अलग रंग।",
+    "linkedText": "जुड़े हुए: बॉर्डर, पावर बटन और बटन की किनारियों के लिए एक साझा रंग।",
+    "djainTrailText": "Djain ट्रेल: हल्के स्पंदन वाला बैंगनी-नीला रंग।",
+    "harmonyText": "Harmony: फ्रॉस्ट बटनों के साथ विभाजित लाल-सिल्वर बॉर्डर।",
+    "controlsTitle": "नियंत्रण",
+    "confirmText": "विंडो की पुष्टि करें: केवल पूर्वावलोकन अपडेट करता है, अभी सहेजता नहीं है।",
+    "saveSettingsText": "सेटिंग्स सहेजें: चैट सेटिंग्स को स्थानीय रूप से सहेजता है और Streamer.bot को भेजता है।",
+    "saveTabletText": "टैबलेट सहेजें: केवल रंग मोड और टैबलेट डिज़ाइन सहेजता है।",
+    "saveHint": "बदलाव पहले केवल पूर्वावलोकन में दिखाई देते हैं। उन्हें स्थायी रूप से लागू करने के लिए बाद में उपयुक्त सेव बटन का उपयोग करें।"
+  },
+  "channels": {
+    "title": "चैनल चैट सेटिंग्स",
+    "selectPlatformAriaLabel": "चैट प्लेटफ़ॉर्म चुनें",
+    "selectFirst": "कृपया पहले एक चैनल चुनें।",
+    "local": "Local",
+    "twitch": "Twitch",
+    "kick": "Kick",
+    "youtube": "YouTube"
+  },
+  "window": {
+    "title": "विंडो सेटिंग्स",
+    "maxChatWidth": "अधिकतम चैट चौड़ाई",
+    "info": "लाइव चैट की अधिकतम चौड़ाई 320 से 960 px तक नियंत्रित करता है।"
+  },
+  "theme": {
+    "selection": "थीम चयन",
+    "standard": "स्टैंडर्ड – कस्टम रंग",
+    "dark": "डार्क",
+    "green": "हरा",
+    "purple": "बैंगनी",
+    "yellow": "पीला",
+    "selfCreate": "स्वयं बनाएँ"
+  },
+  "design": {
+    "chatDesign": "चैट डिज़ाइन",
+    "backgroundColor": "बैकग्राउंड रंग",
+    "textColor": "टेक्स्ट रंग",
+    "font": "फ़ॉन्ट",
+    "selectFont": "फ़ॉन्ट चुनें",
+    "resetColors": "रंग रीसेट करें",
+    "resetColorsButton": "डिफ़ॉल्ट पर रीसेट करें"
+  },
+  "twitch": {
+    "settingsAriaLabel": "Twitch सेटिंग्स",
+    "chatTitle": "Twitch चैट",
+    "emotesFilters": "इमोट्स और फ़िल्टर",
+    "emotes": {
+      "title": "इमोट्स",
+      "betterTTV": "BetterTTV सक्रिय करें",
+      "sevenTV": "7TV सक्रिय करें",
+      "frankerFaceZ": "FrankerFaceZ सक्रिय करें"
+    },
+    "filters": {
+      "title": "चैट फ़िल्टर",
+      "hideCommands": "ओवरले में चैट कमांड छिपाएँ",
+      "commandPrefix": "कमांड प्रीफ़िक्स",
+      "specificCommands": "विशिष्ट कमांड",
+      "commandInfoAriaLabel": "कमांड फ़िल्टर के बारे में जानकारी",
+      "commandInfo": "ये कमांड केवल ओवरले में छिपाए जाते हैं। Streamer.bot इन्हें फिर भी चलाता है। जो कमांड यहाँ सूचीबद्ध नहीं हैं, वे ओवरले में दिखाई देते रहेंगे।",
+      "disabled": "कमांड फ़िल्टर निष्क्रिय है।",
+      "commandPlaceholder": "!discord\n!uptime\n!song"
+    }
+  },
+  "kick": {
+    "chatTitle": "Kick चैट"
+  },
+  "youtube": {
+    "chatTitle": "YouTube चैट"
+  },
+  "animations": {
+    "title": "एनिमेशन सेटिंग्स",
+    "effect": "एनिमेशन प्रभाव",
+    "selectEffect": "एनिमेशन चुनें",
+    "effects": {
+      "fade": "Fade",
+      "pop": "Pop",
+      "slideLeft": "बाईं ओर स्लाइड",
+      "slideRight": "दाईं ओर स्लाइड",
+      "zoom": "Zoom"
+    },
+    "controlsTitle": "एनिमेशन नियंत्रण",
+    "speed": "एनिमेशन गति",
+    "displayDuration": "प्रदर्शन अवधि",
+    "fadeInDuration": "दिखाई देने की अवधि",
+    "fadeOutDuration": "गायब होने की अवधि",
+    "reset": {
+      "title": "रीसेट",
+      "enable": "रीसेट सक्षम करें",
+      "button": "एनिमेशन रीसेट करें",
+      "locked": "रीसेट अभी सक्षम नहीं है",
+      "unlocked": "रीसेट सक्षम है",
+      "completed": "एनिमेशन रीसेट किया गया – अभी सहेजा नहीं गया",
+      "info": "वर्तमान एनिमेशन ड्राफ्ट को उसके डिफ़ॉल्ट मानों पर रीसेट करता है।"
+    },
+    "previewControlsTitle": "पूर्वावलोकन नियंत्रण",
+    "previewSpeed": "प्रवेश गति",
+    "previewInfo": "ये नियंत्रण केवल पूर्वावलोकन विंडो पर लागू होते हैं। ये पहले से तय मूल एनीमेशन को अलग-अलग प्रवेश गति और प्रदर्शन अवधि के साथ दिखाते हैं। मूल एनीमेशन बदला या सहेजा नहीं जाता।"
+  },
+  "preview": {
+    "title": "चैट प्रीव्यू विंडो",
+    "twitch": {
+      "username": "Alex Carter",
+      "message": "हमारे मल्टी-प्लेटफ़ॉर्म चैट में आपका स्वागत है – यहाँ सभी संदेश एक साथ दिखाई देते हैं।"
+    },
+    "kick": {
+      "username": "NovaRider",
+      "message": "नया Browser Chat ओवरले शानदार दिखता है और स्ट्रीम में बहुत अच्छी तरह फिट होता है!"
+    },
+    "youtube": {
+      "username": "LunaStreams",
+      "message": "YouTube चैट की ओर से नमस्ते – साझा प्रीव्यू बहुत अच्छी तरह काम कर रहा है! 👋"
+    }
+  },
+  "tablet": {
+    "title": "टैबलेट सेटिंग्स",
+    "hint": "ये रंग केवल सेटिंग्स टैबलेट पर लागू होते हैं।",
+    "colorMode": "रंग मोड",
+    "separateColors": "अलग-अलग रंग",
+    "linkedColors": "रंग लिंक करें",
+    "buttonColor": "बटन का रंग",
+    "borderColor": "बॉर्डर का रंग",
+    "language": "भाषा",
+    "save": "टैबलेट सेव करें"
+  },
+  "actions": {
+    "confirmWindow": "विंडो की पुष्टि करें",
+    "saveSettings": "सेटिंग्स सेव करें"
+  },
+  "status": {
+    "title": "सेव स्थिति",
+    "tabletTitle": "टैबलेट सेव स्थिति",
+    "noChanges": "कोई बदलाव नहीं",
+    "unsavedChanges": "सेव न किए गए बदलाव",
+    "loaded": "सेव की गई सेटिंग्स लोड हो गई हैं।",
+    "previewUpdated": "प्रीव्यू अपडेट हो गया है।",
+    "settingsSaved": "सेटिंग्स सेव हो गई हैं – कृपया ब्राउज़र सोर्स फिर से लोड करें।",
+    "settingsDamaged": "सेव की गई सेटिंग्स खराब हैं।",
+    "tabletUnsaved": "टैबलेट के बदलाव अभी सेव नहीं किए गए हैं।",
+    "tabletSaved": "टैबलेट का रूप सेव हो गया है।",
+    "colorsResetUnsaved": "रंग रीसेट किए गए – अभी सेव नहीं हुए"
+  },
+  "dialog": {
+    "unsavedTitle": "सेव न किए गए बदलाव",
+    "discardQuestion": "क्या आप बदलावों को छोड़कर टैबलेट बंद करना चाहते हैं?",
+    "cancel": "रद्द करें",
+    "confirm": "OK"
+  },
+  "liveChat": {
+    "title": "लाइव चैट सेटिंग्स",
+    "infoIntro": "यहाँ OBS ओवरले के लिए अपने लाइव चैट का रूप और प्रदर्शन अवधि सेट करें।",
+    "currentStatus": "वर्तमान स्थिति",
+    "featurePreview": "वास्तविक संदेशों के साथ लाइव चैट पूर्वावलोकन",
+    "featureDuration": "प्रदर्शन अवधि 10 से 45 सेकंड तक समायोज्य",
+    "featureBrowserSource": "ब्राउज़र सोर्स वर्तमान में index.html के माध्यम से मैन्युअल रूप से जोड़ा जाता है",
+    "transparencyHint": "गहरे रंग की पृष्ठभूमि केवल सेटिंग्स में प्रदर्शन के लिए है। OBS ओवरले में लाइव चैट पारदर्शी रहता है।",
+    "settingsAriaLabel": "लाइव चैट सेटिंग्स",
+    "emptyPreviewAriaLabel": "लाइव चैट के लिए खाली प्रदर्शन क्षेत्र",
+    "durationButton": "प्रदर्शन अवधि",
+    "browserSourceButton": "ब्राउज़र सोर्स",
+    "durationTitle": "लाइव चैट प्रदर्शन अवधि",
+    "durationLabel": "प्रदर्शन अवधि",
+    "durationInfo": "यह बाद में तय करेगा कि लाइव चैट कितनी देर दिखाई जाए। फिलहाल स्लाइडर केवल प्रस्तुति के लिए दिखाई दे रहा है।",
+    "browserSourceCopyButton": "ब्राउज़र स्रोत कॉपी करें",
+    "browserSourceInfo": "स्वचालित कॉपी सुविधा भविष्य के संस्करण के लिए नियोजित है। तब तक प्रोजेक्ट फ़ोल्डर से index.html को मैन्युअल रूप से खोलें और एड्रेस बार से पता कॉपी करें। वैकल्पिक रूप से OBS में 'Local file' सक्रिय करके सीधे index.html चुनें।",
+    "browserSourceCopySuccess": "ब्राउज़र स्रोत कॉपी हो गया।",
+    "browserSourceCopyError": "ब्राउज़र स्रोत कॉपी नहीं किया जा सका।"
+  }
+}

@@ -1,0 +1,1686 @@
+/* ======================================================================
+   Browser Chat v1.4
+   Settings - Base Styles
+
+   Datei:
+   settingsBase.css
+
+   Aufgabe:
+   - Grundlayout und Gestaltung der Settings-Oberfläche
+   - Darstellung des Settings-Tablets und der Bedienbereiche
+   - Styles für Menüs, Panels, Buttons und Eingabeelemente
+   - Gestaltung der Kanal-, Theme- und Animationsbereiche
+   - Darstellung der Chat- und Live-Chat-Vorschau
+   - Responsive Anpassungen der Settings-Oberfläche
+
+   Hinweis:
+   Diese Datei bildet die zentrale Style-Basis der Settings-Oberfläche.
+   ====================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --page-background: #080b12;
+  --tablet-background: rgba(14, 16, 24, 0.97);
+  --panel-background: rgba(24, 20, 29, 0.82);
+  --field-background: rgba(8, 11, 18, 0.88);
+
+  --text-color: #f7f3f8;
+  --text-muted: #aaa4af;
+
+  --accent: #ff5f6d;
+  --accent-light: #ff8791;
+  --accent-dark: #b92135;
+  --tablet-button-choice: #ff5f6d;
+  --tablet-border-choice: #ff737d;
+  --danger: #ff293d;
+
+  --border-color: rgba(255, 125, 135, 0.2);
+  --border-active: rgba(255, 115, 125, 0.75);
+
+  --tablet-radius: 28px;
+  --panel-radius: 20px;
+  --button-radius: 14px;
+
+  --transition-fast: 180ms ease;
+  --transition-normal: 380ms ease;
+}
+
+
+/* =========================================================
+   Allgemeine Basis
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html,
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+
+  color: var(--text-color);
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(80, 25, 42, 0.14),
+      transparent 34%
+    ),
+    var(--page-background);
+
+  font-family:
+    Inter,
+    Segoe UI,
+    Arial,
+    sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select,
+input {
+  color: var(--text-color);
+}
+
+button {
+  border: 0;
+}
+
+
+/* =========================================================
+   Hauptoberfläche
+   ========================================================= */
+
+.settings-app {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   Powerknopf
+   ========================================================= */
+
+.power-button {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 20;
+
+  display: grid;
+  place-items: center;
+
+  width: clamp(180px, 18vw, 220px);
+  height: clamp(180px, 18vw, 220px);
+  padding: 0;
+
+  border: 2px solid var(--accent-light);
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(58, 61, 68, 0.9) 0%,
+      rgba(24, 25, 31, 0.98) 46%,
+      rgba(4, 5, 8, 1) 47%,
+      rgba(10, 10, 14, 1) 100%
+    );
+
+  box-shadow:
+    0 0 0 7px rgba(255, 95, 109, 0.05),
+    inset 0 2px 3px rgba(255, 255, 255, 0.15);
+
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
+  transition:
+    top 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    width var(--transition-normal),
+    height var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    transform var(--transition-fast);
+}
+
+.power-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 7px;
+}
+
+.power-button:active {
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+
+/* Pulsierendes Licht hinter dem Knopf */
+
+.power-button__glow {
+  position: absolute;
+  z-index: -1;
+
+  width: 135%;
+  height: 135%;
+
+  border-radius: 50%;
+  background: rgba(255, 32, 54, 0.32);
+  filter: blur(25px);
+
+  animation: backgroundPulse 2.4s ease-in-out infinite;
+}
+
+
+/* Gezeichnetes Power-Symbol */
+
+.power-button__symbol {
+  position: relative;
+
+  display: block;
+
+  width: clamp(96px, 10vw, 120px);
+  height: clamp(96px, 10vw, 120px);
+
+  filter: drop-shadow(0 0 10px rgba(255, 45, 65, 0.7));
+}
+
+.power-button__ring {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  left: 5px;
+
+  height: 98px;
+
+  border: 11px solid var(--accent);
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+
+.power-button__line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+
+  width: 12px;
+  height: 70px;
+
+  border-radius: 999px;
+  background: var(--accent);
+
+  transform: translateX(-50%);
+}
+
+
+/* Mouseover: Der Knopf selbst pulsiert */
+
+.power-button:hover {
+  border-color: #ffffff;
+
+  box-shadow:
+    0 0 25px rgba(255, 95, 109, 0.7),
+    0 0 65px rgba(255, 36, 61, 0.34),
+    inset 0 2px 3px rgba(255, 255, 255, 0.2);
+
+  animation: buttonPulse 1.15s ease-in-out infinite;
+}
+
+.power-button:hover .power-button__glow {
+  animation-play-state: paused;
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   Powerknopf im geöffneten Tablet
+   ========================================================= */
+
+.settings-app[data-state="opening"] .power-button,
+.settings-app[data-state="open"] .power-button {
+  top: calc(100% - 76px);
+
+  width: 94px;
+  height: 94px;
+
+  border-color: var(--border-active);
+
+  box-shadow:
+    0 0 18px rgba(255, 95, 109, 0.42),
+    0 0 48px rgba(255, 95, 109, 0.18);
+}
+
+.settings-app[data-state="opening"] .power-button__symbol,
+.settings-app[data-state="open"] .power-button__symbol {
+  width: 52px;
+  height: 52px;
+}
+
+.settings-app[data-state="opening"] .power-button__ring,
+.settings-app[data-state="open"] .power-button__ring {
+  right: 2px;
+  bottom: 0;
+  left: 2px;
+
+  height: 43px;
+  border-width: 6px;
+}
+
+.settings-app[data-state="opening"] .power-button__line,
+.settings-app[data-state="open"] .power-button__line {
+  width: 7px;
+  height: 32px;
+}
+
+
+/* Schließen: kurz rotes Warnleuchten */
+
+.settings-app[data-state="closing"] .power-button {
+  border-color: var(--danger);
+
+  box-shadow:
+    0 0 28px rgba(255, 41, 61, 0.85),
+    0 0 70px rgba(255, 20, 42, 0.42);
+}
+
+.settings-app[data-state="closing"] .power-button__glow {
+  background: rgba(255, 0, 28, 0.58);
+}
+
+
+/* Ruhige Versionsanzeige im geschlossenen Startzustand */
+.startup-branding {
+  position: fixed;
+  top: calc(50% + clamp(112px, 11vw, 138px));
+  left: 50%;
+  z-index: 19;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  color: var(--tablet-button-choice);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0.26;
+  transform: translate(-50%, 10px);
+  transition: opacity 260ms ease, transform 320ms ease, color var(--transition-normal);
+}
+
+.startup-branding__title {
+  font-size: clamp(0.9rem, 1.4vw, 1.08rem);
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--tablet-button-choice) 48%, transparent);
+}
+
+.startup-branding__version {
+  color: color-mix(in srgb, var(--tablet-border-choice) 72%, var(--text-muted));
+  font-size: 0.76rem;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+}
+
+.power-button:hover + .startup-branding,
+.power-button:focus-visible + .startup-branding {
+  opacity: 0.92;
+  transform: translate(-50%, 0);
+}
+
+.settings-app[data-state="opening"] .startup-branding,
+.settings-app[data-state="open"] .startup-branding,
+.settings-app[data-state="closing"] .startup-branding {
+  opacity: 0;
+  transform: translate(-50%, 18px);
+}
+/* =========================================================
+   Settings-Tablet
+   ========================================================= */
+
+.settings-tablet {
+  position: relative;
+  z-index: 5;
+
+  display: grid;
+  grid-template-columns:
+    minmax(270px, 1fr)
+    minmax(230px, 0.7fr)
+    minmax(270px, 1fr);
+  gap: 16px;
+
+  width: min(1500px, 95vw);
+  height: min(850px, 88vh);
+  padding: 22px 22px 104px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-active);
+  border-radius: var(--tablet-radius);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 19, 28, 0.99),
+      rgba(10, 12, 19, 0.98)
+    );
+
+  box-shadow:
+    0 0 22px rgba(255, 95, 109, 0.25),
+    0 0 70px rgba(255, 95, 109, 0.12),
+    inset 0 0 35px rgba(255, 255, 255, 0.015);
+}
+
+
+/* Von der Mitte nach links und rechts öffnen */
+
+.settings-app[data-state="opening"] .settings-tablet {
+  animation: tabletOpen 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.settings-app[data-state="open"] .settings-tablet {
+  clip-path: inset(0 0 0 0 round var(--tablet-radius));
+  opacity: 1;
+}
+
+.settings-app[data-state="closing"] .settings-tablet {
+  border-color: var(--danger);
+
+  box-shadow:
+    0 0 30px rgba(255, 30, 50, 0.48),
+    0 0 80px rgba(255, 0, 35, 0.18);
+
+  animation: tabletClose 520ms ease-in both;
+}
+
+
+/* =========================================================
+   Drei Tablet-Bereiche
+   ========================================================= */
+
+.settings-tablet__left,
+.settings-tablet__center,
+.settings-tablet__right {
+  min-width: 0;
+  min-height: 0;
+  height: calc(100% + 24px);
+  padding: 18px;
+
+  overflow: auto;
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--panel-radius);
+
+  background: var(--panel-background);
+}
+
+.settings-tablet__left,
+.settings-tablet__right {
+  height: calc(100% + 82px);
+}
+
+.settings-tablet__center {
+  height: calc(100% - 26px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-tablet__right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+/* =========================================================
+   Überschriften
+   ========================================================= */
+
+.panel-header {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.panel-header h2,
+.settings-panel h3,
+.context-panel h3 {
+  margin: 0;
+
+  color: var(--text-color);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.panel-header h2 {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.settings-panel h3,
+.context-panel h3 {
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+
+/* =========================================================
+   Menü- und Aktionsknöpfe
+   ========================================================= */
+
+.menu-button,
+.channel-button,
+.action-button,
+.confirm-dialog button {
+  min-height: 48px;
+  padding: 10px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--button-radius);
+
+  color: var(--text-color);
+  background: rgba(7, 9, 15, 0.82);
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.menu-button:hover,
+.channel-button:hover,
+.action-button:hover,
+.confirm-dialog button:hover {
+  border-color: color-mix(in srgb, var(--tablet-border-choice) 82%, white);
+  background: color-mix(in srgb, var(--tablet-border-choice) 10%, transparent);
+
+  box-shadow: 0 0 16px color-mix(in srgb, var(--tablet-border-choice) 18%, transparent);
+
+  transform: translateY(-1px);
+}
+
+.menu-button.is-active,
+.channel-button.is-active {
+  border-color: var(--tablet-border-choice);
+  background: color-mix(in srgb, var(--tablet-border-choice) 16%, transparent);
+
+  box-shadow:
+    0 0 14px color-mix(in srgb, var(--tablet-border-choice) 25%, transparent),
+    inset 3px 0 0 var(--tablet-border-choice);
+}
+
+.settings-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.action-button--save {
+  border-color: color-mix(in srgb, var(--tablet-border-choice) 78%, transparent);
+}
+
+
+/* =========================================================
+   Kanalauswahl
+   ========================================================= */
+
+.channel-navigation {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+.channel-reset-label {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+}
+
+.channel-color-reset-button {
+  width: 100%;
+  min-width: 230px;
+  min-height: 42px;
+  padding: 8px 12px;
+  align-self: center;
+}
+
+.channel-settings,
+.settings-panel,
+.context-panel {
+  animation: panelFadeIn 280ms ease both;
+}
+
+
+/* =========================================================
+   Formularfelder
+   ========================================================= */
+
+fieldset {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px 16px;
+
+  margin: 0;
+  padding: 18px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.animation-controls {
+    margin-top: 16px;
+}
+
+#animationSettingsPanel > label[for="animationEffect"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#animationEffect {
+  min-height: 46px;
+}
+
+legend {
+  padding: 0 8px;
+  color: var(--accent-light);
+}
+
+label {
+  align-self: center;
+  color: var(--text-muted);
+}
+
+select,
+input[type="number"] {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+
+  background: var(--field-background);
+}
+
+input[type="color"] {
+  width: 58px;
+  height: 38px;
+  padding: 3px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9px;
+
+  background: var(--field-background);
+  cursor: pointer;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+select:focus-visible,
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   Chat-Vorschau
+   ========================================================= */
+
+.chat-preview {
+  flex: 0 0 auto;
+}
+
+.chat-preview__window {
+  display: flex;
+  align-items: flex-end;
+
+  width: 100%;
+  height: 210px;
+  min-height: 250px;
+  margin-inline: auto;
+  padding: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 10, 16, 0.65),
+      rgba(4, 6, 10, 0.92)
+    );
+}
+
+.preview-message {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.preview-message__platform {
+  margin-right: 8px;
+  color: #a970ff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.preview-message__username {
+  margin-right: 7px;
+  color: var(--accent-light);
+}
+
+.preview-message__text {
+  color: var(--text-color);
+}
+
+
+/* =========================================================
+   Statusmeldung
+   ========================================================= */
+.save-status-panel,
+.tablet-save-status-panel {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 82px;
+  padding: 14px 16px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+
+  background: var(--field-background);
+}
+
+.save-status-panel h3,
+.tablet-save-status-panel h3 {
+  margin: 0 0 10px;
+
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-align: center;
+}
+
+
+.save-status {
+  min-height: 20px;
+  margin: 0;
+
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+
+/* =========================================================
+   Bestätigungsfenster
+   ========================================================= */
+
+.confirm-dialog {
+  width: min(460px, calc(100vw - 32px));
+  padding: 24px;
+
+  border: 1px solid var(--danger);
+  border-radius: 18px;
+
+  color: var(--text-color);
+  background: #11131b;
+
+  box-shadow:
+    0 0 30px rgba(255, 41, 61, 0.35),
+    0 18px 80px rgba(0, 0, 0, 0.7);
+}
+
+.confirm-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(5px);
+}
+
+.confirm-dialog h2 {
+  margin-top: 0;
+  color: var(--danger);
+}
+
+.confirm-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+
+/* =========================================================
+   Animationen
+   ========================================================= */
+
+@keyframes backgroundPulse {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(0.88);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes buttonPulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.22);
+  }
+}
+
+@keyframes tabletOpen {
+  0% {
+    opacity: 0;
+    clip-path: circle(0% at 50% 100%);
+    transform: scale(0.98);
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: circle(150% at 50% 100%);
+    transform: scale(1);
+  }
+}
+
+@keyframes tabletClose {
+  0% {
+    opacity: 1;
+    clip-path: circle(150% at 50% 100%);
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    clip-path: circle(0% at 50% 100%);
+    transform: scale(0.98);
+  }
+}
+
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   Kleinere Fenster
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  body {
+    overflow: auto;
+  }
+
+  .settings-app {
+    align-items: start;
+    min-height: 100vh;
+    padding: 18px;
+  }
+
+  .settings-tablet {
+    grid-template-columns: 1fr;
+    width: min(760px, 100%);
+    height: auto;
+    min-height: calc(100vh - 36px);
+  }
+
+  .settings-tablet__left,
+  .settings-tablet__center,
+  .settings-tablet__right {
+    overflow: visible;
+  }
+
+  .settings-app[data-state="opening"] .power-button,
+  .settings-app[data-state="open"] .power-button {
+    position: fixed;
+    top: auto;
+    bottom: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .settings-app {
+    padding: 10px;
+  }
+
+  .power-button {
+    width: 140px;
+    height: 140px;
+  }
+
+  .settings-tablet {
+    padding: 12px 12px 110px;
+    border-radius: 20px;
+  }
+
+  .channel-navigation {
+    grid-template-columns: 1fr;
+  }
+
+  fieldset {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Bewegungen für entsprechende Systeme reduzieren */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+
+/* =========================================================
+   Twitch-Untermenü: Chat-Design / Emotes & Filter
+   ========================================================= */
+
+.twitch-settings {
+  display: grid;
+  gap: 14px;
+}
+
+.channel-subnavigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.channel-subbutton {
+  min-height: 42px;
+  padding: 8px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+
+  color: var(--text-muted);
+  background: rgba(7, 9, 15, 0.72);
+
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.channel-subbutton:hover,
+.channel-subbutton.is-active {
+  color: var(--text-color);
+  border-color: color-mix(in srgb, var(--tablet-border-choice) 82%, white);
+  background: color-mix(in srgb, var(--tablet-border-choice) 12%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--tablet-border-choice) 16%, transparent);
+}
+
+.twitch-extra-panel {
+  display: grid;
+  gap: 14px;
+
+  animation: panelFadeIn 280ms ease both;
+}
+
+.toggle-settings,
+.command-filter-settings {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.command-filter-options {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 10px;
+  margin-top: 4px;
+  padding-top: 12px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  animation: panelFadeIn 240ms ease both;
+}
+
+.command-filter-options input[type="text"],
+.command-filter-options textarea {
+  width: 100%;
+  padding: 9px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+
+  color: var(--text-color);
+  background: var(--field-background);
+}
+
+.command-filter-options textarea {
+  min-height: 92px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.label-with-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.info-button {
+  display: grid;
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  border: 1px solid var(--border-active);
+  border-radius: 50%;
+
+  color: var(--accent-light);
+  background: rgba(255, 95, 109, 0.08);
+
+  font-weight: 800;
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.info-button:hover,
+.info-button[aria-expanded="true"] {
+  color: #ffffff;
+  background: rgba(255, 95, 109, 0.2);
+  box-shadow: 0 0 14px rgba(255, 95, 109, 0.28);
+}
+
+.command-filter-info {
+  padding: 10px 12px;
+
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+
+  color: var(--text-muted);
+  background: rgba(255, 95, 109, 0.07);
+
+  font-size: 0.84rem;
+  line-height: 1.45;
+
+  animation: panelFadeIn 220ms ease both;
+}
+
+.command-filter-summary {
+  min-height: 20px;
+  margin: 0;
+
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .channel-subnavigation {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* =========================================================
+   Projektbanner unter der Chat-Vorschau
+   ========================================================= */
+
+.settings-brand-banner {
+  width: 100%;
+  max-height: 210px;
+  margin: auto 0;
+  padding: 4px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 115, 125, 0.3);
+  border-radius: 15px;
+
+  background: rgba(6, 8, 13, 0.72);
+
+  box-shadow:
+    0 0 16px rgba(255, 95, 109, 0.1),
+    inset 0 0 18px rgba(255, 255, 255, 0.02);
+
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 240ms ease,
+    transform 320ms ease,
+    max-height 360ms ease,
+    margin 360ms ease,
+    padding 360ms ease,
+    border-width 360ms ease;
+}
+
+.settings-brand-banner img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.settings-brand-banner.is-hidden {
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  border-width: 0;
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  pointer-events: none;
+}
+
+
+
+
+/* =========================================================
+   Willkommen und Funktionsübersicht
+   ========================================================= */
+
+.welcome-copy {
+  margin: 0;
+}
+
+.welcome-intro,
+.welcome-features-title,
+.welcome-feature,
+.welcome-hint {
+  display: block;
+}
+
+.welcome-intro,
+.welcome-hint {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.welcome-features-title {
+  margin: 22px 0 12px;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.welcome-feature {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 24px;
+  color: var(--text-color);
+  line-height: 1.45;
+}
+
+.welcome-feature::before {
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  content: "✓";
+  font-weight: 800;
+}
+
+.welcome-hint {
+  margin-top: 22px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: rgba(255, 95, 109, 0.06);
+}
+
+
+/* =========================================================
+   Große Multi-Plattform-Vorschau und linke Bedienfelder
+   ========================================================= */
+.settings-tablet__left { position: relative; overflow-y: auto; scrollbar-width: none; }
+.settings-tablet__left::-webkit-scrollbar { display: none; }
+.settings-tablet__right, .chat-preview { min-height: 0; }
+.chat-preview { display: flex; flex-direction: column; height: 100%; }
+.chat-preview__window { display: flex; flex: 1; flex-direction: column; justify-content: flex-end; gap: 12px; width: 100%; max-width: 900px; min-height: 440px; height: 100%; margin-inline: auto; padding: 18px; }
+.preview-message { width: 100%; }
+.preview-message--twitch { border-left-color: #9146ff; }
+.preview-message--kick { border-left-color: #53fc18; }
+.preview-message--youtube { border-left-color: #ff0033; }
+.preview-message--twitch .preview-message__platform { color: #a970ff; }
+.preview-message--kick .preview-message__platform { color: #53fc18; }
+.preview-message--youtube .preview-message__platform { color: #ff4e69; }
+.settings-brand-banner { width: 100%; max-height: none; margin: 24px 0 64px; }
+.window-width-control { display: grid; grid-template-columns: minmax(0,1fr) 72px; gap: 14px; align-items: center; }
+.window-width-control output { color: var(--accent); font-weight: 700; text-align: right; }
+/* Banner oben und kompakte, doppelt hohe Chat-Vorschau */
+.settings-brand-banner {
+  margin: 0 0 10px;
+}
+
+.brand-presentation {
+  margin: 0 0 18px;
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand-version {
+  margin: -10px 0 18px;
+  color: color-mix(in srgb, var(--tablet-border-choice) 70%, var(--text-muted));
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+}
+
+.brand-version span {
+  color: var(--tablet-button-choice);
+}
+.chat-preview {
+  justify-content: flex-start;
+}
+
+.chat-preview__window {
+  flex: 0 0 480px;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  min-height: 480px;
+  height: 480px;
+  margin-block: auto;
+}
+
+.preview-message {
+  line-height: 1.45;
+}
+/* Kreisöffnung vom Powerknopf und Chatnachrichten am unteren Rand */
+.chat-preview__window {
+  justify-content: flex-end;
+  padding-bottom: 26px;
+}
+/* Theme-Auswahl: eigene Hintergrundfarbe nur bei Standard */
+.theme-select { width: 100%; }
+input[type="color"]:disabled { opacity: 0.32; filter: grayscale(1); cursor: not-allowed; }
+/* =========================================================
+   Local-Auswahl und getrennte Tablet-Darstellung
+   ========================================================= */
+
+.channel-navigation {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.channel-button[data-channel="local"] {
+  grid-column: 1 / -1;
+}
+
+.tablet-appearance-panel {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.7fr) minmax(150px, 1fr);
+  gap: 18px 20px;
+  align-content: start;
+  height: 100%;
+}
+
+.tablet-appearance-panel .panel-header,
+.tablet-settings-hint,
+.tablet-appearance-panel .action-button,
+.tablet-appearance-panel .save-status {
+  grid-column: 1 / -1;
+}
+
+.tablet-settings-hint {
+  margin: 0 0 10px;
+  color: var(--text-muted);
+}
+
+.tablet-appearance-panel label {
+  align-self: center;
+}
+
+.tablet-appearance-panel input[type="color"],
+.tablet-appearance-panel select {
+  width: 100%;
+}
+
+.tablet-appearance-panel .action-button {
+  margin-top: auto;
+}
+
+/* Eigene Tablet-Farben berühren die Chatfarben nicht */
+.settings-tablet {
+  border-color: var(--tablet-border-choice);
+}
+
+.power-button {
+  border-color: var(--tablet-button-choice);
+}
+
+.power-button__ring {
+  border-color: var(--tablet-button-choice);
+  border-top-color: transparent;
+}
+
+.power-button__line {
+  background: var(--tablet-button-choice);
+}
+
+.power-button__symbol {
+  filter: drop-shadow(0 0 10px var(--tablet-button-choice));
+}
+
+.power-button__glow {
+  background: color-mix(in srgb, var(--tablet-button-choice) 38%, transparent);
+}
+
+.settings-app[data-state="open"] .settings-tablet {
+  animation: tabletBorderPulse 1.7s ease-in-out infinite;
+}
+
+@keyframes tabletBorderPulse {
+  0%, 100% {
+    border-color: color-mix(in srgb, var(--tablet-border-choice) 68%, transparent);
+    box-shadow:
+      0 0 18px color-mix(in srgb, var(--tablet-border-choice) 24%, transparent),
+      inset 0 0 18px color-mix(in srgb, var(--tablet-border-choice) 7%, transparent);
+  }
+
+  50% {
+    border-color: var(--tablet-border-choice);
+    box-shadow:
+      0 0 34px color-mix(in srgb, var(--tablet-border-choice) 52%, transparent),
+      inset 0 0 26px color-mix(in srgb, var(--tablet-border-choice) 14%, transparent);
+  }
+}
+/* Linke Information zu den Tablet-Einstellungen */
+.tablet-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tablet-info-logo {
+  margin: 0;
+  padding: 7px;
+  border: 1px solid color-mix(in srgb, var(--tablet-border-choice) 45%, transparent);
+  border-radius: 12px;
+  background: rgba(7, 9, 15, 0.7);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--tablet-border-choice) 16%, transparent);
+}
+
+.tablet-info-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tablet-info-panel h3,
+.tablet-info-panel p {
+  margin: 0;
+}
+
+.tablet-info-intro,
+.tablet-info-item span {
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.tablet-info-item {
+  display: grid;
+  gap: 5px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--tablet-button-choice);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--tablet-button-choice) 7%, transparent);
+}
+
+.tablet-info-save {
+  margin-top: auto !important;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--tablet-border-choice) 32%, transparent);
+  border-radius: 10px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+/* Lokale Plattformlogos ausschließlich in der Settings-Vorschau */
+.preview-message__platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-message__platform-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+/* =========================================================
+   Tablet-Info: ruhiges Glasdesign und sichtbarer Glass Slider
+   ========================================================= */
+
+.settings-tablet__left {
+  padding-right: 12px;
+  scrollbar-width: thin;
+  scrollbar-color:
+    color-mix(in srgb, var(--tablet-border-choice) 58%, rgba(235, 242, 255, 0.35))
+    rgba(255, 255, 255, 0.025);
+}
+
+.settings-tablet__left::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+}
+
+.settings-tablet__left::-webkit-scrollbar-track {
+  margin-block: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.018);
+  box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.55);
+}
+
+.settings-tablet__left::-webkit-scrollbar-thumb {
+  min-height: 46px;
+  border: 2px solid rgba(8, 10, 16, 0.72);
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.72),
+      color-mix(in srgb, var(--tablet-border-choice) 52%, rgba(165, 190, 225, 0.45)),
+      rgba(255, 255, 255, 0.24)
+    );
+  box-shadow:
+    0 0 9px color-mix(in srgb, var(--tablet-border-choice) 30%, transparent),
+    inset 0 0 5px rgba(255, 255, 255, 0.34);
+}
+
+.settings-tablet__left::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.9),
+      color-mix(in srgb, var(--tablet-border-choice) 72%, rgba(190, 210, 240, 0.5)),
+      rgba(255, 255, 255, 0.38)
+    );
+}
+
+.tablet-info-panel {
+  padding-bottom: 22px;
+}
+
+.tablet-info-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.035);
+  border-right: 1px solid rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(4, 6, 11, 0.46)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.tablet-info-save {
+  margin-bottom: 6px !important;
+  background: rgba(4, 6, 11, 0.28);
+}
+
+/* =========================================================
+   Live-Chat-Einstellungen und Darstellungsfläche
+   ========================================================= */
+.live-chat-empty-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.live-chat-empty-window {
+  flex: 0 0 280px;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+}
+
+.live-chat-empty-window iframe {
+  display: block;
+  border: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 960px;
+  height: 560px;
+  transform: scale(0.6);
+  transform-origin: bottom left;
+}
+
+.live-chat-empty-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.live-chat-empty-actions .action-button {
+  width: 100%;
+}
+
+.live-chat-duration-panel {
+  display: grid;
+  grid-template-columns: minmax(130px, auto) minmax(0, 1fr);
+  gap: 14px 16px;
+  margin-top: 12px;
+}
+
+.live-chat-duration-panel[hidden] {
+  display: none;
+}
+
+.live-chat-duration-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 52px;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+.live-chat-duration-row output {
+  color: var(--accent-light);
+  font-weight: 750;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.browser-source-copy-button {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 40px;
+  padding-block: 8px;
+}
+
+.browser-source-status[hidden] {
+  display: none;
+}
+
+.browser-source-status:not([hidden]) {
+  animation: browser-source-status-in 180ms ease-out;
+}
+
+@keyframes browser-source-status-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.live-chat-duration-info {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 11px 13px;
+  border-left: 3px solid var(--accent);
+  border-radius: 9px;
+  color: var(--text-muted);
+  background: rgba(255, 95, 109, 0.07);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 600px) {
+  .live-chat-empty-window {
+    flex-basis: 300px;
+    height: 300px;
+  }
+}
+
+/* =========================================================
+   Self-Create-Reset
+   ========================================================= */
+.animation-reset-panel {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.animation-reset-panel[hidden] {
+  display: none;
+}
+
+.animation-reset-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.animation-reset-status {
+  width: 100%;
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9px;
+  color: var(--muted-text);
+  background: rgba(6, 10, 18, 0.72);
+  text-align: center;
+  line-height: 1.35;
+}
+
+.animation-reset-confirm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: default;
+}
+
+.animation-reset-confirm input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.animation-reset-button {
+  width: auto;
+  min-width: 190px;
+}
+
+.animation-reset-info {
+  margin: 0;
+  padding: 11px 13px;
+  border-left: 3px solid var(--accent);
+  border-radius: 9px;
+  color: var(--muted-text);
+  background: rgba(255, 91, 111, 0.08);
+  line-height: 1.45;
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "animation": {
+    "effect": "base",
+    "speed": 10.0,
+    "displayDuration": 45.0,
+    "fadeInDuration": 10.0,
+    "fadeOutDuration": 10.0
+  },
+  "channels": {
+    "twitch": {
+      "theme": "standard",
+      "backgroundColor": "#18131d",
+      "textColor": "#ffffff",
+      "font": "",
+      "emotes": {
+        "betterTTV": true,
+        "sevenTV": true,
+        "frankerFaceZ": true
+      },
+      "chatFilter": {
+        "hideCommands": true,
+        "commandPrefix": "!",
+        "hiddenCommands": [
+          "!hallo"
+        ]
+      }
+    },
+    "kick": {
+      "theme": "standard",
+      "backgroundColor": "#18131d",
+      "textColor": "#ffffff",
+      "font": "",
+      "emotes": {
+        "betterTTV": false,
+        "sevenTV": false,
+        "frankerFaceZ": false
+      }
+    },
+    "youtube": {
+      "theme": "standard",
+      "backgroundColor": "#18131d",
+      "textColor": "#ffffff",
+      "font": "",
+      "emotes": {
+        "betterTTV": false,
+        "sevenTV": false,
+        "frankerFaceZ": false
+      }
+    }
+  },
+  "window": {
+    "width": 960.0
+  },
+  "liveChat": {
+    "displayDuration": 18.0
+  }
+}

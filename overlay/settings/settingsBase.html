@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Browser Chat Local Settings v1.4</title>
+
+  <script>
+    try {
+      const settingsUiState = JSON.parse(
+        sessionStorage.getItem("browserChatSettingsUiStateV1") || "{}"
+      );
+
+      if (settingsUiState.tabletOpen) {
+        document.documentElement.classList.add("settings-ui-restoring");
+      }
+    } catch {
+      sessionStorage.removeItem("browserChatSettingsUiStateV1");
+    }
+  </script>
+
+  <style>
+    .settings-ui-restoring #settingsApp {
+      visibility: hidden;
+    }
+  </style>
+  <link rel="stylesheet" href="css/settingsBase.css">
+  <link id="selectedChatAnimationStylesheet" rel="stylesheet">
+  <link rel="stylesheet" href="css/settingsAnimations.css">
+  <link rel="stylesheet" href="css/settingsLanguage.css">
+  <link rel="stylesheet" href="../styles/tablet-styleTheme/tablet-theme-djain-trail.css">
+  <link rel="stylesheet" href="../styles/tablet-styleTheme/tablet-theme-harmony.css">
+
+  <script src="js/settingsBase.js" defer></script>
+  <script src="js/settingsAnimations.js" defer></script>
+  <script src="js/settingsLanguage.js" defer></script>
+</head>
+
+<body>
+  <main
+    id="settingsApp"
+    class="settings-app"
+    data-state="closed"
+  >
+    <!-- ======================================================================
+     Zentraler Powerknopf
+     ====================================================================== -->
+    <button
+      id="powerButton"
+      class="power-button"
+      type="button"
+      aria-label="Einstellungen öffnen"
+      aria-controls="settingsTablet"
+      aria-expanded="false"
+    >
+      <span class="power-button__glow" aria-hidden="true"></span>
+
+      <span class="power-button__symbol" aria-hidden="true">
+        <span class="power-button__line"></span>
+        <span class="power-button__ring"></span>
+      </span>
+    </button>
+
+    <div class="startup-branding" aria-hidden="true">
+      <span class="startup-branding__title">Browser Chat Settings</span>
+      <span class="startup-branding__version">v1.4</span>
+    </div>
+
+    <!-- ======================================================================
+         Aufklappbares Settings-Tablet
+         ====================================================================== -->
+    <div class="settings-tablet-frame">
+      <section
+        id="settingsTablet"
+        class="settings-tablet"
+        aria-label="Browser Chat Einstellungen"
+        hidden
+      >
+      <!-- ======================================================================
+     Linker Bereich: ausgewählte Einstellungen
+     ====================================================================== -->
+      <section
+        id="settingsContent"
+        class="settings-tablet__left"
+        aria-labelledby="settingsContentTitle"
+      >
+        <header class="panel-header">
+          <h2 id="settingsContentTitle">
+            Einstellungen
+          </h2>
+        </header>
+
+        <!-- Startanzeige -->
+        <section
+          id="welcomePanel"
+          class="settings-panel"
+          data-settings-panel="welcome"
+        >
+<figure id="settingsBrandBanner" class="settings-brand-banner" aria-label="OBS Overlay Chat Projektbanner"><img src="BrowserOBS-Overlaybanner.png" alt="Browser Chat – modulares Multi-Plattform-Chat-Overlay"></figure>
+          <p class="brand-presentation">Browser Chat präsentiert unsere gemeinsame Arbeit</p>
+          <p class="brand-version">Browser Chat Settings <span>• v1.4</span></p>
+          <h3>Browser Chat Local Settings</h3>
+
+          <p class="welcome-copy">
+            <span class="welcome-intro">
+              Gestalte dein Multi-Plattform-Chat-Overlay
+              für Twitch, Kick und YouTube direkt in der
+              Live-Vorschau.
+            </span>
+
+            <span class="welcome-features-title">
+              Bereits verfügbar
+            </span>
+
+            <span class="welcome-feature">
+              Eigene Farben und Schriftarten pro Plattform
+            </span>
+
+            <span class="welcome-feature">
+              Fenstergröße, Rundung und Darstellung anpassen
+            </span>
+
+            <span class="welcome-feature">
+              Fade-, Pop-, Slide- und Zoom-Animationen auswählen
+            </span>
+
+            <span class="welcome-feature">
+              Animationsdauer und Geschwindigkeit einstellen
+            </span>
+
+            <span class="welcome-feature">
+              Twitch-Emotes und Chatfilter vorbereiten
+            </span>
+
+            <span class="welcome-feature">
+              Einstellungen lokal speichern und wieder laden
+            </span>
+
+            <span class="welcome-hint">
+              Wähle im mittleren Menü einen Bereich aus,
+              um mit der Gestaltung zu beginnen.
+            </span>
+          </p>        </section>
+
+
+        <!-- Information zu den Live-Chat-Einstellungen -->
+        <section
+          id="liveChatInfoPanel"
+          class="settings-panel live-chat-info-panel"
+          data-settings-panel="live-chat-info"
+          hidden
+        >
+          <h3>Live Chat Settings</h3>
+          <p class="welcome-intro">
+            Hier stellst du Darstellung und Anzeigedauer deines Live-Chats für das OBS-Overlay ein.
+          </p>
+
+          <p class="welcome-features-title">Aktueller Stand</p>
+          <p class="welcome-feature">Live-Chat-Vorschau mit echten Nachrichten</p>
+          <p class="welcome-feature">Anzeigedauer von 10 bis 45 Sekunden einstellbar</p>
+          <p class="welcome-feature">Browser-Source wird derzeit manuell über die index.html eingebunden</p>
+          
+
+          <p class="welcome-hint">
+            Der dunkle Hintergrund dient nur der Darstellung in den Einstellungen. Im OBS-Overlay bleibt der Live-Chat transparent.
+          </p>
+        </section>
+
+        <!-- Information zu den Tablet-Einstellungen -->
+        <section id="tabletInfoPanel" class="settings-panel tablet-info-panel" data-settings-panel="tablet-info" hidden>
+          <figure class="tablet-info-logo">
+            <img src="BrowserOBS-Overlaybanner.png" alt="Browser Chat – Multi-Plattform-Chat-Overlay">
+          </figure>
+
+          <h3>Tablet-Design</h3>
+          <p class="tablet-info-intro">Passe hier ausschließlich das Einstellungs-Tablet an. Das Chat-Overlay bleibt unverändert.</p>
+
+          <div class="tablet-info-item">
+            <strong>Farbmodi</strong>
+            <span>Getrennt: Eigene Farben für Powerknopf und Tablet-Rahmen.</span>
+            <span>Verbunden: Eine gemeinsame Farbe für Rahmen, Powerknopf und Knopfränder.</span>
+            <span>Djain-Schweif: Weich pulsierendes Violett-Blau.</span>
+            <span>Harmony: Geteilter Rot-Silber-Rand mit Frostknöpfen.</span>
+          </div>
+
+          <div class="tablet-info-item">
+            <strong>Bedienung</strong>
+            <span>Fenster bestätigen: Aktualisiert nur die Vorschau und speichert noch nichts.</span>
+            <span>Einstellungen speichern: Speichert die Chat-Einstellungen lokal und übergibt sie an Streamer.bot.</span>
+            <span>Tablet speichern: Speichert ausschließlich Farbmodus und Tablet-Design.</span>
+          </div>
+
+          <p class="tablet-info-save">Änderungen sind zunächst nur als Vorschau sichtbar. Nutze anschließend den jeweils passenden Speicherknopf, um sie dauerhaft zu übernehmen.</p>
+        </section>
+
+        <!-- ======================================================================
+     Kanal- und Fenstereinstellungen
+     ====================================================================== -->
+        <section
+          id="channelSettingsPanel"
+          class="settings-panel"
+          data-settings-panel="channels"
+          hidden
+        >
+          <h3>Channel Chat Settings</h3>
+
+          <nav
+            class="channel-navigation"
+            aria-label="Chat-Plattform auswählen"
+          >
+            <button type="button" class="channel-button" data-channel="local">Window width</button>
+            <button
+              type="button"
+              class="channel-button"
+              data-channel="twitch"
+            >
+              Twitch
+            </button>
+
+            <button
+              type="button"
+              class="channel-button"
+              data-channel="kick"
+            >
+              Kick
+            </button>
+
+            <button
+              type="button"
+              class="channel-button"
+              data-channel="youtube"
+            >
+              YouTube
+            </button>
+          </nav>
+
+          <!-- Noch kein Kanal ausgewählt -->
+          <div
+            id="channelPlaceholder"
+            class="channel-settings"
+          >
+            <p>Bitte zuerst einen Kanal auswählen.</p>
+          </div>
+
+
+        <!-- Gemeinsame lokale Fenster-Einstellungen -->
+        <section id="windowSettingsPanel" class="channel-settings local-settings" data-channel-settings="local" hidden>
+          <fieldset>
+            <legend>Fenster-Einstellungen</legend>
+            <label for="windowWidth">Maximale Chatbreite</label>
+            <div class="window-width-control"><input id="windowWidth" name="windowWidth" type="range" min="320" max="960" step="10" value="400"><output id="windowWidthValue" for="windowWidth">400 px</output></div>
+            <p class="live-chat-duration-info">Regelt die maximale Breite des Live Chats von 320 bis 960 px.</p>
+          </fieldset>
+        </section>
+
+          <!-- Twitch -->
+          <div
+            class="channel-settings twitch-settings"
+            data-channel-settings="twitch"
+            hidden
+          >
+            <nav
+              class="channel-subnavigation"
+              aria-label="Twitch Einstellungen"
+            >
+              <button
+                type="button"
+                class="channel-subbutton is-active"
+                data-twitch-panel="design"
+              >
+                Chat-Design
+              </button>
+
+              <button
+                type="button"
+                class="channel-subbutton"
+                data-twitch-panel="filters"
+              >
+                Emotes &amp; Filter
+              </button>
+            </nav>
+
+            <fieldset data-twitch-content="design">
+              <legend>Twitch Chat</legend>
+
+              <label for="twitchTheme">Theme selection</label>
+
+              <select id="twitchTheme" name="twitchTheme" class="theme-select" data-theme-channel="twitch">
+                <option value="standard" selected>Standard – eigene Farbe</option>
+                <option value="dark">Dark</option>
+                <option value="green">Green</option>
+                <option value="purple">Purple</option>
+                <option value="yellow">Yellow</option>
+                <option value="self-create">Self Create</option>
+              </select>
+
+              <label for="twitchBackgroundColor">
+                Hintergrundfarbe
+              </label>
+
+              <input
+                id="twitchBackgroundColor"
+                name="twitchBackgroundColor"
+                type="color"
+                value="#18131d"
+              >
+
+              <label for="twitchTextColor">
+                Textfarbe
+              </label>
+
+              <input
+                id="twitchTextColor"
+                name="twitchTextColor"
+                type="color"
+                value="#ffffff"
+              >
+
+              <label for="twitchFont">
+                Schriftart
+              </label>
+
+              <select id="twitchFont" name="twitchFont">
+                <option value="" selected>
+                  Schriftart auswählen
+                </option>
+
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+              </select>
+
+              <span class="channel-reset-label">Farben zurücksetzen</span>
+              <button
+                id="twitchColorResetButton"
+                class="action-button channel-color-reset-button"
+                type="button"
+              >
+                Auf Standard setzen
+              </button>
+            </fieldset>
+
+            <section
+              class="twitch-extra-panel"
+              data-twitch-content="filters"
+              hidden
+            >
+              <fieldset class="toggle-settings">
+                <legend>Emotes</legend>
+
+                <label for="enableBetterTTV">
+                  BetterTTV aktivieren
+                </label>
+                <input
+                  id="enableBetterTTV"
+                  name="enableBetterTTV"
+                  type="checkbox"
+                >
+
+                <label for="enableSevenTV">
+                  7TV aktivieren
+                </label>
+                <input
+                  id="enableSevenTV"
+                  name="enableSevenTV"
+                  type="checkbox"
+                >
+
+                <label for="enableFrankerFaceZ">
+                  FrankerFaceZ aktivieren
+                </label>
+                <input
+                  id="enableFrankerFaceZ"
+                  name="enableFrankerFaceZ"
+                  type="checkbox"
+                >
+              </fieldset>
+
+              <fieldset class="command-filter-settings">
+                <legend>Chat-Filter</legend>
+
+                <label for="hideChatCommands">
+                  Chatbefehle im Overlay ausblenden
+                </label>
+                <input
+                  id="hideChatCommands"
+                  name="hideChatCommands"
+                  type="checkbox"
+                  aria-controls="commandFilterOptions"
+                >
+
+                <div
+                  id="commandFilterOptions"
+                  class="command-filter-options"
+                  hidden
+                >
+                  <label for="commandPrefix">
+                    Befehlspräfix
+                  </label>
+                  <input
+                    id="commandPrefix"
+                    name="commandPrefix"
+                    type="text"
+                    value="!"
+                    maxlength="4"
+                    spellcheck="false"
+                  >
+
+                  <div class="label-with-info">
+                    <label for="hiddenCommands">
+                      Bestimmte Befehle
+                    </label>
+
+                    <button
+                      id="commandInfoButton"
+                      class="info-button"
+                      type="button"
+                      aria-label="Information zum Befehlsfilter"
+                      aria-expanded="false"
+                      aria-controls="commandFilterInfo"
+                    >
+                      ?
+                    </button>
+                  </div>
+
+                  <textarea
+                    id="hiddenCommands"
+                    name="hiddenCommands"
+                    rows="4"
+                    placeholder="!discord&#10;!uptime&#10;!song"
+                    spellcheck="false"
+                  ></textarea>
+
+                  <aside
+                    id="commandFilterInfo"
+                    class="command-filter-info"
+                    hidden
+                  >
+                    Diese Befehle werden nur im Overlay
+                    ausgeblendet. Streamer.bot führt sie
+                    weiterhin aus. Nicht eingetragene Befehle
+                    bleiben im Overlay sichtbar.
+                  </aside>
+
+                  <p
+                    id="commandFilterSummary"
+                    class="command-filter-summary"
+                    aria-live="polite"
+                  >
+                    Der Befehlsfilter ist deaktiviert.
+                  </p>
+                </div>
+              </fieldset>
+            </section>
+          </div>
+
+          <!-- Kick -->
+          <fieldset
+            class="channel-settings"
+            data-channel-settings="kick"
+            hidden
+          >
+            <legend>Kick Chat</legend>
+
+            <label for="kickTheme">Theme selection</label>
+
+              <select id="kickTheme" name="kickTheme" class="theme-select" data-theme-channel="kick">
+                <option value="standard" selected>Standard – eigene Farbe</option>
+                <option value="dark">Dark</option>
+                <option value="green">Green</option>
+                <option value="purple">Purple</option>
+                <option value="yellow">Yellow</option>
+                <option value="self-create">Self Create</option>
+              </select>
+
+              <label for="kickBackgroundColor">
+              Hintergrundfarbe
+            </label>
+
+            <input
+              id="kickBackgroundColor"
+              name="kickBackgroundColor"
+              type="color"
+              value="#18131d"
+            >
+
+            <label for="kickTextColor">
+              Textfarbe
+            </label>
+
+            <input
+              id="kickTextColor"
+              name="kickTextColor"
+              type="color"
+              value="#ffffff"
+            >
+
+            <label for="kickFont">
+              Schriftart
+            </label>
+
+            <select id="kickFont" name="kickFont">
+              <option value="" selected>
+                Schriftart auswählen
+              </option>
+
+              <option value="Arial">Arial</option>
+              <option value="Verdana">Verdana</option>
+              <option value="Trebuchet MS">Trebuchet MS</option>
+            </select>
+
+            <span class="channel-reset-label">Farben zurücksetzen</span>
+            <button
+              id="kickColorResetButton"
+              class="action-button channel-color-reset-button"
+              type="button"
+            >
+              Auf Standard setzen
+            </button>
+          </fieldset>
+
+          <!-- YouTube -->
+          <fieldset
+            class="channel-settings"
+            data-channel-settings="youtube"
+            hidden
+          >
+            <legend>YouTube Chat</legend>
+
+            <label for="youtubeTheme">Theme selection</label>
+
+              <select id="youtubeTheme" name="youtubeTheme" class="theme-select" data-theme-channel="youtube">
+                <option value="standard" selected>Standard – eigene Farbe</option>
+                <option value="dark">Dark</option>
+                <option value="green">Green</option>
+                <option value="purple">Purple</option>
+                <option value="yellow">Yellow</option>
+                <option value="self-create">Self Create</option>
+              </select>
+
+              <label for="youtubeBackgroundColor">
+              Hintergrundfarbe
+            </label>
+
+            <input
+              id="youtubeBackgroundColor"
+              name="youtubeBackgroundColor"
+              type="color"
+              value="#18131d"
+            >
+
+            <label for="youtubeTextColor">
+              Textfarbe
+            </label>
+
+            <input
+              id="youtubeTextColor"
+              name="youtubeTextColor"
+              type="color"
+              value="#ffffff"
+            >
+
+            <label for="youtubeFont">
+              Schriftart
+            </label>
+
+            <select id="youtubeFont" name="youtubeFont">
+              <option value="" selected>
+                Schriftart auswählen
+              </option>
+
+              <option value="Arial">Arial</option>
+              <option value="Verdana">Verdana</option>
+              <option value="Trebuchet MS">Trebuchet MS</option>
+            </select>
+
+            <span class="channel-reset-label">Farben zurücksetzen</span>
+            <button
+              id="youtubeColorResetButton"
+              class="action-button channel-color-reset-button"
+              type="button"
+            >
+              Auf Standard setzen
+            </button>
+          </fieldset>
+        </section>
+
+        <!-- ======================================================================
+     Animationseinstellungen
+     ====================================================================== -->
+        <section
+          id="animationSettingsPanel"
+          class="context-panel"
+          data-context-panel="animations"
+          hidden
+        >
+          <h3>Animation Settings</h3>
+
+          <label for="animationEffect">
+            Animation Effekt
+          </label>
+
+          <select
+            id="animationEffect"
+            name="animationEffect"
+          >
+            <option value="" selected>
+              Animation auswählen
+            </option>
+
+            <option value="pop">Pop</option>
+            <option value="slide-left">Slide Left</option>
+            <option value="slide-right">Slide Right</option>
+            <option value="zoom">Zoom</option>
+            <option value="self-create">Self Create</option>
+          </select>
+
+          <!-- Fade: zunächst nur Darstellung der späteren Vorschau-Regler -->
+          <fieldset
+            id="presetPreviewControls"
+            class="animation-controls"
+            hidden
+          >
+            <legend>Vorschau-Regler</legend>
+
+            <label for="presetPreviewSpeed">
+              Einblendgeschwindigkeit
+            </label>
+
+            <input
+              id="presetPreviewSpeed"
+              name="presetPreviewSpeed"
+              type="range"
+              min="100"
+              max="3000"
+              step="100"
+              value="500"
+            >
+
+            <label for="presetPreviewDisplayDuration">
+              Darstellungsdauer
+            </label>
+
+            <input
+              id="presetPreviewDisplayDuration"
+              name="presetPreviewDisplayDuration"
+              type="range"
+              min="1000"
+              max="30000"
+              step="500"
+              value="10000"
+            >
+            <p class="live-chat-duration-info">
+              Diese Regler gelten nur für das Vorschaufenster. Sie zeigen die voreingestellte Basisanimation mit unterschiedlicher Einblendgeschwindigkeit und Darstellungsdauer. Die Originalanimation wird nicht verändert oder gespeichert.
+            </p>          </fieldset>
+          <!-- Bleibt verborgen, bis eine Animation gewählt wurde -->
+          <fieldset
+            id="animationControls"
+            class="animation-controls"
+            hidden
+          >
+            <legend>Animationsregler</legend>
+
+            <label for="animationSpeed">
+              Animationsgeschwindigkeit
+            </label>
+
+            <input
+              id="animationSpeed"
+              name="animationSpeed"
+              type="range"
+              min="100"
+              max="3000"
+              step="100"
+              value="500"
+            >
+
+            <label for="displayDuration">
+              Anzeigedauer
+            </label>
+
+            <input
+              id="displayDuration"
+              name="displayDuration"
+              type="range"
+              min="1000"
+              max="30000"
+              step="500"
+              value="10000"
+            >
+
+            <label for="fadeInDuration">
+              Einblenddauer
+            </label>
+
+            <input
+              id="fadeInDuration"
+              name="fadeInDuration"
+              type="range"
+              min="100"
+              max="3000"
+              step="100"
+              value="500"
+            >
+
+            <label for="fadeOutDuration">
+              Ausblenddauer
+            </label>
+
+            <input
+              id="fadeOutDuration"
+              name="fadeOutDuration"
+              type="range"
+              min="100"
+              max="3000"
+              step="100"
+              value="500"
+            >
+          </fieldset>
+
+          <fieldset
+            id="animationResetPanel"
+            class="animation-reset-panel"
+            hidden
+          >
+            <legend>Zurücksetzen</legend>
+
+            <div class="animation-reset-actions">
+              <label class="animation-reset-confirm">
+                <input id="animationResetConfirm" type="checkbox">
+                <span>Zurücksetzen freigeben</span>
+              </label>
+
+              <button id="animationResetButton" class="action-button animation-reset-button" type="button" disabled>
+                Animation zurücksetzen
+              </button>
+            </div>
+
+            <p id="animationResetStatus" class="animation-reset-status" aria-live="polite">
+              Zurücksetzen noch nicht freigegeben
+            </p>
+
+            <p class="animation-reset-info">
+              Setzt den aktuellen Animationsentwurf später auf die Standardwerte zurück.
+            </p>
+          </fieldset>
+        </section>
+      </section>
+
+      <!-- ======================================================================
+     Mittlerer Bereich: Hauptmenü und Speicheraktionen
+     ====================================================================== -->
+      <nav
+        class="settings-tablet__center"
+        aria-label="Settings Hauptmenü"
+      >
+        <header class="panel-header">
+          <h2>Menu</h2>
+        </header>
+
+        <button
+          type="button"
+          class="menu-button"
+          data-menu-target="channels"
+        >
+          Channel Chat Settings
+        </button>
+
+        <button
+          type="button"
+          class="menu-button"
+          data-menu-target="animations"
+        >
+          Animation Settings
+        </button>
+
+        <button
+          type="button"
+          class="menu-button"
+          id="liveChatSettingsMenuButton"
+          data-menu-target="live-chat"
+        >
+          Live Chat Settings
+        </button>
+
+        <button
+          type="button"
+          class="menu-button"
+          data-menu-target="tablet"
+        >
+          Tablet-Einstellungen
+        </button>
+
+        <div class="settings-actions">
+
+<!-- Fenster Abschnitt: Status Speicherung -->
+
+        <div class="save-status-panel">
+          <h3>Status Speicherung</h3>
+
+          <p
+            id="saveStatus"
+            class="save-status"
+            role="status"
+            aria-live="polite"
+          >
+            Keine Änderungen
+          </p>
+        </div>
+
+        <button
+          id="applyPreviewButton"
+          type="button"
+          class="action-button"
+        >
+          Fenster bestätigen
+        </button>
+
+        <button
+          id="saveSettingsButton"
+          type="button"
+          class="action-button action-button--save"
+        >
+          Save Settings
+        </button>
+
+      </div>
+      </nav>
+
+      <!-- ======================================================================
+     Rechter Bereich: Vorschau und Zusatzregler
+     ====================================================================== -->
+      <section
+        class="settings-tablet__right"
+        aria-labelledby="previewTitle"
+      >
+        <section id="chatPreviewPanel" class="chat-preview">
+          <header class="panel-header">
+            <h2 id="previewTitle">
+              Vorschau Fenster Chat
+            </h2>
+          </header>
+
+          <div
+            id="chatPreview"
+            class="chat-preview__window"
+            aria-live="polite"
+          >
+            <article class="preview-message preview-message--twitch chat-message"><span class="preview-message__platform"><img class="preview-message__platform-icon" src="../asset/platform/Twitch.png" alt="">Twitch</span><strong class="preview-message__username">Alex Carter</strong><span class="preview-message__text">Willkommen in unserem Multi-Plattform-Chat – hier laufen alle Nachrichten harmonisch zusammen.</span></article>
+            <article class="preview-message preview-message--kick chat-message"><span class="preview-message__platform"><img class="preview-message__platform-icon" src="../asset/platform/Kick.png" alt="">Kick</span><strong class="preview-message__username">NovaRider</strong><span class="preview-message__text">Das neue Browser-Chat-Overlay sieht großartig aus und passt wunderbar in den Stream!</span></article>
+            <article class="preview-message preview-message--youtube chat-message"><span class="preview-message__platform"><img class="preview-message__platform-icon" src="../asset/platform/Youtube.png" alt="">YouTube</span><strong class="preview-message__username">LunaStreams</strong><span class="preview-message__text">Liebe Grüße aus dem YouTube-Chat – die gemeinsame Vorschau funktioniert wunderbar! 👋</span></article>
+          </div>
+        </section>
+        <section id="liveChatSettingsPanel" class="live-chat-empty-panel" hidden>
+          <header class="panel-header">
+            <h2>Live Chat Settings</h2>
+          </header>
+
+          <div
+            id="liveChatPreview"
+            class="live-chat-empty-window"
+            aria-label="Live Chat Vorschau"
+            >
+            <iframe src="../index.html?settingsPreview=1"></iframe>
+          </div>
+
+          <div class="live-chat-empty-actions" aria-label="Live-Chat-Einstellungen">
+            <button id="liveChatDurationButton" class="action-button" type="button" aria-controls="liveChatDurationPanel" aria-expanded="false">
+              Anzeigedauer
+            </button>
+            <button id="liveChatBrowserSourceButton" class="action-button" type="button" aria-controls="liveChatBrowserSourcePanel" aria-expanded="false">
+              Browser-Source
+            </button>
+          </div>
+
+          <fieldset id="liveChatDurationPanel" class="live-chat-duration-panel" hidden>
+            <legend>Live-Chat-Anzeigedauer</legend>
+
+            <label for="liveChatDurationPreview">Anzeigedauer</label>
+            <div class="live-chat-duration-row">
+              <input id="liveChatDurationPreview" type="range" min="10" max="45" step="1" value="18">
+              <output for="liveChatDurationPreview">18 s</output>
+            </div>
+
+            <p class="live-chat-duration-info">
+              Ändert später die Dauer der Live-Chat-Einblendung. Der Regler ist aktuell nur zur Darstellung sichtbar.
+            </p>
+          </fieldset>
+
+          <fieldset id="liveChatBrowserSourcePanel" class="live-chat-duration-panel" hidden>
+            <legend>Browser-Source</legend>
+
+            <button id="copyBrowserSourceButton" class="action-button browser-source-copy-button" type="button" aria-describedby="browserSourceStatus" disabled>
+              Browser-Source kopieren
+            </button>
+
+            <p id="browserSourceStatus" class="live-chat-duration-info browser-source-status">
+              Die automatische Kopierfunktion ist für eine zukünftige Version vorgesehen. Öffne bis dahin die index.html manuell aus dem Projektordner und kopiere anschließend die Adresse aus der Adresszeile. In OBS kannst du alternativ 'Lokale Datei' aktivieren und die index.html direkt auswählen.
+            </p>
+          </fieldset>
+        </section>
+
+        <section id="tabletAppearancePanel" class="tablet-appearance-panel" hidden>
+          <header class="panel-header"><h2>Tablet-Einstellungen</h2></header>
+          <p class="tablet-settings-hint">Diese Farben gelten nur für das Settings-Tablet.</p>
+
+          <label for="tabletColorMode">Farbmodus</label>
+          <select id="tabletColorMode">
+            <option value="separate" selected>Farben getrennt</option>
+            <option value="linked">Farben verbinden</option>
+            <option value="djain-trail">Djain-Schweif</option>
+            <option value="harmony">Harmony</option>
+          </select>
+
+          <label for="tabletButtonColor">Knopffarbe</label>
+          <input id="tabletButtonColor" type="color" value="#ff5f6d">
+
+          <label for="tabletBorderColor">Randfarbe</label>
+          <input id="tabletBorderColor" type="color" value="#ff737d">
+          <!-- Sprache -->
+          <button
+            id="languageButton"
+            class="action-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="languagePanel"
+          >Sprache</button>
+
+          <!-- Wechselbühne: Tablet speichern oder Sprachauswahl -->
+          <div id="tabletActionStage" class="tablet-action-stage">
+            <div id="tabletSaveView" class="tablet-save-view">
+              <button id="saveTabletAppearanceButton" class="action-button action-button--save" type="button">Tablet speichern</button>
+
+              <div class="tablet-save-status-panel">
+                <h3>Speicherstatus Tablet</h3>
+                <p id="tabletSaveStatus" class="save-status" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <section id="languagePanel" class="language-panel" aria-label="Sprache auswählen" aria-hidden="true">
+              <button class="language-option" type="button" role="radio" aria-checked="false" data-language="en"><span class="language-option__dot" aria-hidden="true"></span><img src="../asset/languageFlags/en.svg" alt=""><span>English</span></button>
+              <button class="language-option" type="button" role="radio" aria-checked="false" data-language="de"><span class="language-option__dot" aria-hidden="true"></span><img src="../asset/languageFlags/de.svg" alt=""><span>Deutsch</span></button>
+              <button class="language-option" type="button" role="radio" aria-checked="false" data-language="es"><span class="language-option__dot" aria-hidden="true"></span><img src="../asset/languageFlags/es.svg" alt=""><span>Español</span></button>
+              <button class="language-option" type="button" role="radio" aria-checked="false" data-language="fr"><span class="language-option__dot" aria-hidden="true"></span><img src="../asset/languageFlags/fr.svg" alt=""><span>Français</span></button>
+              <button class="language-option" type="button" role="radio" aria-checked="false" data-language="pt-BR"><span class="language-option__dot" aria-hidden="true"></span><img src="../asset/languageFlags/pt-BR.svg" alt=""><span>Português (Brasil)</span></button>
+              <button class="language-option" type="button" role="radio" aria-checked="false" data-language="hi"><span class="language-option__dot" aria-hidden="true"></span><img src="../asset/languageFlags/hi.svg" alt=""><span>हिन्दी</span></button>
+            </section>
+          </div>
+        </section>
+      </section>
+    </section>
+  </div>
+  
+    <!-- ======================================================================
+     Bestätigungsdialog beim Schließen über den Powerknopf
+     ====================================================================== -->
+    <dialog
+      id="closeConfirmDialog"
+      class="confirm-dialog"
+    >
+      <form method="dialog">
+        <h2>Ungespeicherte Änderungen</h2>
+
+        <p>
+          Möchtest du die Änderungen verwerfen und das Tablet schließen?
+        </p>
+
+        <div class="confirm-dialog__actions">
+          <button value="cancel">
+            Abbrechen
+          </button>
+
+          <button value="confirm">
+            OK
+          </button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+</body>
+</html>
+
+
+

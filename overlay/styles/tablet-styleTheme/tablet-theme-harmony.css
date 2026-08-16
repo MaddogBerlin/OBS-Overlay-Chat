@@ -1,0 +1,365 @@
+/*
+ * ======================================================================
+ * Browser Chat v1.4
+ * Settings - Tablet Theme
+ * Preset: Harmonie
+ *
+ * Datei:
+ * tablet-theme-harmony.css
+ *
+ * Aufgabe:
+ * - Definiert die festen Farben des Tablet-Themes "Harmonie"
+ * - Wird über data-tablet-theme="harmony" aktiviert
+ * - Teilt den Tablet-Rand dauerhaft in eine rote und silbergraue Hälfte
+ * - Legt einen sanft wandernden Nebel-Glow über beide Randhälften
+ * - Synchronisiert den zweifarbigen Nebelpuls mit dem Powerknopf
+ *
+ * Theme:
+ * - Linke Hälfte  : #d94b4b
+ * - Rechte Hälfte : #b9c1cc
+ * ======================================================================
+ */
+
+:root[data-tablet-theme="harmony"] {
+  --tablet-button-choice: #d94b4b;
+  --tablet-border-choice: #b9c1cc;
+  --tablet-theme-primary: #d94b4b;
+  --tablet-theme-secondary: #b9c1cc;
+  --harmony-cycle: 8s;
+}
+
+/* ======================================================================
+   Harmony - Bühne für Rand und Nebelschweif
+   ====================================================================== */
+
+:root[data-tablet-theme="harmony"] .settings-tablet-frame {
+  position: relative;
+  border-radius: var(--tablet-radius);
+  isolation: isolate;
+}
+
+:root[data-tablet-theme="harmony"] .settings-tablet {
+  border-color: transparent;
+  box-shadow:
+    inset 0 0 24px rgba(217, 75, 75, 0.08),
+    inset 0 0 34px rgba(185, 193, 204, 0.06);
+}
+
+:root[data-tablet-theme="harmony"] .settings-app[data-state="open"] .settings-tablet {
+  animation: none;
+}
+
+/* ======================================================================
+   Harmony - dauerhaft geteilter Tablet-Rand
+   Links Rot, rechts Silbergrau
+   ====================================================================== */
+
+:root[data-tablet-theme="harmony"] .settings-tablet-frame::before,
+:root[data-tablet-theme="harmony"] .settings-tablet-frame::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: 8;
+  pointer-events: none;
+  border-radius: calc(var(--tablet-radius) + 2px);
+  padding: 2px;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+:root[data-tablet-theme="harmony"] .settings-tablet-frame::before {
+  background:
+    linear-gradient(
+      90deg,
+      var(--tablet-theme-primary) 0%,
+      var(--tablet-theme-primary) 46%,
+      color-mix(
+        in srgb,
+        var(--tablet-theme-primary) 48%,
+        var(--tablet-theme-secondary)
+      ) 50%,
+      var(--tablet-theme-secondary) 54%,
+      var(--tablet-theme-secondary) 100%
+    );
+
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+:root[data-tablet-theme="harmony"] .settings-app[data-state="opening"] .settings-tablet-frame::before,
+:root[data-tablet-theme="harmony"] .settings-app[data-state="open"] .settings-tablet-frame::before {
+  opacity: 1;
+}
+
+/* ======================================================================
+   Harmony - wandernder Rand aktuell deaktiviert
+   Die SVG bleibt als vorbereitete Option im Ordner animationsSVG erhalten.
+   ====================================================================== */
+
+:root[data-tablet-theme="harmony"] .settings-tablet-frame::after {
+  display: none;
+}
+/* ======================================================================
+   Harmony - zweifarbiger Nebelpuls am Powerknopf
+   ====================================================================== */
+
+:root[data-tablet-theme="harmony"] .power-button {
+  border-color: color-mix(
+    in srgb,
+    var(--tablet-theme-primary) 48%,
+    var(--tablet-theme-secondary)
+  );
+
+  box-shadow:
+    -14px 0 30px rgba(217, 75, 75, 0.34),
+    14px 0 30px rgba(185, 193, 204, 0.28),
+    inset 0 2px 3px rgba(255, 255, 255, 0.15);
+}
+
+:root[data-tablet-theme="harmony"] .power-button__glow {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(217, 75, 75, 0.74) 0%,
+      rgba(217, 75, 75, 0.34) 44%,
+      rgba(185, 193, 204, 0.34) 56%,
+      rgba(225, 231, 239, 0.72) 100%
+    );
+
+  animation: harmonyPowerFog var(--harmony-cycle) ease-in-out infinite;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes harmonyPowerFog {
+  0%,
+  100% {
+    opacity: 0.42;
+    filter: blur(24px);
+    transform: scale(0.94) rotate(0deg);
+  }
+
+  25% {
+    opacity: 0.76;
+    filter: blur(29px);
+    transform: scale(1.08) rotate(5deg);
+  }
+
+  50% {
+    opacity: 0.50;
+    filter: blur(25px);
+    transform: scale(0.98) rotate(0deg);
+  }
+
+  75% {
+    opacity: 0.82;
+    filter: blur(31px);
+    transform: scale(1.10) rotate(-5deg);
+  }
+}
+
+
+
+
+
+
+/* ======================================================================
+   Harmony - Knopfrand und aktive Auswahl
+   Links Rot, rechts Silbergrau; nur der Powerknopf pulsiert.
+   ====================================================================== */
+
+:root[data-tablet-theme="harmony"] :is(
+  .menu-button,
+  .channel-button,
+  .channel-subbutton,
+  .action-button,
+  .language-option,
+  .confirm-dialog button
+) {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(7, 9, 15, 0.92), rgba(7, 9, 15, 0.92)) padding-box,
+    linear-gradient(90deg, var(--tablet-theme-primary), var(--tablet-theme-secondary)) border-box;
+}
+
+:root[data-tablet-theme="harmony"] :is(
+  .menu-button,
+  .channel-button,
+  .channel-subbutton,
+  .action-button,
+  .language-option,
+  .confirm-dialog button
+):hover:not(:disabled) {
+  background:
+    linear-gradient(rgba(7, 9, 15, 0.96), rgba(7, 9, 15, 0.96)) padding-box,
+    linear-gradient(90deg, color-mix(in srgb, var(--tablet-theme-primary) 78%, white), color-mix(in srgb, var(--tablet-theme-secondary) 78%, white)) border-box;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.72);
+  box-shadow:
+    -6px 0 12px rgba(217, 75, 75, 0.07),
+    6px 0 12px rgba(185, 193, 204, 0.06);
+}
+
+:root[data-tablet-theme="harmony"] :is(
+  .menu-button.is-active,
+  .channel-button.is-active,
+  .channel-subbutton.is-active,
+  .language-option[aria-checked="true"]
+) {
+  background:
+    linear-gradient(rgba(7, 9, 15, 0.92), rgba(7, 9, 15, 0.92)) padding-box,
+    linear-gradient(90deg, var(--tablet-theme-primary), var(--tablet-theme-secondary)) border-box;
+  box-shadow:
+    -8px 0 16px rgba(217, 75, 75, 0.13),
+     8px 0 16px rgba(185, 193, 204, 0.12);
+}
+
+:root[data-tablet-theme="harmony"] :is(
+  .menu-button,
+  .channel-button,
+  .channel-subbutton,
+  .action-button,
+  .language-option,
+  .confirm-dialog button
+):disabled {
+  opacity: 0.48;
+}
+
+/* ======================================================================
+   Harmony - Speicherstatus
+   Dunkle Fläche mit geteiltem rot-silbernem Rand.
+   ====================================================================== */
+
+:root[data-tablet-theme="harmony"] .save-status-panel {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(7, 9, 15, 0.92), rgba(7, 9, 15, 0.92)) padding-box,
+    linear-gradient(90deg, var(--tablet-theme-primary), var(--tablet-theme-secondary)) border-box;
+}
+
+/* ======================================================================
+   Harmony - Frostbutton
+   Dunkler Grund, feiner Frost im Normalzustand und klare Zustände.
+   ====================================================================== */
+
+:root[data-tablet-theme="harmony"] :is(
+  .menu-button,
+  .channel-button,
+  .channel-subbutton,
+  .action-button,
+  .language-option,
+  .confirm-dialog button
+) {
+  background:
+    radial-gradient(
+      circle at 12% 50%,
+      rgba(217, 75, 75, 0.08),
+      transparent 42%
+    ) padding-box,
+    radial-gradient(
+      circle at 88% 50%,
+      rgba(185, 193, 204, 0.06),
+      transparent 42%
+    ) padding-box,
+    linear-gradient(
+      rgba(7, 9, 15, 0.96),
+      rgba(7, 9, 15, 0.96)
+    ) padding-box,
+    linear-gradient(
+      90deg,
+      var(--tablet-theme-primary),
+      var(--tablet-theme-secondary)
+    ) border-box;
+  color: #ffffff;
+  text-shadow: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  transition:
+    background 500ms ease,
+    border-color 500ms ease,
+    box-shadow 500ms ease,
+    color 500ms ease,
+    filter 500ms ease,
+    transform 220ms ease;
+}
+
+:root[data-tablet-theme="harmony"] :is(
+  .menu-button,
+  .channel-button,
+  .channel-subbutton,
+  .action-button,
+  .language-option,
+  .confirm-dialog button
+):hover:not(:disabled) {
+  background:
+    radial-gradient(
+      circle at 12% 50%,
+      rgba(217, 75, 75, 0.22),
+      transparent 48%
+    ) padding-box,
+    radial-gradient(
+      circle at 88% 50%,
+      rgba(185, 193, 204, 0.17),
+      transparent 48%
+    ) padding-box,
+    linear-gradient(
+      rgba(9, 11, 18, 0.94),
+      rgba(9, 11, 18, 0.94)
+    ) padding-box,
+    linear-gradient(
+      90deg,
+      #f07a7a,
+      #ffffff
+    ) border-box;
+  color: #ffffff;
+  text-shadow: 0 0 7px rgba(225, 231, 239, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    -6px 0 15px rgba(217, 75, 75, 0.20),
+    6px 0 15px rgba(185, 193, 204, 0.18);
+  filter: brightness(1.07);
+}
+
+:root[data-tablet-theme="harmony"] :is(
+  .menu-button.is-active,
+  .channel-button.is-active,
+  .channel-subbutton.is-active,
+  .action-button.is-active,
+  .language-option[aria-checked="true"]
+) {
+  background:
+    radial-gradient(
+      circle at 12% 50%,
+      rgba(217, 75, 75, 0.28),
+      transparent 50%
+    ) padding-box,
+    radial-gradient(
+      circle at 88% 50%,
+      rgba(185, 193, 204, 0.21),
+      transparent 50%
+    ) padding-box,
+    linear-gradient(
+      rgba(8, 10, 17, 0.94),
+      rgba(8, 10, 17, 0.94)
+    ) padding-box,
+    linear-gradient(
+      90deg,
+      #ef6666,
+      #eef2f7
+    ) border-box;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(225, 231, 239, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    -8px 0 18px rgba(217, 75, 75, 0.25),
+    8px 0 18px rgba(185, 193, 204, 0.22);
+  filter: brightness(1.10);
+}

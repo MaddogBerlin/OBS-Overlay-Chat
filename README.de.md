@@ -1,22 +1,22 @@
 <p align="center">
     <img src="screenshots/OBS-Overlay-Chat_GitHub-head-banner.png"
-         alt="Browser Chat v1.1">
+         alt="Browser Chat v1.4">
 </p>
 
 
-# Browser Chat v1.3
+# Browser Chat v1.4
 
 > Ein modulares Browser-Source-Chat-Overlay für **OBS Studio**, entwickelt für **Streamer.bot**.
 
 > Browser Chat stellt Twitch-, Kick- und YouTube-Chatnachrichten, Main Events und Community Events direkt als Browser-Quelle in OBS Studio dar.
 
-> Mit **v1.3** wurde die Multi-Plattform-Architektur vollständig überarbeitet. Normale Chatnachrichten von Twitch, Kick und YouTube werden nun gemeinsam über die Streamer.bot-Action **Chat Overlay - Multi Platform** verarbeitet.
+> Mit **v1.4** erhält Browser Chat eine eigene lokale Settings-Oberfläche zur Konfiguration und Vorschau des Overlays.
 
-> Plattform-spezifische Ereignisse bleiben weiterhin getrennt. YouTube Super Chat und Super Sticker werden über eine eigene YouTube-Action verarbeitet.
+> Einstellungen für Twitch, Kick und YouTube, Themes, Animationen, Tablet-Design, Live-Chat-Anzeigedauer und weitere Optionen können direkt über die Settings-Oberfläche verwaltet werden.
 
-> Jede unterstützte Plattform verwendet eine gemeinsame standardisierte JSON-Struktur, die von Browser Chat verarbeitet werden kann.
+> Die Einstellungen werden über **Streamer.bot** verarbeitet und dauerhaft in einer eigenen `settings.json` gespeichert.
 
-> Das Projekt basiert weiterhin auf einer modularen Architektur. Themes, Animationen und zukünftige Erweiterungen können unabhängig vom Browser-Chat-Kern hinzugefügt werden.
+> Das Projekt basiert weiterhin auf einer modularen Architektur. Browser-Chat-Kern, Themes, Animationen, Settings und zukünftige Erweiterungen bleiben klar voneinander getrennt.
 
 ---
 
@@ -43,14 +43,18 @@
 - Einheitliche JSON-Struktur
 - Multi-Plattform-Architektur
 - Gemeinsame Verarbeitung normaler Twitch-, Kick- und YouTube-Chatnachrichten
-- Unterstützung für Twitch-Emotes
-- Unterstützung für Kick-Emotes
-- Unterstützung für YouTube-Emotes
-- Unterstützung für Twitch-Badges
-- Unterstützung für Kick-Badges
-- Unterstützung für YouTube-Badges
+- Unterstützung für Twitch-, Kick- und YouTube-Emotes
+- Unterstützung für Twitch-, Kick- und YouTube-Badges
+- Unterstützung für BetterTTV-, 7TV- und FrankerFaceZ-Emotes auf Twitch
 - Plattform-Icons
 - Automatische Nachrichtenbereinigung
+- Einstellbare Anzeigedauer für Chatnachrichten
+- Twitch-Chatbefehlsfilter
+- Eigene lokale Settings-Oberfläche
+- Live-Vorschau des Browser Chats
+- Separate Einstellungen für Twitch, Kick und YouTube
+- Mehrsprachige Settings-Oberfläche
+- Dauerhafte Speicherung der Einstellungen über Streamer.bot
 - Moderne modulare Architektur
 
 ---
@@ -74,9 +78,9 @@ Unterstützte Community Events
 
 ## Theme-System
 
-Browser Chat unterstützt modulare CSS-Themes.
+Browser Chat unterstützt modulare CSS-Themes für das Chat-Overlay.
 
-### Enthaltene Themes
+### Enthaltene Chat-Themes
 
 - Standard
 - Streamer Accent Theme
@@ -86,7 +90,7 @@ Browser Chat unterstützt modulare CSS-Themes.
 - Purple
 - Self Create Theme
 
-### Theme-Funktionen
+### Chat-Theme-Funktionen
 
 - Streamer Accent Color
 - Reward Accent Color
@@ -95,7 +99,23 @@ Browser Chat unterstützt modulare CSS-Themes.
 - Unabhängige CSS-Dateien
 - Einfache Anpassung
 
-Jedes Theme kann unabhängig aktiviert, ersetzt oder erweitert werden.
+### Tablet-Design
+
+Die Settings-Oberfläche besitzt zusätzlich eine eigene Gestaltung für das Tablet.
+
+- Farben getrennt
+- Farben verbinden
+- Djain-Schweif
+- Harmony
+
+### Tablet-Design-Funktionen
+
+- Rand- und Knopffarbe getrennt einstellbar
+- Rand- und Knopffarbe miteinander verbindbar
+- Djain-Schweif mit violett-blauem Glow und synchronisiertem Powerknopf-Puls
+- Harmony mit geteiltem Rot-Silber-Rand und zweifarbigem Powerknopf-Puls
+
+Chat-Themes und Tablet-Design arbeiten unabhängig voneinander und können getrennt angepasst werden.
 
 ---
 
@@ -118,21 +138,29 @@ Browser Chat unterstützt modulare CSS-Animationen.
 - Unabhängige Animationsdateien
 - Einfache Anpassung
 - Modulare Architektur
+- Eigene Animationsvorschau in den Settings
+- Vorschau für Fade, Pop, Slide Left, Slide Right und Zoom
+- Separate Vorschau für Self Create Animation
+- Einstellbare Vorschaugeschwindigkeit
+- Einstellbare Darstellungsdauer der Vorschau
 
 Animationen überschreiben ausschließlich die Einblendanimation.
 
 Die Ausblendanimation bleibt Bestandteil des Browser-Chat-Kerns.
 
+Die Animationsvorschau der Settings arbeitet unabhängig vom echten Live Chat und verändert die bestehenden Browser-Chat-Animationen nicht.
+
 ---
 
 ## Streamer.bot
 
-Browser Chat verwendet aktuell vier Streamer.bot-Actions.
+Browser Chat verwendet aktuell fünf Streamer.bot-Actions.
 
 - Chat Overlay - Multi Platform
 - Chat Overlay – Main Event
 - Chat Overlay – Community Event
 - Chat Overlay – Youtube
+- Chat Overlay - Save Settings
 
 Normale Chatnachrichten von Twitch, Kick und YouTube werden gemeinsam über **Chat Overlay - Multi Platform** verarbeitet.
 
@@ -142,13 +170,17 @@ Plattform-spezifische Ereignisse bleiben weiterhin in eigenen Actions getrennt:
 - Twitch Community Events → Chat Overlay – Community Event
 - YouTube Super Chat / Super Sticker → Chat Overlay – Youtube
 
+Die Settings-Oberfläche verwendet zusätzlich **Chat Overlay - Save Settings**.
+
+Diese Action übernimmt die von der Settings-Oberfläche gesendeten Einstellungen, prüft die übertragenen Werte und speichert sie dauerhaft in `data/settings.json`.
+
 ---
 
 ## Logging
 
 Optionale Log-Dateien stehen für Debugging und Entwicklung zur Verfügung.
 
-Aktuelle Log-Module
+### Aktuelle Log-Module
 
 - YouTube
   - Super Chat
@@ -164,6 +196,14 @@ Aktuelle Log-Module
   - Poll
   - Prediction
   - Channel Point Redemption
+- Settings
+  - Speichern der aktuellen Einstellungen
+  - Status des Twitch-Befehlsfilters
+  - Verwendetes Befehlspräfix
+  - Anzahl der ausgeblendeten Befehle
+  - Zielpfad der gespeicherten `settings.json`
+
+Das Settings-Log wird in `Log/chatOverlay_saveSettingsLog.txt` geschrieben und nur beim Speichern der Einstellungen ergänzt.
 
 ---
 
@@ -178,14 +218,30 @@ Browser Chat trennt das Erscheinungsbild vollständig vom Browser-Chat-Kern.
 
 Themes überschreiben ausschließlich das Design, während Browser Chat selbst unverändert bleibt.
 
-Jedes Theme unterstützt
+### Enthaltene Themes
+
+- Standard
+- Streamer Accent Theme
+- Dark
+- Yellow
+- Green
+- Purple
+- Self Create Theme
+
+### Theme-Funktionen
+
+Jedes Theme unterstützt:
 
 - Streamer Accent Color
 - Reward Accent Color
 - Main Events
 - Community Events
+- Twitch, Kick und YouTube
+- Unabhängige CSS-Dateien
 
 Neue Themes können jederzeit durch das Hinzufügen einer weiteren CSS-Datei erstellt werden.
+
+Die Theme-Auswahl kann mit **v1.4** direkt über die Settings-Oberfläche vorgenommen und für Twitch, Kick und YouTube getrennt gespeichert werden.
 
 ---
 
@@ -200,7 +256,7 @@ Animationen sind vollständig vom Browser-Chat-Kern getrennt.
 
 Jede Animation befindet sich in einer eigenen CSS-Datei und kann jederzeit ausgetauscht werden.
 
-Enthaltene Animationen
+### Enthaltene Animationen
 
 - Fade
 - Pop
@@ -212,6 +268,28 @@ Enthaltene Animationen
 Die Standard-Fade-Animation ist Bestandteil von Browser Chat.
 
 Zusätzliche Animationsdateien überschreiben ausschließlich die Einblendanimation.
+
+### Animationsvorschau
+
+Mit **v1.4** können die enthaltenen Animationen direkt in der Settings-Oberfläche getestet und betrachtet werden.
+
+Die Vorschau unterstützt:
+
+- Fade
+- Pop
+- Slide Left
+- Slide Right
+- Zoom
+- Self Create Animation
+- Vorschau mit Twitch-, Kick- und YouTube-Nachrichten
+- Maximal vier gleichzeitig sichtbare Nachrichten
+- Automatischer Neustart der Vorschau
+- Einstellbare Vorschaugeschwindigkeit
+- Einstellbare Darstellungsdauer
+
+Die Animationsvorschau arbeitet unabhängig vom echten Live Chat.
+
+Änderungen innerhalb der Vorschau verändern die bestehenden Animationsdateien des Browser Chats nicht.
 
 ---
 
@@ -254,36 +332,77 @@ OBS-Overlay-Chat/
 ├── overlay/
 │   ├── asset/
 │   │   ├── badges/
-│   │   ├── events/
-│   │   └── platform/
+│   │   ├── languageFlags/
+│   │   ├── platform/
+│   │   └── sound/
+│   │
 │   ├── data/
-│   ├── logs/
+│   │   ├── data.json
+│   │   └── settings.json
+│   │
+│   ├── Log/
+│   │   └── optionale Log-Dateien
+│   │
+│   ├── settings/
+│   │   ├── css/
+│   │   │   ├── settingsBase.css
+│   │   │   ├── settingsAnimations.css
+│   │   │   └── settingsLanguage.css
+│   │   │
+│   │   ├── js/
+│   │   │   ├── settingsBase.js
+│   │   │   ├── settingsAnimations.js
+│   │   │   └── settingsLanguage.js
+│   │   │
+│   │   ├── lang/
+│   │   │   ├── de.json
+│   │   │   ├── en.json
+│   │   │   ├── es.json
+│   │   │   ├── fr.json
+│   │   │   ├── pt-BR.json
+│   │   │   └── hi.json
+│   │   │
+│   │   ├── BrowserOBS-Overlaybanner.png
+│   │   └── settingsBase.html
+│   │
 │   ├── styles/
 │   │   ├── animation/
+│   │   ├── tablet-styleTheme/
+│   │   │   ├── tablet-theme-djain-trail.css
+│   │   │   └── tablet-theme-harmony.css
 │   │   └── themes/
+│   │
 │   ├── chat.js
-│   ├── style.css
-│   └── index.html
+│   ├── index.html
+│   ├── settings.html
+│   └── style.css
 │
 ├── Streamer.bot/
-│   ├── Chat Overlay - Multi Platform
-│   ├── Chat Overlay - Main Event
 │   ├── Chat Overlay - Community Event
+│   ├── Chat Overlay - Main Event
+│   ├── Chat Overlay - Multi Mesaanger
+│   ├── Chat Overlay - Save Settings
 │   └── Chat Overlay - Youtube
 │
 ├── screenshots/
 │
-├── README.md
-├── README.de.md
+├── README_SETTING.md
+├── README_SETTING.de.md
 ├── README_COM_EVENT.md
 ├── README_COM_EVENT.de.md
+├── README.md
+├── README.de.md
 ├── CHANGELOG.md
 └── LICENSE
 ```
 
 Browser Chat wurde als modulares Projekt entwickelt.
 
-Der Browser-Chat-Kern bleibt unverändert, während Themes und Animationen unabhängig geladen werden.
+Der Browser-Chat-Kern bleibt geschützt, während Themes, Animationen und die Settings-Oberfläche unabhängig voneinander organisiert sind.
+
+Die `settings.html` dient als Starter und öffnet die eigentliche Settings-Oberfläche unter `settings/settingsBase.html`.
+
+`data.json` bleibt für aktuelle Chat- und Eventdaten reserviert, während die dauerhafte Konfiguration getrennt in `settings.json` gespeichert wird.
 
 ---
 
@@ -294,13 +413,33 @@ Der Browser-Chat-Kern bleibt unverändert, während Themes und Animationen unabh
 
 # ⚙ Installation
 
-1. Browser Chat in einen beliebigen Ordner kopieren.
-2. Die `overlay/index.html` als Browser-Quelle in OBS Studio hinzufügen.
-3. Die benötigten Streamer.bot-Actions aus dem Ordner `Streamer.bot` importieren.
-4. Die gewünschten Plattformen in Streamer.bot verbinden und die entsprechenden Trigger aktivieren.
-5. Falls erforderlich den JSON-Ausgabepfad in den C#-Sub-Actions der Streamer.bot-Actions anpassen.
-6. Theme und Animation in der `index.html` auswählen.
-7. Stream starten.
+1. Projekt herunterladen oder klonen.
+
+2. Den Ordner `overlay` lokal speichern.
+
+3. In OBS Studio eine neue **Browser-Quelle** erstellen.
+
+4. Die Datei `overlay/index.html` als lokale Datei auswählen.
+
+5. Die benötigten Streamer.bot-Actions importieren:
+
+   - Chat Overlay - Multi Mesaanger
+   - Chat Overlay - Main Event
+   - Chat Overlay - Community Event
+   - Chat Overlay - Youtube
+   - Chat Overlay - Save Settings
+
+6. In **Chat Overlay - Save Settings** die benötigten lokalen Pfade für `settings.json` und das optionale Settings-Log an den eigenen Projektordner anpassen.
+
+7. `overlay/settings.html` im Browser öffnen, um die Browser-Chat-Einstellungen aufzurufen.
+
+8. Twitch, Kick und YouTube sowie Theme, Animation, Farben, Schriftart, Fensterbreite und weitere gewünschte Optionen konfigurieren.
+
+9. Die Einstellungen über **Save Settings** speichern.
+
+Die gespeicherte Konfiguration wird in `overlay/data/settings.json` abgelegt.
+
+Die Datei `overlay/data/data.json` bleibt ausschließlich für aktuelle Chat- und Eventdaten reserviert.
 
 ---
 
@@ -319,7 +458,7 @@ Browser Chat darf frei verwendet, angepasst und erweitert werden.
 
 <p align="center">
 
-**Browser Chat v1.3**
+**Browser Chat v1.4**
 
 Mit ❤️ für die Streamer.bot-Community entwickelt.
 

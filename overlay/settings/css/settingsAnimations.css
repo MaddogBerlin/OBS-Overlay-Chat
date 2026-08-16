@@ -1,0 +1,60 @@
+/* ======================================================================
+   Browser Chat v1.4
+   Settings - Animation Styles
+
+   Datei:
+   settingsAnimations.css
+
+   Aufgabe:
+   - Gestaltet die Animationsvorschau in den Settings
+   - Unterstützt Preset- und Self-Create-Vorschauen
+   - Stellt Regler, Hinweise und Vorschauzustände dar
+   - Ergänzt die Settings-Oberfläche um animationsbezogene Styles
+
+   Hinweis:
+   Diese Datei betrifft ausschließlich die Settings-Vorschau.
+   Der echte Live Chat bleibt davon getrennt.
+   ====================================================================== */
+
+#animationControls[hidden] {
+  display: none !important;
+}
+
+#chatPreview {
+  --settings-animation-duration: 500ms;
+  --settings-display-duration: 10000ms;
+  --settings-fade-in-duration: 500ms;
+  --settings-fade-out-duration: 500ms;
+}
+
+/* Fade is the protected chat.js/style.css base in the real overlay.
+   This keyframe exists only so that the Settings preview can demonstrate it. */
+
+#chatPreview[data-preview-animation="fade"] .chat-message {
+  animation: settingsPreviewFade var(--settings-fade-in-duration) ease-out forwards;
+}
+
+/* The finished selfCreateIn keyframe comes from
+   styles/animation/selfCreate-animation.css. */
+   
+#chatPreview[data-preview-animation="self-create"] .chat-message {
+animation:
+    selfCreateIn var(--settings-animation-duration) ease-out forwards,
+    settingsPreviewFade var(--settings-fade-in-duration) ease-out forwards;
+}
+
+@keyframes settingsPreviewFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #chatPreview .chat-message {
+    animation-duration: 1ms !important;
+  }
+}

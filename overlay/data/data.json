@@ -1,17 +1,17 @@
 {
   "platform": {
-    "name": "kick",
-    "imageUrl": "https://kick.com/favicon.ico"
+    "name": "twitch",
+    "imageUrl": "https://www.twitch.tv/favicon.ico"
   },
-  "time": "18:58",
+  "time": "22:49",
   "eventType": "message",
-  "messageId": "f6f3baf1-8040-4352-ae57-75a2090899ad",
-  "username": "Maddog_s",
-  "userName": "Maddog_s",
-  "userId": "17270633",
-  "color": "#FF9D00",
-  "message": "Das ist eine Massage für Djain emojiAstonishedemojiAngel",
-  "messageStripped": "Das ist eine Massage für Djain ",
+  "messageId": "9e1d7be1-eea3-41e6-9d4c-72992081fbcd",
+  "username": "Maddog__",
+  "userName": "Maddog__",
+  "userId": "73160860",
+  "color": "#DAA520",
+  "message": "hallo chat chat ͏",
+  "messageStripped": "hallo chat chat ͏",
   "isSubscribed": true,
   "isModerator": true,
   "isBroadcaster": true,
@@ -20,31 +20,28 @@
   "publishedAt": "",
   "broadcaster": {
     "userName": "",
-    "userId": "17270633",
+    "userId": "73160860",
     "profileImageUrl": ""
   },
   "badges": [
     {
-      "id": "broadcaster",
-      "name": "Broadcaster",
-      "info": "",
-      "imageUrl": "asset/badges/kick_broadcastUser.png"
-    }
-  ],
-  "emotes": [
-    {
-      "id": "1579033",
-      "name": "emojiAstonished",
-      "imageUrl": "https://files.kick.com/emotes/1579033/fullsize",
-      "startIndex": 31,
-      "endIndex": 45
+      "Name": "broadcaster",
+      "Version": "1",
+      "ImageUrl": "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3",
+      "Info": ""
     },
     {
-      "id": "1730752",
-      "name": "emojiAngel",
-      "imageUrl": "https://files.kick.com/emotes/1730752/fullsize",
-      "startIndex": 46,
-      "endIndex": 55
+      "Name": "subscriber",
+      "Version": "3042",
+      "ImageUrl": "https://static-cdn.jtvnw.net/badges/v1/83e3c2f4-c8fa-4ea8-b212-c9ef441ac4f5/3",
+      "Info": "90"
+    },
+    {
+      "Name": "went-outside",
+      "Version": "1",
+      "ImageUrl": "https://static-cdn.jtvnw.net/badges/v1/544b6594-e11e-4230-8d42-d81c84002524/3",
+      "Info": ""
     }
-  ]
+  ],
+  "emotes": []
 }

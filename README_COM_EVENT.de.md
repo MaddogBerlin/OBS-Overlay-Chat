@@ -1,9 +1,9 @@
 <p align="center">
     <img src="screenshots/ChatOverlay-v1-1-head-banner.png"
-         alt="Browser Chat v1.1 Community Events">
+         alt="Browser Chat v1.4 Community Events">
 </p>
 
-# Browser Chat v1.1
+# Browser Chat v1.4
 # Community Events
 
 Das Community-Event-Modul erweitert Browser Chat um Twitch-Community-Events.
@@ -154,6 +154,6 @@ Eine Anpassung am Browser Chat ist dafür nicht erforderlich.
 
 ## Version
 
-**Browser Chat v1.1**
+**Browser Chat v1.4**
 
 Mit ❤️ für die Streamer.bot-Community entwickelt.

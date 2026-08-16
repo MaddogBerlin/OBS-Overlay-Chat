@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1512 720" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <clipPath id="harmony-left"><rect width="756" height="720" /></clipPath>
+    <clipPath id="harmony-right"><rect x="756" width="756" height="720" /></clipPath>
+    <filter id="harmony-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <!-- Curved light strip on the same line as the tablet border. -->
+  <g fill="none" stroke-linecap="round" stroke-dasharray="180 2820" filter="url(#harmony-glow)">
+    <!-- Silver light on the red left border half. -->
+    <rect x="3" y="3" width="1506" height="714" rx="29" clip-path="url(#harmony-left)" stroke="#b9c1cc" stroke-width="4" pathLength="3000" vector-effect="non-scaling-stroke">
+      <animate attributeName="stroke-dashoffset" from="0" to="-3000" dur="8s" repeatCount="indefinite" />
+    </rect>
+    <!-- Red light on the silver right border half. -->
+    <rect x="3" y="3" width="1506" height="714" rx="29" clip-path="url(#harmony-right)" stroke="#d94b4b" stroke-width="4" pathLength="3000" vector-effect="non-scaling-stroke">
+      <animate attributeName="stroke-dashoffset" from="0" to="-3000" dur="8s" repeatCount="indefinite" />
+    </rect>
+  </g>
+</svg>

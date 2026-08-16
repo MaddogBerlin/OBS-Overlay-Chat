@@ -1,3 +1,20 @@
+/*
+ * ======================================================================
+ * Browser Chat v1.4
+ * Chat Overlay - Base Styles
+ *
+ * Datei:
+ * style.css
+ *
+ * Aufgabe:
+ * - Grundlayout des Browser Chats
+ * - Darstellung der Chatnachrichten
+ * - Plattform-, Badge- und Emote-Styles
+ * - Animationen und Nachrichtenausblendung
+ * - Basis fuer die Live-Chat-Vorschau
+ * ======================================================================
+ */
+
 /* ---------------------------------
    Grundfläche
 ---------------------------------- */
@@ -16,6 +33,11 @@ body {
    
 
     overflow: hidden;
+}
+
+html.settings-preview,
+html.settings-preview body {
+    background: #080b12;
 }
 
 
