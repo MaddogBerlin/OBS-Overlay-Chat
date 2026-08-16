@@ -1,0 +1,205 @@
+"use strict";
+
+window.browserChatLanguages = window.browserChatLanguages || {};
+
+window.browserChatLanguages.fr = {
+  "app": {
+    "title": "Browser Chat Local Settings",
+    "openSettings": "Ouvrir les paramètres",
+    "closeSettings": "Fermer les paramètres",
+    "settingsAriaLabel": "Paramètres de Browser Chat"
+  },
+  "general": {
+    "settings": "Paramètres",
+    "menuSettings": "Menu des paramètres"
+  },
+  "welcome": {
+    "presentation": "Browser Chat présente notre travail commun",
+    "title": "Browser Chat Local Settings",
+    "intro": "Personnalisez votre overlay de chat multiplateforme pour Twitch, Kick et YouTube directement dans l’aperçu en direct.",
+    "availableTitle": "Déjà disponible",
+    "featurePlatformDesign": "Couleurs et polices personnalisées pour chaque plateforme",
+    "featureWindowDesign": "Ajuster la taille de la fenêtre, les arrondis et l’apparence",
+    "featureAnimations": "Choisir des animations Fade, Pop, Slide et Zoom",
+    "featureAnimationTiming": "Ajuster la durée et la vitesse des animations",
+    "featureEmotesFilters": "Préparer les emotes Twitch et les filtres de chat",
+    "featureLocalSave": "Enregistrer et recharger les paramètres localement",
+    "hint": "Choisissez une section dans le menu central pour commencer la personnalisation."
+  },
+  "menu": {
+    "chatSettings": "Paramètres de chat des chaînes",
+    "animationSettings": "Paramètres des animations",
+    "tabletSettings": "Paramètres de la tablette"
+  },
+  "tabletInfo": {
+    "title": "Design de la tablette",
+    "intro": "Personnalise ici uniquement la tablette des paramètres. L’overlay du chat reste inchangé.",
+    "modesTitle": "Modes de couleur",
+    "separateText": "Séparées : Couleurs individuelles pour le bouton d’alimentation et le cadre de la tablette.",
+    "linkedText": "Liées : Une couleur commune pour le cadre, le bouton d’alimentation et les contours des boutons.",
+    "djainTrailText": "Traînée Djain : Violet-bleu avec une pulsation douce.",
+    "harmonyText": "Harmony : Cadre rouge-argent partagé avec des boutons givrés.",
+    "controlsTitle": "Commandes",
+    "confirmText": "Confirmer la fenêtre : Actualise uniquement l’aperçu sans enregistrer.",
+    "saveSettingsText": "Enregistrer les paramètres : Enregistre localement les paramètres du chat et les transmet à Streamer.bot.",
+    "saveTabletText": "Enregistrer la tablette : Enregistre uniquement le mode de couleur et le design de la tablette.",
+    "saveHint": "Les modifications sont d’abord visibles uniquement dans l’aperçu. Utilise ensuite le bouton d’enregistrement approprié pour les appliquer définitivement."
+  },
+  "channels": {
+    "title": "Paramètres de chat des chaînes",
+    "selectPlatformAriaLabel": "Sélectionner une plateforme de chat",
+    "selectFirst": "Veuillez d’abord sélectionner une chaîne.",
+    "local": "Local",
+    "twitch": "Twitch",
+    "kick": "Kick",
+    "youtube": "YouTube"
+  },
+  "window": {
+    "title": "Paramètres de la fenêtre",
+    "maxChatWidth": "Largeur maximale du chat",
+    "info": "Règle la largeur maximale du chat en direct de 320 à 960 px."
+  },
+  "theme": {
+    "selection": "Sélection du thème",
+    "standard": "Standard – couleur personnalisée",
+    "dark": "Sombre",
+    "green": "Vert",
+    "purple": "Violet",
+    "yellow": "Jaune",
+    "selfCreate": "Créer soi-même"
+  },
+  "design": {
+    "chatDesign": "Design du chat",
+    "backgroundColor": "Couleur d’arrière-plan",
+    "textColor": "Couleur du texte",
+    "font": "Police",
+    "selectFont": "Sélectionner une police",
+    "resetColors": "Réinitialiser les couleurs",
+    "resetColorsButton": "Rétablir les valeurs par défaut"
+  },
+  "twitch": {
+    "settingsAriaLabel": "Paramètres Twitch",
+    "chatTitle": "Chat Twitch",
+    "emotesFilters": "Emotes et filtres",
+    "emotes": {
+      "title": "Emotes",
+      "betterTTV": "Activer BetterTTV",
+      "sevenTV": "Activer 7TV",
+      "frankerFaceZ": "Activer FrankerFaceZ"
+    },
+    "filters": {
+      "title": "Filtre du chat",
+      "hideCommands": "Masquer les commandes du chat dans l’overlay",
+      "commandPrefix": "Préfixe de commande",
+      "specificCommands": "Commandes spécifiques",
+      "commandInfoAriaLabel": "Informations sur le filtre des commandes",
+      "commandInfo": "Ces commandes sont uniquement masquées dans l’overlay. Streamer.bot continue de les exécuter. Les commandes qui ne figurent pas dans cette liste restent visibles dans l’overlay.",
+      "disabled": "Le filtre des commandes est désactivé.",
+      "commandPlaceholder": "!discord\n!uptime\n!song"
+    }
+  },
+  "kick": {
+    "chatTitle": "Chat Kick"
+  },
+  "youtube": {
+    "chatTitle": "Chat YouTube"
+  },
+  "animations": {
+    "title": "Paramètres des animations",
+    "effect": "Effet d’animation",
+    "selectEffect": "Sélectionner une animation",
+    "effects": {
+      "fade": "Fade",
+      "pop": "Pop",
+      "slideLeft": "Glissement vers la gauche",
+      "slideRight": "Glissement vers la droite",
+      "zoom": "Zoom"
+    },
+    "controlsTitle": "Contrôles des animations",
+    "previewControlsTitle": "Commandes de l'aperçu",
+    "previewSpeed": "Vitesse d'apparition",
+    "previewInfo": "Ces commandes s'appliquent uniquement à la fenêtre d'aperçu. Elles affichent l'animation de base prédéfinie avec différentes vitesses d'apparition et durées d'affichage. L'animation d'origine n'est ni modifiée ni enregistrée.",
+    "speed": "Vitesse de l’animation",
+    "displayDuration": "Durée d’affichage",
+    "fadeInDuration": "Durée d’apparition",
+    "fadeOutDuration": "Durée de disparition",
+    "reset": {
+      "title": "Réinitialiser",
+      "enable": "Activer la réinitialisation",
+      "button": "Réinitialiser l animation",
+      "locked": "La réinitialisation n est pas activée",
+      "unlocked": "La réinitialisation est activée",
+      "completed": "Animation réinitialisée – pas encore enregistrée",
+      "info": "Rétablit les valeurs par défaut du brouillon d animation actuel."
+    }
+  },
+  "preview": {
+    "title": "Fenêtre d’aperçu du chat",
+    "twitch": {
+      "username": "Alex Carter",
+      "message": "Bienvenue dans notre chat multiplateforme – tous les messages sont réunis ici harmonieusement."
+    },
+    "kick": {
+      "username": "NovaRider",
+      "message": "Le nouvel overlay Browser Chat est superbe et s’intègre parfaitement au stream !"
+    },
+    "youtube": {
+      "username": "LunaStreams",
+      "message": "Salutations depuis le chat YouTube – l’aperçu commun fonctionne à merveille ! 👋"
+    }
+  },
+  "tablet": {
+    "title": "Paramètres de la tablette",
+    "hint": "Ces couleurs s’appliquent uniquement à la tablette des paramètres.",
+    "colorMode": "Mode de couleur",
+    "separateColors": "Couleurs séparées",
+    "linkedColors": "Lier les couleurs",
+    "buttonColor": "Couleur du bouton",
+    "borderColor": "Couleur de la bordure",
+    "language": "Langue",
+    "save": "Enregistrer la tablette"
+  },
+  "actions": {
+    "confirmWindow": "Confirmer la fenêtre",
+    "saveSettings": "Enregistrer les paramètres"
+  },
+  "status": {
+    "title": "État de l’enregistrement",
+    "tabletTitle": "État d’enregistrement de la tablette",
+    "noChanges": "Aucune modification",
+    "unsavedChanges": "Modifications non enregistrées",
+    "loaded": "Les paramètres enregistrés ont été chargés.",
+    "previewUpdated": "L’aperçu a été mis à jour.",
+    "settingsSaved": "Paramètres enregistrés – veuillez recharger la source navigateur.",
+    "settingsDamaged": "Les paramètres enregistrés sont endommagés.",
+    "tabletUnsaved": "Les modifications de la tablette n’ont pas encore été enregistrées.",
+    "tabletSaved": "L’apparence de la tablette a été enregistrée.",
+    "colorsResetUnsaved": "Couleurs réinitialisées – pas encore enregistrées"
+  },
+  "dialog": {
+    "unsavedTitle": "Modifications non enregistrées",
+    "discardQuestion": "Voulez-vous abandonner les modifications et fermer la tablette ?",
+    "cancel": "Annuler",
+    "confirm": "OK"
+  },
+  "liveChat": {
+    "title": "Paramètres du chat en direct",
+    "infoIntro": "Configurez ici l'apparence et la durée d'affichage de votre chat en direct pour la superposition OBS.",
+    "currentStatus": "État actuel",
+    "featurePreview": "Aperçu du chat en direct avec de vrais messages",
+    "featureDuration": "Durée d'affichage réglable de 10 à 45 secondes",
+    "featureBrowserSource": "La source navigateur est actuellement intégrée manuellement via index.html",
+    "transparencyHint": "Le fond sombre sert uniquement à la représentation dans les paramètres. Le chat en direct reste transparent dans la superposition OBS.",
+    "settingsAriaLabel": "Paramètres du chat en direct",
+    "emptyPreviewAriaLabel": "Zone d’affichage vide pour le chat en direct",
+    "durationButton": "Durée d’affichage",
+    "browserSourceButton": "Source navigateur",
+    "durationTitle": "Durée d’affichage du chat en direct",
+    "durationLabel": "Durée d’affichage",
+    "durationInfo": "Cela modifiera ultérieurement la durée d’affichage du chat en direct. Le curseur est actuellement visible uniquement à titre de démonstration.",
+    "browserSourceCopyButton": "Copier la source navigateur",
+    "browserSourceInfo": "La fonction de copie automatique est prévue pour une future version. En attendant, ouvre manuellement index.html depuis le dossier du projet et copie l’adresse depuis la barre d’adresse. Dans OBS, tu peux aussi activer 'Fichier local' et sélectionner directement index.html.",
+    "browserSourceCopySuccess": "La source navigateur a été copiée.",
+    "browserSourceCopyError": "La source navigateur n'a pas pu être copiée."
+  }
+};

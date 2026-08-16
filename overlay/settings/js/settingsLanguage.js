@@ -98,6 +98,18 @@
   }
 
   async function loadLanguageFile(language) {
+    const isLocalFile = window.location.protocol === "file:";
+
+    if (isLocalFile) {
+      const localMessages = window.browserChatLanguages?.[language];
+
+      if (!localMessages) {
+        throw new Error(`Local language ${language}.js could not be loaded.`);
+      }
+
+      return flattenMessages(localMessages);
+    }
+
     const response = await fetch(`lang/${language}.json`, { cache: "no-store" });
 
     if (!response.ok) {
