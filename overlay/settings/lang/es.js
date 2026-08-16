@@ -2,204 +2,204 @@
 
 window.browserChatLanguages = window.browserChatLanguages || {};
 
-window.browserChatLanguages.en = {
+window.browserChatLanguages.es = {
   "app": {
     "title": "Browser Chat Local Settings",
-    "openSettings": "Open settings",
-    "closeSettings": "Close settings",
-    "settingsAriaLabel": "Browser Chat settings"
+    "openSettings": "Abrir configuración",
+    "closeSettings": "Cerrar configuración",
+    "settingsAriaLabel": "Configuración de Browser Chat"
   },
   "general": {
-    "settings": "Settings",
-    "menuSettings": "Menu"
+    "settings": "Configuración",
+    "menuSettings": "Menú de configuración"
   },
   "welcome": {
-    "presentation": "Browser Chat presents our shared work",
+    "presentation": "Browser Chat presenta nuestro trabajo conjunto",
     "title": "Browser Chat Local Settings",
-    "intro": "Customize your multi-platform chat overlay for Twitch, Kick and YouTube directly in the live preview.",
-    "availableTitle": "Already available",
-    "featurePlatformDesign": "Custom colors and fonts for each platform",
-    "featureWindowDesign": "Adjust window size, rounding and appearance",
-    "featureAnimations": "Choose Fade, Pop, Slide and Zoom animations",
-    "featureAnimationTiming": "Adjust animation duration and speed",
-    "featureEmotesFilters": "Prepare Twitch emotes and chat filters",
-    "featureLocalSave": "Save and reload settings locally",
-    "hint": "Choose a section from the center menu to start customizing."
+    "intro": "Personaliza tu overlay de chat multiplataforma para Twitch, Kick y YouTube directamente en la vista previa en vivo.",
+    "availableTitle": "Ya disponible",
+    "featurePlatformDesign": "Colores y fuentes personalizados para cada plataforma",
+    "featureWindowDesign": "Ajustar tamaño de ventana, redondeo y apariencia",
+    "featureAnimations": "Seleccionar animaciones Fade, Pop, Slide y Zoom",
+    "featureAnimationTiming": "Ajustar duración y velocidad de las animaciones",
+    "featureEmotesFilters": "Preparar emotes de Twitch y filtros de chat",
+    "featureLocalSave": "Guardar y volver a cargar la configuración localmente",
+    "hint": "Selecciona una sección en el menú central para comenzar a personalizar."
   },
   "menu": {
-    "chatSettings": "Channel Chat Settings",
-    "animationSettings": "Animation Settings",
-    "tabletSettings": "Tablet Settings"
+    "chatSettings": "Configuración de chat de los canales",
+    "animationSettings": "Configuración de animaciones",
+    "tabletSettings": "Configuración de la tablet"
   },
   "tabletInfo": {
-    "title": "Tablet Design",
-    "intro": "Customize only the settings tablet here. The chat overlay remains unchanged.",
-    "modesTitle": "Color modes",
-    "separateText": "Separate: Individual colors for the power button and tablet border.",
-    "linkedText": "Linked: One shared color for the border, power button, and button outlines.",
-    "djainTrailText": "Djain Trail: Softly pulsing violet-blue.",
-    "harmonyText": "Harmony: Split red-silver border with frost buttons.",
-    "controlsTitle": "Controls",
-    "confirmText": "Confirm window: Updates only the preview and does not save yet.",
-    "saveSettingsText": "Save settings: Saves the chat settings locally and sends them to Streamer.bot.",
-    "saveTabletText": "Save tablet: Saves only the color mode and tablet design.",
-    "saveHint": "Changes are initially visible only as a preview. Then use the appropriate save button to apply them permanently."
+    "title": "Diseño de la tableta",
+    "intro": "Personaliza aquí únicamente la tableta de ajustes. El overlay del chat permanece sin cambios.",
+    "modesTitle": "Modos de color",
+    "separateText": "Separados: Colores individuales para el botón de encendido y el borde de la tableta.",
+    "linkedText": "Vinculados: Un color común para el borde, el botón de encendido y los contornos de los botones.",
+    "djainTrailText": "Estela Djain: Violeta-azul con pulsación suave.",
+    "harmonyText": "Harmony: Borde dividido rojo-plata con botones escarchados.",
+    "controlsTitle": "Controles",
+    "confirmText": "Confirmar ventana: Actualiza solo la vista previa y todavía no guarda.",
+    "saveSettingsText": "Guardar ajustes: Guarda localmente los ajustes del chat y los envía a Streamer.bot.",
+    "saveTabletText": "Guardar tableta: Guarda únicamente el modo de color y el diseño de la tableta.",
+    "saveHint": "Los cambios aparecen primero solo en la vista previa. Después, usa el botón de guardado correspondiente para aplicarlos de forma permanente."
   },
   "channels": {
-    "title": "Channel Chat Settings",
-    "selectPlatformAriaLabel": "Select chat platform",
-    "selectFirst": "Please select a channel first.",
-    "local": "Window width",
+    "title": "Configuración de chat de los canales",
+    "selectPlatformAriaLabel": "Seleccionar plataforma de chat",
+    "selectFirst": "Selecciona primero un canal.",
+    "local": "Local",
     "twitch": "Twitch",
     "kick": "Kick",
     "youtube": "YouTube"
   },
   "window": {
-    "title": "Window Settings",
-    "maxChatWidth": "Maximum chat width",
-    "info": "Controls the maximum width of the live chat from 320 to 960 px."
+    "title": "Configuración de la ventana",
+    "maxChatWidth": "Ancho máximo del chat",
+    "info": "Controla el ancho máximo del chat en vivo de 320 a 960 px."
   },
   "theme": {
-    "selection": "Theme selection",
-    "standard": "Standard – custom color",
-    "dark": "Dark",
-    "green": "Green",
-    "purple": "Purple",
-    "yellow": "Yellow",
-    "selfCreate": "Self Create"
+    "selection": "Selección de tema",
+    "standard": "Estándar – color personalizado",
+    "dark": "Oscuro",
+    "green": "Verde",
+    "purple": "Morado",
+    "yellow": "Amarillo",
+    "selfCreate": "Crear propio"
   },
   "design": {
-    "chatDesign": "Chat Design",
-    "backgroundColor": "Background color",
-    "textColor": "Text color",
-    "font": "Font",
-    "selectFont": "Select font",
-    "resetColors": "Reset colors",
-    "resetColorsButton": "Reset to default"
+    "chatDesign": "Diseño del chat",
+    "backgroundColor": "Color de fondo",
+    "textColor": "Color del texto",
+    "font": "Fuente",
+    "selectFont": "Seleccionar fuente",
+    "resetColors": "Restablecer colores",
+    "resetColorsButton": "Restablecer valores predeterminados"
   },
   "twitch": {
-    "settingsAriaLabel": "Twitch settings",
-    "chatTitle": "Twitch Chat",
-    "emotesFilters": "Emotes & Filters",
+    "settingsAriaLabel": "Configuración de Twitch",
+    "chatTitle": "Chat de Twitch",
+    "emotesFilters": "Emotes y filtros",
     "emotes": {
       "title": "Emotes",
-      "betterTTV": "Enable BetterTTV",
-      "sevenTV": "Enable 7TV",
-      "frankerFaceZ": "Enable FrankerFaceZ"
+      "betterTTV": "Activar BetterTTV",
+      "sevenTV": "Activar 7TV",
+      "frankerFaceZ": "Activar FrankerFaceZ"
     },
     "filters": {
-      "title": "Chat Filter",
-      "hideCommands": "Hide chat commands in the overlay",
-      "commandPrefix": "Command prefix",
-      "specificCommands": "Specific commands",
-      "commandInfoAriaLabel": "Information about the command filter",
-      "commandInfo": "These commands are hidden only in the overlay. Streamer.bot still executes them. Commands not listed here remain visible in the overlay.",
-      "disabled": "The command filter is disabled.",
+      "title": "Filtro de chat",
+      "hideCommands": "Ocultar comandos de chat en el overlay",
+      "commandPrefix": "Prefijo de comando",
+      "specificCommands": "Comandos específicos",
+      "commandInfoAriaLabel": "Información sobre el filtro de comandos",
+      "commandInfo": "Estos comandos se ocultan únicamente en el overlay. Streamer.bot continúa ejecutándolos. Los comandos que no estén incluidos aquí permanecen visibles en el overlay.",
+      "disabled": "El filtro de comandos está desactivado.",
       "commandPlaceholder": "!discord\n!uptime\n!song"
     }
   },
   "kick": {
-    "chatTitle": "Kick Chat"
+    "chatTitle": "Chat de Kick"
   },
   "youtube": {
-    "chatTitle": "YouTube Chat"
+    "chatTitle": "Chat de YouTube"
   },
   "animations": {
-    "title": "Animation Settings",
-    "effect": "Animation Effect",
-    "selectEffect": "Select animation",
+    "title": "Configuración de animaciones",
+    "effect": "Efecto de animación",
+    "selectEffect": "Seleccionar animación",
     "effects": {
       "fade": "Fade",
       "pop": "Pop",
-      "slideLeft": "Slide Left",
-      "slideRight": "Slide Right",
+      "slideLeft": "Deslizar a la izquierda",
+      "slideRight": "Deslizar a la derecha",
       "zoom": "Zoom"
     },
-    "controlsTitle": "Animation Controls",
-    "previewControlsTitle": "Preview controls",
-    "previewSpeed": "Fade-in speed",
-    "previewInfo": "These controls apply only to the preview window. They show the preset base animation with different fade-in speeds and display durations. The original animation is not changed or saved.",
-    "speed": "Animation speed",
-    "displayDuration": "Display duration",
-    "fadeInDuration": "Fade-in duration",
-    "fadeOutDuration": "Fade-out duration",
+    "controlsTitle": "Controles de animación",
+    "previewControlsTitle": "Controles de vista previa",
+    "previewSpeed": "Velocidad de entrada",
+    "previewInfo": "Estos controles se aplican solo a la ventana de vista previa. Muestran la animación base predefinida con distintas velocidades de entrada y duraciones de visualización. La animación original no se modifica ni se guarda.",
+    "speed": "Velocidad de animación",
+    "displayDuration": "Duración de visualización",
+    "fadeInDuration": "Duración de aparición",
+    "fadeOutDuration": "Duración de desaparición",
     "reset": {
-      "title": "Reset",
-      "enable": "Enable reset",
-      "button": "Reset animation",
-      "locked": "Reset has not been enabled",
-      "unlocked": "Reset is enabled",
-      "completed": "Animation reset – not saved yet",
-      "info": "Resets the current animation draft to its default values."
+      "title": "Restablecer",
+      "enable": "Habilitar restablecimiento",
+      "button": "Restablecer animación",
+      "locked": "El restablecimiento no está habilitado",
+      "unlocked": "El restablecimiento está habilitado",
+      "completed": "Animación restablecida – aún no guardada",
+      "info": "Restablece el borrador de animación actual a sus valores predeterminados."
     }
   },
   "preview": {
-    "title": "Chat Preview Window",
+    "title": "Ventana de vista previa del chat",
     "twitch": {
       "username": "Alex Carter",
-      "message": "Welcome to our multi-platform chat – all messages come together here in one place."
+      "message": "Bienvenido a nuestro chat multiplataforma: aquí todos los mensajes se reúnen de forma armoniosa."
     },
     "kick": {
       "username": "NovaRider",
-      "message": "The new Browser Chat overlay looks great and fits perfectly into the stream!"
+      "message": "¡El nuevo overlay de Browser Chat se ve genial y encaja perfectamente en el stream!"
     },
     "youtube": {
       "username": "LunaStreams",
-      "message": "Greetings from the YouTube chat – the shared preview works wonderfully! 👋"
+      "message": "¡Saludos desde el chat de YouTube! La vista previa compartida funciona de maravilla. 👋"
     }
   },
   "tablet": {
-    "title": "Tablet Settings",
-    "hint": "These colors apply only to the settings tablet.",
-    "colorMode": "Color mode",
-    "separateColors": "Separate colors",
-    "linkedColors": "Link colors",
-    "buttonColor": "Button color",
-    "borderColor": "Border color",
-    "language": "Language",
-    "save": "Save Tablet"
+    "title": "Configuración de la tablet",
+    "hint": "Estos colores se aplican únicamente a la tablet de configuración.",
+    "colorMode": "Modo de color",
+    "separateColors": "Colores separados",
+    "linkedColors": "Vincular colores",
+    "buttonColor": "Color del botón",
+    "borderColor": "Color del borde",
+    "language": "Idioma",
+    "save": "Guardar tablet"
   },
   "actions": {
-    "confirmWindow": "Confirm Window",
-    "saveSettings": "Save Settings"
+    "confirmWindow": "Confirmar ventana",
+    "saveSettings": "Guardar configuración"
   },
   "status": {
-    "title": "Save Status",
-    "tabletTitle": "Tablet Save Status",
-    "noChanges": "No changes",
-    "unsavedChanges": "Unsaved changes",
-    "loaded": "Saved settings were loaded.",
-    "previewUpdated": "Preview was updated.",
-    "settingsSaved": "Settings saved – please reload the browser source.",
-    "colorsResetUnsaved": "Colors reset – not saved yet",
-    "settingsDamaged": "Saved settings are corrupted.",
-    "tabletUnsaved": "Tablet changes have not been saved yet.",
-    "tabletSaved": "Tablet appearance was saved."
+    "title": "Estado de guardado",
+    "tabletTitle": "Estado de guardado de la tablet",
+    "noChanges": "Sin cambios",
+    "unsavedChanges": "Cambios sin guardar",
+    "loaded": "Se cargó la configuración guardada.",
+    "previewUpdated": "La vista previa se actualizó.",
+    "settingsSaved": "Configuración guardada – vuelve a cargar la fuente del navegador.",
+    "settingsDamaged": "La configuración guardada está dañada.",
+    "tabletUnsaved": "Los cambios de la tablet aún no se han guardado.",
+    "tabletSaved": "La apariencia de la tablet se guardó.",
+    "colorsResetUnsaved": "Colores restablecidos – aún no guardados"
   },
   "dialog": {
-    "unsavedTitle": "Unsaved Changes",
-    "discardQuestion": "Do you want to discard the changes and close the tablet?",
-    "cancel": "Cancel",
-    "confirm": "OK"
+    "unsavedTitle": "Cambios sin guardar",
+    "discardQuestion": "¿Quieres descartar los cambios y cerrar la tablet?",
+    "cancel": "Cancelar",
+    "confirm": "Aceptar"
   },
   "liveChat": {
-    "title": "Live Chat Settings",
-    "infoIntro": "Configure the appearance and display duration of your live chat for the OBS overlay here.",
-    "currentStatus": "Current status",
-    "featurePreview": "Live chat preview with real messages",
-    "featureDuration": "Display duration adjustable from 10 to 45 seconds",
-    "featureBrowserSource": "Browser Source is currently integrated manually via index.html",
-    "transparencyHint": "The dark background is used only for display in the settings. The live chat remains transparent in the OBS overlay.",
-    "settingsAriaLabel": "Live chat settings",
-    "emptyPreviewAriaLabel": "Empty display area for the live chat",
-    "durationButton": "Display duration",
-    "browserSourceButton": "Browser Source",
-    "durationTitle": "Live chat display duration",
-    "durationLabel": "Display duration",
-    "durationInfo": "This will later change how long the live chat is displayed. The slider is currently visible for presentation only.",
-    "browserSourceCopyButton": "Copy Browser Source",
-    "browserSourceInfo": "The automatic copy function is planned for a future version. Until then, open index.html manually from the project folder and copy the address from the address bar. Alternatively, enable 'Local file' in OBS and select index.html directly.",
-    "browserSourceCopySuccess": "Browser Source was copied.",
-    "browserSourceCopyError": "Browser Source could not be copied."
+    "title": "Configuración del chat en vivo",
+    "infoIntro": "Configura aquí la apariencia y la duración de visualización de tu chat en vivo para la superposición de OBS.",
+    "currentStatus": "Estado actual",
+    "featurePreview": "Vista previa del chat en vivo con mensajes reales",
+    "featureDuration": "Duración de visualización ajustable de 10 a 45 segundos",
+    "featureBrowserSource": "La fuente del navegador se integra actualmente de forma manual mediante index.html",
+    "transparencyHint": "El fondo oscuro se utiliza solo para la representación en la configuración. El chat en vivo permanece transparente en la superposición de OBS.",
+    "settingsAriaLabel": "Configuración del chat en vivo",
+    "emptyPreviewAriaLabel": "Área de visualización vacía para el chat en vivo",
+    "durationButton": "Duración de visualización",
+    "browserSourceButton": "Fuente del navegador",
+    "durationTitle": "Duración de visualización del chat en vivo",
+    "durationLabel": "Duración de visualización",
+    "durationInfo": "Más adelante, esto cambiará durante cuánto tiempo se muestra el chat en vivo. Actualmente, el control deslizante solo es visible como demostración.",
+    "browserSourceCopyButton": "Copiar fuente del navegador",
+    "browserSourceInfo": "La función de copia automática está prevista para una versión futura. Hasta entonces, abre index.html manualmente desde la carpeta del proyecto y copia la dirección de la barra de direcciones. Como alternativa, activa 'Archivo local' en OBS y selecciona index.html directamente.",
+    "browserSourceCopySuccess": "La fuente del navegador se ha copiado.",
+    "browserSourceCopyError": "No se pudo copiar la fuente del navegador."
   }
 };
