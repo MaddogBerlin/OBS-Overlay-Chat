@@ -416,7 +416,11 @@ Weitere Informationen zu Browser Chat, Community Events, Themes und Animationen 
 
 **README.de.md**
 
-Die englische Dokumentation der Browser Chat Settings findest du unter:
+Eine visuelle Vorschau der Browser Chat Settings v1.4 mit den wichtigsten Einstellungsbereichen und Themes findest du hier:
+
+👉 [Browser Chat Settings v1.4 – Vorschau](README_SETTINGS_PREVIEW.de.md)
+
+Die englische Dokumentation der Browser Chat Settings findest du hier:
 
 **README_SETTING.md**
 

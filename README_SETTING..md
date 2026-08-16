@@ -412,6 +412,10 @@ For more information about Browser Chat, Community Events, themes and animations
 
 **README.md**
 
+A visual preview of Browser Chat Settings v1.4, including the main settings areas and themes, is available here:
+
+👉 [Browser Chat Settings v1.4 – Preview](README_SETTINGS_PREVIEW.md)
+
 The German documentation for Browser Chat Settings is available here:
 
 **README_SETTING.de.md**
