@@ -28,8 +28,6 @@
 
 # ✨ Features
 
-# ✨ Features
-
 ## Browser Chat
 
 - Lightweight Browser Source overlay
