@@ -1,6 +1,107 @@
 # Changelog
 
-## v1.4
+## v1.5
+
+### New
+
+- New `Browser Chat Settings` Windows application
+- Added `OBSOverlayChat.exe` for opening the local Browser Chat Settings interface
+- Added Microsoft WebView2 integration
+- Added self-contained Windows x64 release build
+- Browser Chat Settings can now be opened without manually opening `settings.html` in a browser
+- Added application icon for Browser Chat Settings
+- Added dark Windows title bar
+- Added dedicated application error logging
+
+### Browser Chat Settings Application
+
+- Browser Chat Settings interface integrated into a native WPF application window
+- Local `overlay/settings.html` loaded through WebView2
+- Application uses the local release directory as its base path
+- External WebView2 navigation is blocked
+- Local file navigation remains available for Browser Chat Settings
+- WebView2 initialization failures are handled and shown to the user
+- WebView2 navigation failures are handled and shown to the user
+- WebView2 process failures are handled and shown to the user
+- Application resources are released when Browser Chat Settings is closed
+- Multiple Browser Chat Settings instances can run simultaneously
+
+### Application Language
+
+- Browser Chat Settings application reads the selected Settings language from local storage
+- Close confirmation supports English
+- Close confirmation supports German
+- Close confirmation supports Spanish
+- Close confirmation supports French
+- Close confirmation supports Portuguese (Brazil)
+- Close confirmation supports Hindi
+- English remains the fallback language
+- Selected language remains available after restarting Browser Chat Settings
+
+### Close Protection
+
+- Added confirmation dialog when closing Browser Chat Settings
+- Unsaved changes warning shown before closing
+- Selecting `No` keeps Browser Chat Settings open
+- Selecting `Yes` closes Browser Chat Settings
+- Close confirmation uses the currently selected interface language
+- Additional close requests are protected while the confirmation check is running
+
+### Error Logging
+
+- Added `OBSOverlayChat_ErrorLog.txt`
+- Application errors are written to the local `Log` directory
+- Settings file path errors are recorded
+- WebView2 initialization errors are recorded
+- WebView2 navigation errors are recorded
+- WebView2 process errors are recorded
+- Error log includes timestamp, error type and additional details
+- Error log rotation added at 10 MB
+- Existing error log is moved to `OBSOverlayChat_ErrorLog.old` when the size limit is reached
+- Previous `.old` error log is replaced during the next rotation
+- No error log is created during normal error-free operation
+
+### Release Structure
+
+- Added Windows x64 release structure for Browser Chat Settings
+- `OBSOverlayChat.exe` is located next to the existing `overlay` directory
+- Browser Chat Settings loads `overlay/settings.html` from the release directory
+- Added required native WPF and WebView2 runtime files
+- Added WebView2 runtime support files
+- .NET runtime included through self-contained publishing
+- Browser Chat Settings no longer requires a separate .NET installation for the self-contained release
+- Development-only fixed local path removed from the release application
+- WebView2 user data is generated locally when the application is started
+
+### Release Testing
+
+- Browser Chat Settings release application successfully started outside Visual Studio
+- `overlay/settings.html` successfully loaded from the final release structure
+- Settings tablet successfully opened
+- Language switching successfully tested
+- Selected language successfully restored after application restart
+- Close confirmation successfully tested with `Yes` and `No`
+- Multiple application instances successfully tested
+- Release tested without WebView2 XML documentation files
+- Release tested without Visual Studio PDB debug symbols
+- Normal application operation produces no unnecessary error log
+
+### Improvements
+
+- Browser Chat Settings version updated to v1.5
+- `settings.html` updated for Browser Chat v1.5
+- `settingsBase.html` updated for Browser Chat v1.5
+- Existing Browser Chat rendering foundation remains unchanged
+- Existing `chat.js` Browser Chat v1.4 rendering logic remains unchanged
+- Existing `style.css` Browser Chat v1.4 styling foundation remains unchanged
+- Browser Chat Settings can now be distributed together with the existing local overlay
+- Release application and Browser Chat web files remain separated for easier maintenance
+- Project prepared for a separate local development workflow application
+
+---
+
+<details>
+<summary><strong>v1.4</strong></summary>
 
 ### New
 
@@ -102,6 +203,8 @@
 - Saved Settings survive browser reloads
 - Animation previews remain independent from the real Live Chat
 - Settings and language files standardized for future expansion
+
+</details>
 
 ---
 

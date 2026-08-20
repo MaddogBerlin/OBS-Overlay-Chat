@@ -1,21 +1,23 @@
 <p align="center">
     <img src="screenshots/OBS-Overlay-Chat_GitHub-head-banner.png"
-         alt="Browser Chat v1.4">
+         alt="Browser Chat v1.5">
 </p>
 
-# Browser Chat v1.4
+# Browser Chat v1.5
 
 > A modular Browser Source chat overlay for **OBS Studio**, powered by **Streamer.bot**.
 
 > Browser Chat displays Twitch, Kick and YouTube chat messages, Main Events and Community Events directly inside OBS Studio as a lightweight Browser Source.
 
-> With **v1.4**, Browser Chat introduces its own local Settings interface for configuring and previewing the overlay.
+> With **v1.5**, Browser Chat additionally introduces its own Windows application for the local Settings interface.
 
-> Settings for Twitch, Kick and YouTube, themes, animations, tablet design, Live Chat display duration and additional options can be managed directly through the Settings interface.
+> **Browser Chat Settings** can now be opened directly inside its own application without manually opening `settings.html` in a browser.
+
+> Settings for Twitch, Kick and YouTube, themes, animations, tablet design, Live Chat display duration and additional options can still be managed directly through the Settings interface.
 
 > Settings are processed through **Streamer.bot** and permanently stored in a dedicated `settings.json`.
 
-> The project continues to use a modular architecture. The Browser Chat core, themes, animations, Settings and future extensions remain clearly separated from each other.
+> The project continues to use a modular architecture. The Browser Chat core, themes, animations, Settings and the new Windows application remain clearly separated from each other.
 
 ---
 
@@ -23,6 +25,8 @@
     <img src="screenshots/OBS-Overlay-Chat_GitHub-favorit-trenner.png"
          alt="Features">
 </p>
+
+# ✨ Features
 
 # ✨ Features
 
@@ -50,9 +54,13 @@
 - Adjustable chat message display duration
 - Twitch chat command filter
 - Dedicated local Settings interface
+- Dedicated Windows application for Browser Chat Settings
+- Local Settings interface accessible through `OBSOverlayChat.exe`
+- WebView2 integration for the Settings interface
 - Live Browser Chat preview
 - Separate settings for Twitch, Kick and YouTube
 - Multilingual Settings interface
+- Multilingual close confirmation for the Windows application
 - Persistent settings storage through Streamer.bot
 - Modern modular architecture
 
@@ -201,8 +209,20 @@ Optional log files are available for debugging and development.
   - Command prefix in use
   - Number of hidden commands
   - Path of the saved `settings.json`
+- Browser Chat Settings Application
+  - Settings file loading errors
+  - WebView2 initialization errors
+  - WebView2 navigation errors
+  - WebView2 process errors
+  - Timestamp and error details
 
 The Settings log is written to `Log/chatOverlay_saveSettingsLog.txt` and is only updated when the settings are saved.
+
+The Browser Chat Settings application additionally uses `Log/OBSOverlayChat_ErrorLog.txt`.
+
+The error log is only created or updated when an application error occurs. During normal error-free operation, no additional log entry is created.
+
+The error log is limited to a maximum size of 10 MB. When this limit is reached, the existing log is moved to `OBSOverlayChat_ErrorLog.old` and a new error log is started.
 
 ---
 
@@ -328,6 +348,16 @@ For a complete overview of all Community Events, see:
 ```text
 OBS-Overlay-Chat/
 │
+├── OBSOverlayChat.exe
+├── D3DCompiler_47_cor3.dll
+├── PenImc_cor3.dll
+├── PresentationNative_cor3.dll
+├── vcruntime140_cor3.dll
+├── WebView2Loader.dll
+├── wpfgfx_cor3.dll
+│
+├── runtimes/
+│
 ├── overlay/
 │   ├── asset/
 │   │   ├── badges/
@@ -399,9 +429,16 @@ Browser Chat is designed as a modular project.
 
 The Browser Chat core remains protected, while themes, animations and the Settings interface are organized independently.
 
-`settings.html` acts as a starter and opens the actual Settings interface located at `settings/settingsBase.html`.
+With **v1.5**, the local Settings interface can be started through `OBSOverlayChat.exe`. The application loads the existing `overlay/settings.html` through WebView2.
+
+`settings.html` remains part of the overlay and continues to act as the starter for the actual Settings interface located at `settings/settingsBase.html`.
+
+The runtime files required by the Windows application are located together with `OBSOverlayChat.exe` in the project's main directory.
+
+When the application is started for the first time, WebView2 automatically creates a local user data directory.
 
 `data.json` remains reserved for current chat and event data, while the persistent configuration is stored separately in `settings.json`.
+
 ---
 
 <p align="center">
@@ -411,9 +448,17 @@ The Browser Chat core remains protected, while themes, animations and the Settin
 
 # ⚙ Installation
 
+> **Note about the Browser Chat Settings application**
+>
+> `OBSOverlayChat.exe` is not included directly in the Git repository due to GitHub's file size limit.
+>
+> Download `OBSOverlayChat.exe` separately from the corresponding **GitHub Release** and place the file directly inside the main `OBS-Overlay-Chat` folder.
+>
+> After that, `OBSOverlayChat.exe` can be started directly from the main folder.
+
 1. Download or clone the project.
 
-2. Store the `overlay` folder locally.
+2. Store the complete project folder locally.
 
 3. Create a new **Browser Source** in OBS Studio.
 
@@ -427,9 +472,17 @@ The Browser Chat core remains protected, while themes, animations and the Settin
    - Chat Overlay - Youtube
    - Chat Overlay - Save Settings
 
-6. In **Chat Overlay - Save Settings**, adjust the required local paths for `settings.json` and the optional Settings log to match your own project folder.
+6. In the imported **Streamer.bot Actions**, adjust the local file paths used by the Actions to match your own Browser Chat project folder:
 
-7. Open `overlay/settings.html` in your browser to access the Browser Chat Settings interface.
+   - **Chat Overlay - Multi Mesaanger**
+   - **Chat Overlay - Main Event**
+   - **Chat Overlay - Community Event**
+   - **Chat Overlay - Youtube**
+   - **Chat Overlay - Save Settings**
+
+   The respective paths for chat and event data, logs and `settings.json` must be adjusted according to your own local installation.
+
+7. Start `OBSOverlayChat.exe` to open **Browser Chat Settings**.
 
 8. Configure Twitch, Kick and YouTube as well as themes, animations, colors, fonts, window width and any additional options you want to use.
 
@@ -438,6 +491,10 @@ The Browser Chat core remains protected, while themes, animations and the Settin
 The saved configuration is stored in `overlay/data/settings.json`.
 
 The file `overlay/data/data.json` remains reserved exclusively for current chat and event data.
+
+`OBSOverlayChat.exe` and the included runtime files must remain together with the `overlay` folder in their intended project structure.
+
+When the application is started for the first time, WebView2 automatically creates local user data. This data is not part of the Browser Chat project and does not need to be configured manually.
 
 ---
 
@@ -456,7 +513,7 @@ Feel free to use, modify and extend Browser Chat for your own projects.
 
 <p align="center">
 
-**Browser Chat v1.4**
+**Browser Chat v1.5**
 
 Made with ❤️ for the Streamer.bot Community.
 
