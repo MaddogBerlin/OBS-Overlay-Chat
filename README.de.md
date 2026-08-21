@@ -473,7 +473,7 @@ Beim ersten Start erstellt WebView2 automatisch einen lokalen Benutzerdatenordne
    - Chat Overlay - Youtube
    - Chat Overlay - Save Settings
 
-6. In den importierten **Streamer.bot-Actions** die verwendeten lokalen Dateipfade an den eigenen Browser-Chat-Projektordner anpassen:
+6. In den importierten **Streamer.bot-Actions** die jeweiligen **Sub-Actions** öffnen und die dort hinterlegten lokalen Dateipfade an den eigenen Browser-Chat-Installationspfad anpassen:
 
    - **Chat Overlay - Multi Mesaanger**
    - **Chat Overlay - Main Event**
@@ -481,7 +481,11 @@ Beim ersten Start erstellt WebView2 automatisch einen lokalen Benutzerdatenordne
    - **Chat Overlay - Youtube**
    - **Chat Overlay - Save Settings**
 
-   Dabei müssen die jeweiligen Pfade für Chat- und Eventdaten, Logs sowie `settings.json` entsprechend der eigenen lokalen Installation angepasst werden.
+   Dabei insbesondere die Pfade für folgende Dateien überprüfen und anpassen:
+
+   - `data.json`
+   - `settings.json`
+   - die jeweiligen Log-Dateien
 
 7. `OBSOverlayChat.exe` starten, um **Browser Chat Settings** zu öffnen.
 

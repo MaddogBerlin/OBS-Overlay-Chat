@@ -472,7 +472,7 @@ When the application is started for the first time, WebView2 automatically creat
    - Chat Overlay - Youtube
    - Chat Overlay - Save Settings
 
-6. In the imported **Streamer.bot Actions**, adjust the local file paths used by the Actions to match your own Browser Chat project folder:
+6. In the imported **Streamer.bot Actions**, open the respective **Sub-Actions** and adjust the local file paths to match your own Browser Chat installation path:
 
    - **Chat Overlay - Multi Mesaanger**
    - **Chat Overlay - Main Event**
@@ -480,7 +480,11 @@ When the application is started for the first time, WebView2 automatically creat
    - **Chat Overlay - Youtube**
    - **Chat Overlay - Save Settings**
 
-   The respective paths for chat and event data, logs and `settings.json` must be adjusted according to your own local installation.
+   In particular, check and adjust the paths for the following files:
+
+   - `data.json`
+   - `settings.json`
+   - the respective log files
 
 7. Start `OBSOverlayChat.exe` to open **Browser Chat Settings**.
 
