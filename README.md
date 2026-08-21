@@ -446,13 +446,15 @@ When the application is started for the first time, WebView2 automatically creat
 
 # ⚙ Installation
 
-> **Note about the Browser Chat Settings application**
+> **Browser Chat v1.5 Release Notice**
 >
-> `OBSOverlayChat.exe` is not included directly in the Git repository due to GitHub's file size limit.
+> For the complete installation of Browser Chat v1.5, the ready-to-use release package `OBS-Overlay-Chat-1.5.zip` is recommended.
 >
-> Download `OBSOverlayChat.exe` separately from the corresponding **GitHub Release** and place the file directly inside the main `OBS-Overlay-Chat` folder.
+> Download `OBS-Overlay-Chat-1.5.zip` from the corresponding **GitHub Release** and extract the complete archive to a folder of your choice.
 >
-> After that, `OBSOverlayChat.exe` can be started directly from the main folder.
+> The release package already contains `OBSOverlayChat.exe`, the required runtime files, the Browser Chat overlay, the Streamer.bot files and the documentation.
+>
+> After extraction, `OBSOverlayChat.exe` can be started directly from the main `OBS-Overlay-Chat` folder.
 
 1. Download or clone the project.
 

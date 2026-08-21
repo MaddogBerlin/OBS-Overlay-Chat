@@ -447,13 +447,15 @@ Beim ersten Start erstellt WebView2 automatisch einen lokalen Benutzerdatenordne
 
 # ⚙ Installation
 
-> **Hinweis zur Browser Chat Settings Anwendung**
+> **Hinweis zum Browser Chat v1.5 Release**
 >
-> `OBSOverlayChat.exe` ist aufgrund der Dateigrößenbegrenzung von GitHub nicht direkt im Git-Repository enthalten.
+> Für die vollständige Installation von Browser Chat v1.5 wird das fertige Release-Paket `OBS-Overlay-Chat-1.5.zip` empfohlen.
 >
-> Lade `OBSOverlayChat.exe` separat aus dem entsprechenden **GitHub Release** herunter und lege die Datei anschließend direkt in den Hauptordner `OBS-Overlay-Chat`.
+> Lade `OBS-Overlay-Chat-1.5.zip` aus dem entsprechenden **GitHub Release** herunter und entpacke das vollständige Archiv in einen Ordner deiner Wahl.
 >
-> Danach kann `OBSOverlayChat.exe` direkt aus dem Hauptordner gestartet werden.
+> Das Release-Paket enthält bereits `OBSOverlayChat.exe`, die benötigten Runtime-Dateien, das Browser-Chat-Overlay, die Streamer.bot-Dateien und die Dokumentation.
+>
+> Nach dem Entpacken kann `OBSOverlayChat.exe` direkt aus dem Hauptordner `OBS-Overlay-Chat` gestartet werden.
 
 1. Projekt herunterladen oder klonen.
 
